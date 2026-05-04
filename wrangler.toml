@@ -1,0 +1,7 @@
+name = "einbuergertest-auth"
+main = "worker/index.js"
+compatibility_date = "2026-04-05"
+
+[[kv_namespaces]]
+binding = "AUTH_USERS"
+id = "a7fc6e112fe9473494d8515d3dfec9d3"

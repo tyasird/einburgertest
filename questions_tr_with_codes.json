@@ -33,10 +33,10 @@
     "id": 3,
     "q_tr": "Almanya bir hukuk devletidir. Bu ne anlama gelir?",
     "opts_tr": [
-      "Tüm sakinler ve devlet yasalaraa uymak zorundadır.",
-      "Devlet yasalaraa uymak zorunda değildir.",
-      "Yalnızca Almanlar yasalaraa uymak zorundadır.",
-      "Mahkemeler yasalaraı yapar."
+      "Tüm sakinler ve devlet yasalara uymak zorundadır.",
+      "Devlet yasalara uymak zorunda değildir.",
+      "Yalnızca Almanlar yasalara uymak zorundadır.",
+      "Mahkemeler yasaları yapar."
     ],
     "code": {
       "cagrisim": "Kırmızı ışıkta devlet arabası da duruyor.",
@@ -66,7 +66,7 @@
       "Belli bir adaya oy vermek karşılığında para alınabilir.",
       "Sadece daha önce hiç hapse girmemiş kişiler oy kullanabilir.",
       "Seçmen, oy verirken ne etkilenebilir ne de belirli bir oy vermeye zorlanabilir; ayrıca oyundan dolayı bir dezavantaj yaşamaz.",
-      "Tüm oy kullanma hakkı olan kişiler müssen oy kullanmak."
+      "Oy kullanma hakkı olan herkes oy kullanmak zorundadır."
     ],
     "code": {
       "cagrisim": "Oy kabininde tek başına duran bir seçmen hayal et.",
@@ -108,10 +108,10 @@
     "id": 8,
     "q_tr": "Almanya'nın Temel Yasasında ne yazmaz?",
     "opts_tr": [
-      "Die Würde des insanlar dir unantastbar.",
-      "Tüm sollen gleich viel Geld haben.",
-      "Jeder Mensch darf seine Meinung sagen.",
-      "Tüm olur vor dem Gesetz gleich."
+      "İnsan onuru dokunulmazdır.",
+      "Herkes aynı miktarda paraya sahip olmalıdır.",
+      "Herkes görüşünü söyleyebilir.",
+      "Herkes yasa önünde eşittir."
     ],
     "code": {
       "cagrisim": "Anayasa herkese aynı para dağıtan kasa değildir.",
@@ -123,9 +123,9 @@
     "id": 9,
     "q_tr": "Almanya'da yalnızca yabancılar için geçerli olan temel hak hangisidir? … hakkı",
     "opts_tr": [
-      "Schutz der Familie",
+      "ailenin korunması",
       "insan onuru",
-      "Asyl",
+      "sığınma hakkı",
       "ifade özgürlüğü"
     ],
     "code": {
@@ -154,9 +154,9 @@
     "q_tr": "Almanya Federal Cumhuriyeti'nin anayasası nasıl adlandırılır?",
     "opts_tr": [
       "Temel Yasa",
-      "Bundesverfassung",
-      "Gesetzbuch",
-      "anayasasvertrag"
+      "Federal Anayasa",
+      "Yasa Kitabı",
+      "Anayasa Sözleşmesi"
     ],
     "code": {
       "cagrisim": "Evin temeli gibi düşün: en altta anayasa var.",
@@ -168,10 +168,10 @@
     "id": 12,
     "q_tr": "Alman Federal Meclisindeki bir parti basın özgürlüğünü kaldırmak istiyor. Bu mümkün mü?",
     "opts_tr": [
-      "Ja, wenn mehr als die Hälfte der milletvekillerini -de/-da Federal Meclis dafür olur.",
-      "Ja, aber dazu müssen zwei Drittel der milletvekillerini -de/-da Federal Meclis dafür sein.",
-      "Nein, denn die Pressefreiheit dir ein temel hak. Sie kann nicht abgeschafft olur.",
-      "Nein, denn yalnızca der Federal Konsey kann die Pressefreiheit abschaffen."
+      "Evet, Federal Mecliste milletvekillerinin yarısından fazlası bunu desteklerse.",
+      "Evet, fakat bunun için Federal Mecliste milletvekillerinin üçte ikisi bunu desteklemelidir.",
+      "Hayır, çünkü basın özgürlüğü temel bir haktır. Bu hak kaldırılamaz.",
+      "Hayır, çünkü basın özgürlüğünü sadece Federal Konsey kaldırabilir."
     ],
     "code": {
       "cagrisim": "Gazeteyi anayasaya kilitlenmiş gibi düşün.",
@@ -241,7 +241,7 @@
   },
   {
     "id": 17,
-    "q_tr": "Alman yasalaraı … yasaklar.",
+    "q_tr": "Alman yasaları … yasaklar.",
     "opts_tr": [
       "sakinlerin ifade özgürlüğünü.",
       "vatandaşların dilekçelerini.",
@@ -286,11 +286,11 @@
   },
   {
     "id": 20,
-    "q_tr": "Almanya'daki bir parti diktatörlük kurma hedefi güdüyorsa, o parti … olur.",
+    "q_tr": "Almanya’daki bir parti diktatörlük kurma hedefi güdüyorsa, o parti … sayılır.",
     "opts_tr": [
       "hoşgörülüdür.",
       "hukuk devleti ilkesine yöneliktir.",
-      "yasalaraa bağlıdır.",
+      "yasalara bağlıdır.",
       "anayasaya aykırıdır."
     ],
     "code": {
@@ -301,12 +301,12 @@
   },
   {
     "id": 21,
-    "q_tr": "Hangi dir das arma der Almanya Federal Cumhuriyeti? Bild 1 Bild 2",
+    "q_tr": "Almanya Federal Cumhuriyeti’nin arması hangisidir? Resim 1 Resim 2",
     "opts_tr": [
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -333,10 +333,10 @@
     "id": 23,
     "q_tr": "Almanya'da çalışan insanların çoğu …",
     "opts_tr": [
-      "-de/-da kleinen Familienunternehmen beschäftigt.",
-      "ehrenamtlich için ein eyalet tätig.",
-      "selbstständig ile einer eigenen Firma tätig.",
-      "-de/-da einer Firma veya Behörde beschäftigt."
+      "küçük aile işletmelerinde çalışır.",
+      "bir eyalette gönüllü olarak çalışır.",
+      "kendi şirketinde serbest çalışır.",
+      "bir şirkette veya kamu kurumunda çalışır."
     ],
     "code": {
       "cagrisim": "Çalışanların çoğunu masa başında şirket ya da devlette düşün.",
@@ -378,10 +378,10 @@
     "id": 26,
     "q_tr": "Almanya …",
     "opts_tr": [
-      "eine kommundirische Republik.",
-      "ein demokratischer ve sozialer Bundesstaat.",
-      "eine kapitaldirische ve soziale Monarchie.",
-      "ein sozialer ve sozialdirischer Bundesstaat."
+      "komünist bir cumhuriyettir.",
+      "demokratik ve sosyal bir federal devlettir.",
+      "kapitalist ve sosyal bir monarşidir.",
+      "sosyal ve sosyalist bir federal devlettir."
     ],
     "code": {
       "cagrisim": "Demokrasi ile sosyal devleti aynı çatıda düşün.",
@@ -393,10 +393,10 @@
     "id": 27,
     "q_tr": "Almanya …",
     "opts_tr": [
-      "ein sozialdirischer Staat.",
-      "ein Bundesstaat.",
-      "bir diktatörlük.",
-      "bir monarşi."
+      "sosyalist bir devlettir.",
+      "federal bir devlettir.",
+      "bir diktatörlüktür.",
+      "bir monarşidir."
     ],
     "code": {
       "cagrisim": "Merkez ve eyaletlerden oluşan katmanlı yapıyı düşün.",
@@ -408,10 +408,10 @@
     "id": 28,
     "q_tr": "Almanya'da Federal Meclis milletvekillerini kim seçer?",
     "opts_tr": [
-      "das Militär",
-      "die Wirtschaft",
-      "das wahlberechtigte Volk",
-      "die Verwaltung"
+      "ordu",
+      "ekonomi çevreleri",
+      "oy kullanma hakkı olan halk",
+      "idare"
     ],
     "code": {
       "cagrisim": "Sandığa giden halk kuyruğunu düşün.",
@@ -633,10 +633,10 @@
     "id": 43,
     "q_tr": "Almanya'da bir parti ne zaman yasaklanabilir?",
     "opts_tr": [
-      "wenn ihr seçimkampf zu teuer dir",
-      "wenn sie gegen die anayasa kämpft",
-      "wenn sie Kritik am Staatsoberhaupt äußert",
-      "wenn ihr Programm eine neue Richtung vorschlägt"
+      "seçim kampanyası çok pahalıysa",
+      "anayasaya karşı mücadele ediyorsa",
+      "devlet başkanını eleştiriyorsa",
+      "programı yeni bir yön öneriyorsa"
     ],
     "code": {
       "cagrisim": "Partinin anayasaya yumruk attığını düşün.",
@@ -785,8 +785,8 @@
     "opts_tr": [
       "Devlet haklıdır.",
       "Sadece sağ partiler vardır.",
-      "Vatandaşlar yasalara hakkında karar verir.",
-      "Devlet yasalaraa uymak zorundadır."
+      "Vatandaşlar yasalar hakkında karar verir.",
+      "Devlet yasalara uymak zorundadır."
     ],
     "code": {
       "cagrisim": "Devleti de kurala bağlayan görünmez bir anayasa kemeri düşün.",
@@ -813,10 +813,10 @@
     "id": 55,
     "q_tr": "Bu resim neyi gösteriyor? © Deutscher Bundestag/Achim Melde",
     "opts_tr": [
-      "den Federal Meclisssitz -de/-da Berlin",
-      "das Bundesverfassungsgericht -de/-da Karlsruhe",
-      "das Federal Konseysgebäude -de/-da Berlin",
-      "das Bundeskanzleramt -de/-da Berlin"
+      "Berlin’deki Federal Meclis binasını",
+      "Karlsruhe’deki Federal Anayasa Mahkemesini",
+      "Berlin’deki Federal Konsey binasını",
+      "Berlin’deki Federal Başbakanlık binasını"
     ],
     "code": {
       "cagrisim": "Berlin’de kubbeli Reichstag binasını düşün.",
@@ -875,7 +875,7 @@
     "opts_tr": [
       "yürütmeye.",
       "yasamaya.",
-      "direktife.",
+      "yönergeye.",
       "yargıya."
     ],
     "code": {
@@ -888,10 +888,10 @@
     "id": 60,
     "q_tr": "\"Halk egemenliği\" ne anlama gelir?",
     "opts_tr": [
-      "Die Königin/der König herrscht über das Volk.",
-      "Das Bundesverfassungsgericht steht über der anayasa.",
-      "Die Interessenverbände üben die Souveränität zusammen ile der hükümet aus.",
-      "Die Staatsgewalt geht vom Volke aus."
+      "Kraliçe/kral halk üzerinde egemendir.",
+      "Federal Anayasa Mahkemesi anayasanın üstündedir.",
+      "Çıkar örgütleri egemenliği hükümetle birlikte kullanır.",
+      "Devlet gücü halktan gelir."
     ],
     "code": {
       "cagrisim": "Büyük bir ok işareti halktan devlete gidiyor diye düşün.",
@@ -920,8 +920,8 @@
     "opts_tr": [
       "polis",
       "mahkemeler",
-      "das Finanzamt",
-      "die Mindirerien"
+      "vergi dairesi",
+      "bakanlıklar"
     ],
     "code": {
       "cagrisim": "Yürütmenin dışında kalan tokmaklı mahkemeyi düşün.",
@@ -1040,7 +1040,7 @@
     "opts_tr": [
       "Gerhard Schröder",
       "Angela Merkel",
-      "Ursula -ın/--de/-da der Leyen",
+      "Ursula von der Leyen",
       "Friedrich Merz"
     ],
     "code": {
@@ -1201,7 +1201,7 @@
   },
   {
     "id": 81,
-    "q_tr": "Kim wählt die deutsche Bundeskanzlerin/den deutschen Bundeskanzler?",
+    "q_tr": "Alman Federal Başbakanını kim seçer?",
     "opts_tr": [
       "halk",
       "Federal Konvansiyon",
@@ -1219,9 +1219,9 @@
     "q_tr": "Alman Federal Cumhurbaşkanının temel görevi nedir? O …",
     "opts_tr": [
       "ülkeyi yönetir.",
-      "yasalaraı tasarlar.",
+      "yasaları tasarlar.",
       "ülkeyi temsil eder.",
-      "yasalaraa uyulmasını denetler."
+      "yasalara uyulmasını denetler."
     ],
     "code": {
       "cagrisim": "Cumhurbaşkanını yurt dışı ziyaretinde bayrağın önünde düşün.",
@@ -1250,8 +1250,8 @@
     "opts_tr": [
       "Federal Konvansiyon",
       "Federal Konsey",
-      "das Bundesparlament",
-      "das Bundesverfassungsgericht"
+      "federal parlamento",
+      "Federal Anayasa Mahkemesi"
     ],
     "code": {
       "cagrisim": "Cumhurbaşkanını seçmek için özel bir meclis toplandığını düşün.",
@@ -1321,7 +1321,7 @@
   },
   {
     "id": 89,
-    "q_tr": "Almanya'da bir eyalette hükümet değişikliği federal siyaseti etkileyebilir. Yönetmek … olur.",
+    "q_tr": "Almanya’da bir eyalette hükümet değişikliği federal siyaseti etkileyebilir. Bu durumda yönetmek …",
     "opts_tr": [
       "bu nedenle Federal Mecliste çoğunluk değişirse daha zor.",
       "bu nedenle Federal Konseye yeni partiler gelirse daha kolay.",
@@ -1489,8 +1489,8 @@
     "q_tr": "Almanya'da \"trafik ışığı koalisyonu\" neyi ifade eder? … işbirliği",
     "opts_tr": [
       "CDU ve CSU’nun Federal Meclis gruplarının",
-      "bir hükümette SPD, FDP ve Bündnis 90/Yeşiller’-de/-da",
-      "bir hükümette CSU, Sol Parti ve Bündnis 90/Yeşiller’-de/-da",
+      "bir hükümette SPD, FDP ve Bündnis 90/Yeşillerin",
+      "bir hükümette CSU, Sol Parti ve Bündnis 90/Yeşillerin",
       "CDU ve SPD’nin Federal Meclis gruplarının"
     ],
     "code": {
@@ -1790,7 +1790,7 @@
     "opts_tr": [
       "vatandaşları oy vermeye zorlamak.",
       "seçmen çoğunluğunun iradesine göre hükümet değişimini mümkün kılmak.",
-      "ülkedeki mevcut yasalaraı olduğu gibi korumak.",
+      "ülkedeki mevcut yasaları olduğu gibi korumak.",
       "yoksullara daha fazla güç vermek."
     ],
     "code": {
@@ -1924,7 +1924,7 @@
     "q_tr": "Her zaman işe gitmek için kullandığınız otobüs hattı kaldırılmak isteniyor. Bu hattın korunması için ne yapabilirsiniz?",
     "opts_tr": [
       "Otobüs hattının korunması için bir vatandaş girişimine katılırım ya da kendim bir girişim kurarım.",
-      "Bir spor kulübüne üye olur ve bisiklet sürmeyi çalışırım.",
+      "Bir spor kulübüne üye olur ve bisiklet kullanmayı öğrenirim.",
       "Vergi dairesine başvururum; çünkü vergi ödeyen biri olarak bu otobüs hattı üzerinde hakkım olduğunu düşünürüm.",
       "Belediyenin orman dairesine bir mektup yazarım."
     ],
@@ -2045,7 +2045,7 @@
     "opts_tr": [
       "vatandaşları mahkeme önünde temsil eder.",
       "bir mahkemede çalışır ve karar verir.",
-      "yasalaraı değiştirir.",
+      "yasaları değiştirir.",
       "mahkemede gençlerle ilgilenir."
     ],
     "code": {
@@ -2135,8 +2135,8 @@
     "opts_tr": [
       "ülkeyi savunmak",
       "vatandaşları dinlemek",
-      "yasalaraı kabul etmek",
-      "yasalaraa uyulmasını denetlemek"
+      "yasaları kabul etmek",
+      "yasalara uyulmasını denetlemek"
     ],
     "code": {
       "cagrisim": "Polisi yol kenarında kuralları denetlerken düşün.",
@@ -2193,9 +2193,9 @@
     "id": 147,
     "q_tr": "8 Mayıs 1945'te ne oldu?",
     "opts_tr": [
-      "Adolf Hitler’-de/-da ölümü",
+      "Adolf Hitler’in ölümü",
       "Berlin Duvarı’nın yapımının başlaması",
-      "Konrad Adenauer’-de/-da federal başbakan seçilmesi",
+      "Konrad Adenauer’in federal başbakan seçilmesi",
       "Avrupa’da II. Dünya Savaşı’nın sona ermesi"
     ],
     "code": {
@@ -2314,7 +2314,7 @@
     "q_tr": "Nazi devletini karakterize eden neydi? … politikası",
     "opts_tr": [
       "devlet ırkçılığı",
-      "der ifade özgürlüğü",
+      "ifade özgürlüğü",
       "genel din özgürlüğü",
       "demokrasinin gelişimi"
     ],
@@ -2326,7 +2326,7 @@
   },
   {
     "id": 156,
-    "q_tr": "Claus Schenk Graf -ın/--de/-da Stauffenberg … ile tanındı.",
+    "q_tr": "Claus Schenk Graf von Stauffenberg … ile tanındı.",
     "opts_tr": [
       "1936 Olimpiyat Oyunlarında bir altın madalya ile.",
       "Reichstag binasının yapımıyla.",
@@ -2494,7 +2494,7 @@
     "q_tr": "Almanya Federal Cumhuriyeti … kurucu üyesidir.",
     "opts_tr": [
       "Kuzey Atlantik Antlaşması’nın (NATO).",
-      "Birleşmiş Milletler’-de/-da (BM).",
+      "Birleşmiş Milletler’in (BM).",
       "Avrupa Birliği’nin (AB).",
       "Varşova Paktı’nın."
     ],
@@ -2583,7 +2583,7 @@
     "id": 173,
     "q_tr": "İkinci Dünya Savaşı Avrupa'da resmen nasıl sona erdi?",
     "opts_tr": [
-      "Adolf Hitler’-de/-da ölümüyle",
+      "Adolf Hitler’in ölümüyle",
       "Almanya’nın koşulsuz teslim olmasıyla",
       "Almanların işgal edilen bölgelerden çekilmesiyle",
       "Almanya’daki bir devrimle"
@@ -2761,12 +2761,12 @@
   },
   {
     "id": 185,
-    "q_tr": "Von 1961 bis 1989 war Berlin …",
+    "q_tr": "1961’den 1989’a kadar Berlin …",
     "opts_tr": [
-      "ohne Bürgermedirer.",
-      "ein eigener Staat.",
-      "durch eine Mauer geteilt.",
-      "yalnızca ile dem Flugzeug erreichbar."
+      "belediye başkansızdı.",
+      "bağımsız bir devletti.",
+      "bir duvarla bölünmüştü.",
+      "sadece uçakla ulaşılabilirdi."
     ],
     "code": {
       "cagrisim": "Berlin’i ortadan bölen beton bir çizgi düşün.",
@@ -2776,12 +2776,12 @@
   },
   {
     "id": 186,
-    "q_tr": "Am 3. Oktober feiert man -de/-da Deutschland den Tag der Deutschen …",
+    "q_tr": "Almanya’da 3 Ekim’de Alman … Günü kutlanır.",
     "opts_tr": [
-      "birlik.",
-      "Nation.",
-      "eyaletler.",
-      "Städte."
+      "Birliği.",
+      "Milleti.",
+      "Eyaletleri.",
+      "Şehirleri."
     ],
     "code": {
       "cagrisim": "3 Ekim’i birleşen iki Almanya’nın günü olarak düşün.",
@@ -2806,12 +2806,12 @@
   },
   {
     "id": 188,
-    "q_tr": "Neden nennt man die Zeit -de/-da Herbst 1989 -de/-da der DDR \"Die Wende\"? In dieser Zeit veränderte sich die DDR politisch …",
+    "q_tr": "DDR’de 1989 sonbaharındaki döneme neden “Dönüşüm” denir? Bu dönemde DDR siyasi olarak … değişti.",
     "opts_tr": [
-      "-ın/--de/-da einer Diktatur zur Demokratie.",
-      "-ın/--de/-da einer liberalen Marktwirtschaft zum Sozialismus.",
-      "-ın/--de/-da einer Monarchie zur Sozialdemokratie.",
-      "-ın/--de/-da einem religiösen Staat zu einem kommundirischen Staat."
+      "diktatörlükten demokrasiye.",
+      "liberal piyasa ekonomisinden sosyalizme.",
+      "monarşiden sosyal demokrasiye.",
+      "dinî devletten komünist devlete."
     ],
     "code": {
       "cagrisim": "Sonbahar 1989’da yön değiştirip diktatörlükten demokrasiye dönen bir ok düşün.",
@@ -2851,12 +2851,12 @@
   },
   {
     "id": 191,
-    "q_tr": "Mit der Abkürzung \"Stasi\" meinte man -de/-da der DDR …",
+    "q_tr": "DDR’de “Stasi” kısaltması ile … kastedilirdi.",
     "opts_tr": [
-      "das parlamento.",
-      "das Mindirerium için Staatssicherheit.",
-      "eine regierende parti.",
-      "das Mindirerium için Volksbildung."
+      "parlamento.",
+      "Devlet Güvenliği Bakanlığı.",
+      "iktidardaki bir parti.",
+      "Halk Eğitimi Bakanlığı."
     ],
     "code": {
       "cagrisim": "DDR’de her şeyi izleyen gizli servis düşün.",
@@ -2881,12 +2881,12 @@
   },
   {
     "id": 193,
-    "q_tr": "Hangi der folgenden Aufldirungen enthält yalnızca eyaletler, die zum Gebiet der früheren DDR aittiren?",
+    "q_tr": "Aşağıdaki listelerden hangisi yalnızca eski DDR bölgesine ait eyaletleri içerir?",
     "opts_tr": [
-      "Niedersachsen, Nordrhein-Westfalen, Hessen, Schleswig-Holstein, Brandenburg",
-      "Mecklenburg-Vorpommern, Brandenburg, Sachsen, Sachsen-Anhalt, Thüringen",
-      "Bayern, Baden-Württemberg, Rheinland-Pfalz, Thüringen, Sachsen",
-      "Sachsen, Thüringen, Hessen, Niedersachen, Brandenburg"
+      "Aşağı Saksonya, Kuzey Ren-Vestfalya, Hessen, Schleswig-Holstein, Brandenburg",
+      "Mecklenburg-Vorpommern, Brandenburg, Saksonya, Saksonya-Anhalt, Türingiya",
+      "Bavyera, Baden-Württemberg, Renanya-Palatina, Türingiya, Saksonya",
+      "Saksonya, Türingiya, Hessen, Aşağı Saksonya, Brandenburg"
     ],
     "code": {
       "cagrisim": "Beş doğu eyaletini toplu paket olarak düşün.",
@@ -2896,12 +2896,12 @@
   },
   {
     "id": 194,
-    "q_tr": "Zu wem aittire die DDR -de/-da \"Kalten Krieg\"?",
+    "q_tr": "DDR “Soğuk Savaş” döneminde kime aitti?",
     "opts_tr": [
-      "zu den Westmächten",
-      "zum Warschauer Pakt",
-      "zur NATO",
-      "zu den blockfreien Staaten"
+      "Batılı güçlere",
+      "Varşova Paktı’na",
+      "NATO’ya",
+      "Bağlantısız devletlere"
     ],
     "code": {
       "cagrisim": "DDR’yi NATO değil Doğu Bloku askeri paktına yerleştir.",
@@ -2911,12 +2911,12 @@
   },
   {
     "id": 195,
-    "q_tr": "Nasıl hieß das Wirtschaftssystem der DDR?",
+    "q_tr": "DDR’nin ekonomik sistemi ne olarak adlandırılıyordu?",
     "opts_tr": [
-      "Marktwirtschaft",
-      "Planwirtschaft",
-      "Angebot ve Nachfrage",
-      "Kapitalismus"
+      "Piyasa ekonomisi",
+      "Planlı ekonomi",
+      "Arz ve talep",
+      "Kapitalizm"
     ],
     "code": {
       "cagrisim": "Piyasa değil merkezden planlanan ekonomi düşün.",
@@ -2926,12 +2926,12 @@
   },
   {
     "id": 196,
-    "q_tr": "Nasıl wurden die Almanya Federal Cumhuriyeti ve die DDR zu einem Staat?",
+    "q_tr": "Almanya Federal Cumhuriyeti ve DDR nasıl tek bir devlet oldu?",
     "opts_tr": [
-      "Die Bundesrepublik hat die DDR besetzt.",
-      "Die heutigen fünf östlichen eyaletler olur der Almanya Federal Cumhuriyeti beigetreten.",
-      "Die westlichen eyaletler olur der DDR beigetreten.",
-      "Die DDR hat die Almanya Federal Cumhuriyeti besetzt."
+      "Federal Cumhuriyet DDR’yi işgal etti.",
+      "Bugünkü beş doğu eyaleti Almanya Federal Cumhuriyeti’ne katıldı.",
+      "Batı eyaletleri DDR’ye katıldı.",
+      "DDR Almanya Federal Cumhuriyeti’ni işgal etti."
     ],
     "code": {
       "cagrisim": "Doğudan gelen beş eyaletin Federal Almanya’ya katıldığını düşün.",
@@ -2941,12 +2941,12 @@
   },
   {
     "id": 197,
-    "q_tr": "Mit dem Beitritt der DDR zur Almanya Federal Cumhuriyeti gehören die neuen eyaletler nun auch …",
+    "q_tr": "DDR’nin Almanya Federal Cumhuriyeti’ne katılmasıyla yeni eyaletler artık … de aittir.",
     "opts_tr": [
-      "zur Europäischen Union.",
-      "zum Warschauer Pakt.",
-      "zur OPEC.",
-      "zur Europäischen Verteidigungsgemeinschaft."
+      "Avrupa Birliği’ne.",
+      "Varşova Paktı’na.",
+      "OPEC’e.",
+      "Avrupa Savunma Topluluğu’na."
     ],
     "code": {
       "cagrisim": "Doğu eyaletlerinin birleşmeyle AB’ye de girdiğini düşün.",
@@ -2956,12 +2956,12 @@
   },
   {
     "id": 198,
-    "q_tr": "In welchem Militärbündnis war die DDR Mitglied?",
+    "q_tr": "DDR hangi askerî ittifaka üyeydi?",
     "opts_tr": [
-      "-de/-da der NATO",
-      "-de/-da Rheinbund",
-      "-de/-da Warschauer Pakt",
-      "-de/-da Europabündnis"
+      "NATO’ya",
+      "Ren Birliği’ne",
+      "Varşova Paktı’na",
+      "Avrupa İttifakı’na"
     ],
     "code": {
       "cagrisim": "DDR’yi NATO değil Doğu Bloku askeri paktına yerleştir.",
@@ -2971,12 +2971,12 @@
   },
   {
     "id": 199,
-    "q_tr": "Ne war die \"Stasi\"?",
+    "q_tr": "“Stasi” neydi?",
     "opts_tr": [
-      "der Geheimdienst -de/-da \"Dritten Reich\"",
-      "eine berühmte deutsche Gedenkstätte",
-      "der Geheimdienst der DDR",
-      "ein deutscher Sportverein während des Zweiten Weltkrieges"
+      "“Üçüncü Reich”ın gizli servisi",
+      "ünlü bir Alman anıt yeri",
+      "DDR’nin gizli servisi",
+      "İkinci Dünya Savaşı sırasında bir Alman spor kulübü"
     ],
     "code": {
       "cagrisim": "DDR’de her şeyi izleyen gizli servis düşün.",
@@ -2986,12 +2986,12 @@
   },
   {
     "id": 200,
-    "q_tr": "Hangi war das arma der Deutschen Demokratischen Republik? Bild 1 Bild 2",
+    "q_tr": "Alman Demokratik Cumhuriyeti’nin arması hangisiydi? Resim 1 Resim 2",
     "opts_tr": [
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -3001,12 +3001,12 @@
   },
   {
     "id": 201,
-    "q_tr": "Ne ereignete sich am 17. Juni 1953 -de/-da der DDR?",
+    "q_tr": "17 Haziran 1953’te DDR’de ne oldu?",
     "opts_tr": [
-      "der feierliche Beitritt zum Warschauer Pakt",
-      "landesweite Streiks ve ein Volksaufstand",
-      "der 1. SED-partitag",
-      "der erste Besuch Fidel Castros"
+      "Varşova Paktı’na törenle katılım",
+      "ülke çapında grevler ve halk ayaklanması",
+      "1. SED parti kongresi",
+      "Fidel Castro’nun ilk ziyareti"
     ],
     "code": {
       "cagrisim": "1953’te tüm ülkeye yayılan grev ve ayaklanmayı düşün.",
@@ -3016,7 +3016,7 @@
   },
   {
     "id": 202,
-    "q_tr": "Welcher Politiker steht için die \"Ostverträge\"?",
+    "q_tr": "Hangi siyasetçi “Doğu Antlaşmaları” ile ilişkilendirilir?",
     "opts_tr": [
       "Helmut Kohl",
       "Willy Brandt",
@@ -3031,12 +3031,12 @@
   },
   {
     "id": 203,
-    "q_tr": "Nasıl adı şöyledir Deutschland ile vollem Namen?",
+    "q_tr": "Almanya’nın tam adı nedir?",
     "opts_tr": [
-      "Bundesstaat Deutschland",
-      "eyaletler Deutschland",
+      "Federal Devlet Almanya",
+      "Almanya Eyaletleri",
       "Almanya Federal Cumhuriyeti",
-      "Bundesbezirk Deutschland"
+      "Almanya Federal Bölgesi"
     ],
     "code": {
       "cagrisim": "Resmi tam adı uzun biçimiyle düşün.",
@@ -3046,12 +3046,12 @@
   },
   {
     "id": 204,
-    "q_tr": "Nasıl viele Einwohner hat Deutschland?",
+    "q_tr": "Almanya’nın yaklaşık kaç nüfusu vardır?",
     "opts_tr": [
-      "70 Millionen",
-      "78 Millionen",
-      "84 Millionen",
-      "90 Millionen"
+      "70 milyon",
+      "78 milyon",
+      "84 milyon",
+      "90 milyon"
     ],
     "code": {
       "cagrisim": "84 sayısını Almanya haritasının üstüne yaz.",
@@ -3061,12 +3061,12 @@
   },
   {
     "id": 205,
-    "q_tr": "Hangi Farben hat die deutsche Flagge?",
+    "q_tr": "Alman bayrağının renkleri nelerdir?",
     "opts_tr": [
       "siyah-kırmızı-altın",
-      "rot-weiß-schwarz",
-      "schwarz-rot-grün",
-      "schwarz-gelb-rot"
+      "kırmızı-beyaz-siyah",
+      "siyah-kırmızı-yeşil",
+      "siyah-sarı-kırmızı"
     ],
     "code": {
       "cagrisim": "Bayrağı siyah-kırmızı-altın şeritlerle düşün.",
@@ -3076,7 +3076,7 @@
   },
   {
     "id": 206,
-    "q_tr": "Kim olur als \"Kanzler der Deutschen Einheit\" bezeichnet?",
+    "q_tr": "Kim “Alman Birliğinin Şansölyesi” olarak adlandırılır?",
     "opts_tr": [
       "Gerhard Schröder",
       "Helmut Kohl",
@@ -3091,12 +3091,12 @@
   },
   {
     "id": 207,
-    "q_tr": "Hangi Symbol dir -de/-da Plenarsaal des Deutschen Federal Meclises zu sehen? © Deutscher Federal Meclis/Janine Schmitz",
+    "q_tr": "Alman Federal Meclisinin genel kurul salonunda hangi sembol görülür? © Deutscher Bundestag/Janine Schmitz",
     "opts_tr": [
-      "der Bundesadler",
-      "die Fahne der Stadt Berlin",
-      "der Reichsadler",
-      "die Reichskrone"
+      "Federal Kartal",
+      "Berlin şehrinin bayrağı",
+      "İmparatorluk Kartalı",
+      "İmparatorluk Tacı"
     ],
     "code": {
       "cagrisim": "Bundestag salonunda dev kartal sembolünü düşün.",
@@ -3106,12 +3106,12 @@
   },
   {
     "id": 208,
-    "q_tr": "In welchem Zeitraum gab es die Deutsche Demokratische Republik (DDR)?",
+    "q_tr": "Alman Demokratik Cumhuriyeti (DDR) hangi dönemde vardı?",
     "opts_tr": [
-      "1919 bis 1927",
-      "1933-1945",
-      "1945 bis 1961",
-      "1949 bis 1990"
+      "1919’dan 1927’ye kadar",
+      "1933’ten 1945’e kadar",
+      "1945’ten 1961’e kadar",
+      "1949’dan 1990’a kadar"
     ],
     "code": {
       "cagrisim": "DDR için açılış-kapanış çizgisi olarak 1949–1990 yaz.",
@@ -3121,7 +3121,7 @@
   },
   {
     "id": 209,
-    "q_tr": "Nasıl viele eyaletler kamen -de/-da der Wiedervereinigung 1990 zur Almanya Federal Cumhuriyeti hinzu?",
+    "q_tr": "1990’daki yeniden birleşme sırasında Almanya Federal Cumhuriyeti’ne kaç eyalet katıldı?",
     "opts_tr": [
       "4",
       "5",
@@ -3136,7 +3136,7 @@
   },
   {
     "id": 210,
-    "q_tr": "Die Almanya Federal Cumhuriyeti hat die Grenzen -ın/--de/-da bugün seit …",
+    "q_tr": "Almanya Federal Cumhuriyeti bugünkü sınırlarına … yılından beri sahiptir.",
     "opts_tr": [
       "1933",
       "1949",
@@ -3151,12 +3151,12 @@
   },
   {
     "id": 211,
-    "q_tr": "Der 27. Januar dir -de/-da Deutschland ein offizieller Gedenktag. Woran erinnert dieser Tag?",
+    "q_tr": "27 Ocak Almanya’da resmî bir anma günüdür. Bu gün neyi hatırlatır?",
     "opts_tr": [
-      "an das Ende des Zweiten Weltkrieges",
-      "an die Verabschiedung des Grundgesetzes",
-      "an die Wiedervereinigung Deutschlands",
-      "an die Opfer des Nationalsozialismus (Tag der Befreiung des Vernichtungslagers Auschwitz)"
+      "İkinci Dünya Savaşı’nın sonunu",
+      "Temel Yasa’nın kabulünü",
+      "Almanya’nın yeniden birleşmesini",
+      "Nasyonal Sosyalizm kurbanlarını (Auschwitz imha kampının kurtuluş günü)"
     ],
     "code": {
       "cagrisim": "27 Ocak’ı Auschwitz kurbanlarını anma günü olarak düşün.",
@@ -3166,12 +3166,12 @@
   },
   {
     "id": 212,
-    "q_tr": "Deutschland dir Mitglied des Schengener Abkommens. Ne bedeutet das?",
+    "q_tr": "Almanya Schengen Anlaşması üyesidir. Bu ne anlama gelir?",
     "opts_tr": [
-      "Deutsche können -de/-da viele Länder Europas ohne Passkontrolle reisen.",
-      "Tüm insanlar können ohne Personenkontrolle -de/-da Deutschland einreisen.",
-      "Deutsche können ohne Passkontrolle -de/-da jedes Land reisen.",
-      "Deutsche können -de/-da jedem Land ile dem Euro bezahlen."
+      "Almanlar Avrupa’daki birçok ülkeye pasaport kontrolü olmadan seyahat edebilir.",
+      "Tüm insanlar kimlik kontrolü olmadan Almanya’ya girebilir.",
+      "Almanlar her ülkeye pasaport kontrolü olmadan seyahat edebilir.",
+      "Almanlar her ülkede avro ile ödeme yapabilir."
     ],
     "code": {
       "cagrisim": "Sınır kapısında pasaport göstermeden geçtiğini düşün.",
@@ -3183,10 +3183,10 @@
     "id": 213,
     "q_tr": "Hangi ülke Almanya'nın komşu ülkesidir?",
     "opts_tr": [
-      "Ungarn",
-      "Portugal",
-      "Spanien",
-      "Schweiz"
+      "Macaristan",
+      "Portekiz",
+      "İspanya",
+      "İsviçre"
     ],
     "code": {
       "cagrisim": "Almanya haritasında sınır komşusunu işaretle.",
@@ -3198,10 +3198,10 @@
     "id": 214,
     "q_tr": "Hangi ülke Almanya'nın komşu ülkesidir?",
     "opts_tr": [
-      "Rumänien",
-      "Bulgarien",
-      "Polen",
-      "Griechenland"
+      "Romanya",
+      "Bulgaristan",
+      "Polonya",
+      "Yunanistan"
     ],
     "code": {
       "cagrisim": "Almanya haritasında sınır komşusunu işaretle.",
@@ -3211,12 +3211,12 @@
   },
   {
     "id": 215,
-    "q_tr": "Ne bedeutet die Abkürzung EU?",
+    "q_tr": "EU kısaltması ne anlama gelir?",
     "opts_tr": [
-      "Europäische Unternehmen",
-      "Europäische Union",
-      "Einheitliche Union",
-      "Euro Union"
+      "Avrupa Şirketleri",
+      "Avrupa Birliği",
+      "Tek Birlik",
+      "Avro Birliği"
     ],
     "code": {
       "cagrisim": "EU harflerini aç: Europäische Union.",
@@ -3226,12 +3226,12 @@
   },
   {
     "id": 216,
-    "q_tr": "In welchem anderen Land gibt es eine große deutschsprachige Bevölkerung?",
+    "q_tr": "Başka hangi ülkede Almanca konuşan büyük bir nüfus vardır?",
     "opts_tr": [
-      "Tschechien",
-      "Norwegen",
-      "Spanien",
-      "Österreich"
+      "Çekya",
+      "Norveç",
+      "İspanya",
+      "Avusturya"
     ],
     "code": {
       "cagrisim": "Sınırın ötesinde Almanca konuşulan komşu ülkeyi düşün.",
@@ -3241,12 +3241,12 @@
   },
   {
     "id": 217,
-    "q_tr": "Hangi dir die Flagge der Europäischen Union? Bild 1 Bild 2",
+    "q_tr": "Avrupa Birliği’nin bayrağı hangisidir? Resim 1 Resim 2",
     "opts_tr": [
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Bu soru görsel hafızayla çözülür; resmi birkaç kez ayrı tekrar et.",
@@ -3258,10 +3258,10 @@
     "id": 218,
     "q_tr": "Hangi ülke Almanya'nın komşu ülkesidir?",
     "opts_tr": [
-      "Finnland",
-      "Dänemark",
-      "Norwegen",
-      "Schweden"
+      "Finlandiya",
+      "Danimarka",
+      "Norveç",
+      "İsveç"
     ],
     "code": {
       "cagrisim": "Almanya haritasında sınır komşusunu işaretle.",
@@ -3271,12 +3271,12 @@
   },
   {
     "id": 219,
-    "q_tr": "Nasıl olur der Beitritt der DDR zur Almanya Federal Cumhuriyeti -de/-da Jahr 1990 allgemein genannt?",
+    "q_tr": "DDR’nin 1990 yılında Almanya Federal Cumhuriyeti’ne katılması genel olarak nasıl adlandırılır?",
     "opts_tr": [
-      "NATO-Osterweiterung",
-      "EU-Osterweiterung",
-      "Deutsche Wiedervereinigung",
-      "Europäische Gemeinschaft"
+      "NATO’nun doğuya genişlemesi",
+      "AB’nin doğuya genişlemesi",
+      "Almanya’nın yeniden birleşmesi",
+      "Avrupa Topluluğu"
     ],
     "code": {
       "cagrisim": "1990’da iki Almanya’nın yeniden birleştiğini düşün.",
@@ -3288,10 +3288,10 @@
     "id": 220,
     "q_tr": "Hangi ülke Almanya'nın komşu ülkesidir?",
     "opts_tr": [
-      "Spanien",
-      "Bulgarien",
-      "Norwegen",
-      "Luxemburg"
+      "İspanya",
+      "Bulgaristan",
+      "Norveç",
+      "Lüksemburg"
     ],
     "code": {
       "cagrisim": "Almanya haritasında sınır komşusunu işaretle.",
@@ -3301,12 +3301,12 @@
   },
   {
     "id": 221,
-    "q_tr": "Das Europäische parlamento olur regelmäßig seçilmiş, nämlich alle …",
+    "q_tr": "Avrupa Parlamentosu düzenli olarak seçilir, yani her …",
     "opts_tr": [
-      "5 Jahre.",
-      "6 Jahre.",
-      "7 Jahre.",
-      "8 Jahre."
+      "5 yılda bir.",
+      "6 yılda bir.",
+      "7 yılda bir.",
+      "8 yılda bir."
     ],
     "code": {
       "cagrisim": "AB seçim takvimini beş yıllık döngü olarak düşün.",
@@ -3316,12 +3316,12 @@
   },
   {
     "id": 222,
-    "q_tr": "Ne bedeutet der Begriff \"europäische Integration\"?",
+    "q_tr": "“Avrupa entegrasyonu” kavramı ne anlama gelir?",
     "opts_tr": [
-      "Damit olur amerikanische Einwanderinnen ve Einwanderer -de/-da Europa gemeint.",
-      "Der Begriff meint den Einwanderungsstopp nach Europa.",
-      "Damit olur europäische Auswanderinnen ve Auswanderer -de/-da den USA gemeint.",
-      "Der Begriff meint den Zusammenschluss europäischer Staaten zur EU."
+      "Bununla Avrupa’daki Amerikan göçmenler kastedilir.",
+      "Bu kavram Avrupa’ya göçün durdurulması anlamına gelir.",
+      "Bununla ABD’deki Avrupalı göçmenler kastedilir.",
+      "Bu kavram Avrupa devletlerinin AB çatısı altında birleşmesini ifade eder."
     ],
     "code": {
       "cagrisim": "Avrupa ülkelerinin tek masada birleştiğini düşün.",
@@ -3331,12 +3331,12 @@
   },
   {
     "id": 223,
-    "q_tr": "Kim olur -de/-da der Europawahl seçilmiş?",
+    "q_tr": "Avrupa seçimlerinde kim seçilir?",
     "opts_tr": [
-      "die Europäische Kommission",
-      "die Länder, die -de/-da die EU eintreten dürfen",
-      "die milletvekillerini des Europäischen parlamentos",
-      "die europäische anayasa"
+      "Avrupa Komisyonu",
+      "AB’ye girmesine izin verilen ülkeler",
+      "Avrupa Parlamentosu milletvekilleri",
+      "Avrupa anayasası"
     ],
     "code": {
       "cagrisim": "Avrupa seçiminde Brüksel-Strazburg vekillerini düşün.",
@@ -3348,10 +3348,10 @@
     "id": 224,
     "q_tr": "Hangi ülke Almanya'nın komşu ülkesidir?",
     "opts_tr": [
-      "Tschechien",
-      "Bulgarien",
-      "Griechenland",
-      "Portugal"
+      "Çekya",
+      "Bulgaristan",
+      "Yunanistan",
+      "Portekiz"
     ],
     "code": {
       "cagrisim": "Almanya haritasında sınır komşusunu işaretle.",
@@ -3361,12 +3361,12 @@
   },
   {
     "id": 225,
-    "q_tr": "Nerede dir ein Sitz des Europäischen parlamentos?",
+    "q_tr": "Avrupa Parlamentosunun bir merkezi nerededir?",
     "opts_tr": [
-      "London",
+      "Londra",
       "Paris",
       "Berlin",
-      "Straßburg"
+      "Strazburg"
     ],
     "code": {
       "cagrisim": "Avrupa Parlamentosu için Strazburg’u bir merkez olarak düşün.",
@@ -3376,12 +3376,12 @@
   },
   {
     "id": 226,
-    "q_tr": "Der damalige französische Staatspräsident François Mitterrand ve der damalige deutsche Bundeskanzler Helmut Kohl gedenken -de/-da Verdun gemeinsam der Toten beider Weltkriege. Hangi Ziel der Europäischen Union olur -de/-da diesem Treffen deutlich? © Federal Hükümet/Richard Schulze-Vorberg",
+    "q_tr": "Dönemin Fransa Cumhurbaşkanı François Mitterrand ve dönemin Alman Federal Başbakanı Helmut Kohl, Verdun’da iki dünya savaşının ölülerini birlikte anıyor. Bu buluşmada Avrupa Birliği’nin hangi hedefi açıkça görülür? © Federal Hükümet/Richard Schulze-Vorberg",
     "opts_tr": [
-      "Freundschaft zwischen England ve Deutschland",
-      "Reisefreiheit -de/-da alle Länder der EU",
-      "Frieden ve Sicherheit -de/-da den Ländern der EU",
-      "einheitliche Feiertage -de/-da den Ländern der EU"
+      "İngiltere ve Almanya arasında dostluk",
+      "AB’nin tüm ülkelerinde seyahat özgürlüğü",
+      "AB ülkelerinde barış ve güvenlik",
+      "AB ülkelerinde ortak tatil günleri"
     ],
     "code": {
       "cagrisim": "Verdun’da el ele duran iki lideri barış sembolü olarak düşün.",
@@ -3391,7 +3391,7 @@
   },
   {
     "id": 227,
-    "q_tr": "Nasıl viele Mitgliedstaaten hat die EU bugün?",
+    "q_tr": "AB’nin bugün kaç üye devleti vardır?",
     "opts_tr": [
       "21",
       "23",
@@ -3406,12 +3406,12 @@
   },
   {
     "id": 228,
-    "q_tr": "2007 wurde das 50-jährige Jubiläum der \"Römischen Verträge\" gefeiert. Ne war der Inhalt der Verträge?",
+    "q_tr": "2007 yılında “Roma Antlaşmaları”nın 50. yılı kutlandı. Bu antlaşmaların içeriği neydi?",
     "opts_tr": [
-      "Beitritt Deutschlands zur NATO",
-      "Gründung der Europäischen Wirtschaftsgemeinschaft (EWG)",
-      "Verpflichtung Deutschlands zu Reparationsledirungen",
-      "Festlegung der Oder-Neiße-Linie als Ostgrenze"
+      "Almanya’nın NATO’ya katılması",
+      "Avrupa Ekonomik Topluluğu’nun (AET) kurulması",
+      "Almanya’nın tazminat ödemeyi kabul etmesi",
+      "Oder-Neisse hattının doğu sınırı olarak belirlenmesi"
     ],
     "code": {
       "cagrisim": "Roma’da atılan ekonomik birlik imzasını düşün.",
@@ -3421,12 +3421,12 @@
   },
   {
     "id": 229,
-    "q_tr": "An welchen Orten arbeitet das Europäische parlamento?",
+    "q_tr": "Avrupa Parlamentosu hangi yerlerde çalışır?",
     "opts_tr": [
-      "Paris, London ve Den Haag",
-      "Straßburg, Luxemburg ve Brüssel",
-      "Rom, Bern ve Wien",
-      "Bonn, Zürich ve Mailand"
+      "Paris, Londra ve Lahey",
+      "Strazburg, Lüksemburg ve Brüksel",
+      "Roma, Bern ve Viyana",
+      "Bonn, Zürih ve Milano"
     ],
     "code": {
       "cagrisim": "Avrupa Parlamentosu’nu üç şehir arasında çalışan bir kurum olarak düşün.",
@@ -3436,12 +3436,12 @@
   },
   {
     "id": 230,
-    "q_tr": "Durch welche Verträge schloss sich die Almanya Federal Cumhuriyeti ile anderen Staaten zur Europäischen Wirtschaftsgemeinschaft zusammen?",
+    "q_tr": "Almanya Federal Cumhuriyeti hangi antlaşmalarla diğer devletlerle birlikte Avrupa Ekonomik Topluluğu’nu kurdu?",
     "opts_tr": [
-      "durch die \"Hamburger Verträge\"",
-      "durch die \"Römischen Verträge\"",
-      "durch die \"Pariser Verträge\"",
-      "durch die \"Londoner Verträge\""
+      "“Hamburg Antlaşmaları” ile",
+      "“Roma Antlaşmaları” ile",
+      "“Paris Antlaşmaları” ile",
+      "“Londra Antlaşmaları” ile"
     ],
     "code": {
       "cagrisim": "Avrupa bütünleşmesini Roma Antlaşmalarıyla başlat.",
@@ -3451,7 +3451,7 @@
   },
   {
     "id": 231,
-    "q_tr": "Seit wann bezahlt man -de/-da Deutschland ile dem Euro -de/-da bar?",
+    "q_tr": "Almanya’da ne zamandan beri nakit olarak avro ile ödeme yapılmaktadır?",
     "opts_tr": [
       "1995",
       "1998",
@@ -3466,12 +3466,12 @@
   },
   {
     "id": 232,
-    "q_tr": "Frau Seger bekommt ein Kind. Ne muss sie tun, um Elterngeld zu erhalten?",
+    "q_tr": "Bayan Seger bir çocuk sahibi oluyor. Ebeveyn parası almak için ne yapmalıdır?",
     "opts_tr": [
-      "Sie muss an ihre Krankenkasse schreiben.",
-      "Sie muss einen Antrag -de/-da der Elterngeldstelle stellen.",
-      "Sie muss nichts tun, denn sie bekommt automatisch Elterngeld.",
-      "Sie muss das Arbeitsamt um Erlaubnis bitten."
+      "Sağlık sigortasına yazmalıdır.",
+      "Ebeveyn parası dairesine başvuru yapmalıdır.",
+      "Hiçbir şey yapmasına gerek yoktur, çünkü ebeveyn parasını otomatik alır.",
+      "İş kurumundan izin istemelidir."
     ],
     "code": {
       "cagrisim": "Bebek yardımı için form doldurup başvuru yaptığını düşün.",
@@ -3481,12 +3481,12 @@
   },
   {
     "id": 233,
-    "q_tr": "Kim entscheidet, ob ein Kind -de/-da Deutschland -de/-da den çocuklargarten geht?",
+    "q_tr": "Almanya’da bir çocuğun anaokuluna gidip gitmeyeceğine kim karar verir?",
     "opts_tr": [
       "devlet",
       "eyaletler",
-      "die Eltern/die Erziehungsberechtigten",
-      "die okullar"
+      "ebeveynler/veliler",
+      "okullar"
     ],
     "code": {
       "cagrisim": "Anaokulu kararı için ebeveyn imzasını düşün.",
@@ -3496,12 +3496,12 @@
   },
   {
     "id": 234,
-    "q_tr": "Maik ve Sybille wollen ile Freunden an ihrem deutschen Wohnort eine Demonstration auf der Straße abhalten. Ne müssen sie vorher tun?",
+    "q_tr": "Maik ve Sybille, Alman ikamet yerlerinde arkadaşlarıyla sokakta bir gösteri yapmak istiyor. Önceden ne yapmalıdırlar?",
     "opts_tr": [
-      "Sie müssen die Demonstration anmelden.",
-      "Sie müssen nichts tun. Man darf -de/-da Deutschland jederzeit überall demonstrieren.",
-      "Sie können gar nichts tun, denn Demonstrationen olur -de/-da Deutschland grundsätzlich verboten.",
-      "Maik ve Sybille müssen einen neuen Verein gründen, weil yalnızca Vereine demonstrieren dürfen."
+      "Gösteriyi bildirmelidirler.",
+      "Hiçbir şey yapmaları gerekmez. Almanya’da her zaman ve her yerde gösteri yapılabilir.",
+      "Hiçbir şey yapamazlar, çünkü Almanya’da gösteriler genel olarak yasaktır.",
+      "Maik ve Sybille yeni bir dernek kurmalıdır, çünkü sadece dernekler gösteri yapabilir."
     ],
     "code": {
       "cagrisim": "Yürüyüşten önce resmi bildirim verdiğini düşün.",
@@ -3511,12 +3511,12 @@
   },
   {
     "id": 235,
-    "q_tr": "Welchen Schulabschluss braucht man normalerweise, um an einer Universität -de/-da Deutschland ein Studium zu beginnen?",
+    "q_tr": "Almanya’da bir üniversitede eğitime başlamak için normalde hangi okul bitirme belgesi gerekir?",
     "opts_tr": [
-      "das Abitur",
-      "ein Diplom",
-      "die Prokura",
-      "eine Gesellenprüfung"
+      "Abitur",
+      "diploma",
+      "prokura",
+      "kalfalık sınavı"
     ],
     "code": {
       "cagrisim": "Üniversite kapısının anahtarı olarak Abitur’u düşün.",
@@ -3526,12 +3526,12 @@
   },
   {
     "id": 236,
-    "q_tr": "Kim darf -de/-da Deutschland nicht als Paar zusammenleben?",
+    "q_tr": "Almanya’da kim çift olarak birlikte yaşayamaz?",
     "opts_tr": [
-      "Hans (20 Jahre) ve Marie (19 Jahre)",
-      "Tom (20 Jahre) ve Klaus (45 Jahre)",
-      "Sofie (35 Jahre) ve Lisa (40 Jahre)",
-      "Anne (13 Jahre) ve Tim (25 Jahre)"
+      "Hans (20 yaş) ve Marie (19 yaş)",
+      "Tom (20 yaş) ve Klaus (45 yaş)",
+      "Sofie (35 yaş) ve Lisa (40 yaş)",
+      "Anne (13 yaş) ve Tim (25 yaş)"
     ],
     "code": {
       "cagrisim": "13 yaşındaki biriyle yetişkin birini yan yana getir ve bunun yasak olduğunu düşün.",
@@ -3541,7 +3541,7 @@
   },
   {
     "id": 237,
-    "q_tr": "Hangi yaştan itibaren dir man -de/-da Deutschland volljährig?",
+    "q_tr": "Almanya’da hangi yaştan itibaren reşit olunur?",
     "opts_tr": [
       "16",
       "18",
@@ -3556,12 +3556,12 @@
   },
   {
     "id": 238,
-    "q_tr": "Eine Frau dir schwanger. Sie dir kurz vor ve nach der Geburt ihres Kindes vom Gesetz besonders beschützt. Nasıl adı şöyledir dieser Schutz?",
+    "q_tr": "Bir kadın hamiledir. Çocuğunun doğumundan kısa süre önce ve sonra yasa tarafından özel olarak korunur. Bu korumanın adı nedir?",
     "opts_tr": [
-      "Elternzeit",
-      "Mutterschutz",
-      "Geburtsvorbereitung",
-      "Wochenbett"
+      "ebeveyn izni",
+      "annelik koruması",
+      "doğuma hazırlık",
+      "lohusalık"
     ],
     "code": {
       "cagrisim": "Doğum öncesi ve sonrası anneyi koruyan bir kalkan düşün.",
@@ -3571,12 +3571,12 @@
   },
   {
     "id": 239,
-    "q_tr": "Die Erziehung der çocuklar dir -de/-da Deutschland vor allem Aufgabe …",
+    "q_tr": "Almanya’da çocukların eğitimi özellikle … görevidir.",
     "opts_tr": [
-      "des Staates.",
-      "der Eltern.",
-      "der Großeltern.",
-      "der okullar."
+      "devletin.",
+      "ebeveynlerin.",
+      "büyükanne ve büyükbabaların.",
+      "okulların."
     ],
     "code": {
       "cagrisim": "Çocuk yetiştirme sorumluluğunu önce ailede düşün.",
@@ -3586,12 +3586,12 @@
   },
   {
     "id": 240,
-    "q_tr": "Kim dir -de/-da Deutschland hauptsächlich verantwortlich için die çocuklarerziehung?",
+    "q_tr": "Almanya’da çocukların eğitiminden esas olarak kim sorumludur?",
     "opts_tr": [
       "devlet",
-      "die Eltern",
-      "die Verwandten",
-      "die okullar"
+      "ebeveynler",
+      "akrabalar",
+      "okullar"
     ],
     "code": {
       "cagrisim": "Çocuğun yanında önce anne-babayı düşün.",
@@ -3601,12 +3601,12 @@
   },
   {
     "id": 241,
-    "q_tr": "In Deutschland hat man die besten Chancen auf einen gut bezahlten Arbeitsplatz, wenn man …",
+    "q_tr": "Almanya’da iyi ücretli bir iş için en iyi şansa sahip olmak için …",
     "opts_tr": [
-      "katholisch dir.",
-      "gut ausgebildet dir.",
-      "eine Frau dir.",
-      "Mitglied einer parti dir."
+      "Katolik olmak gerekir.",
+      "iyi eğitimli olmak gerekir.",
+      "kadın olmak gerekir.",
+      "bir parti üyesi olmak gerekir."
     ],
     "code": {
       "cagrisim": "İyi maaş için diplomanın yükseldiğini düşün.",
@@ -3616,12 +3616,12 @@
   },
   {
     "id": 242,
-    "q_tr": "Wenn man -de/-da Deutschland ein Kind schlägt, …",
+    "q_tr": "Almanya’da bir çocuğa vurursanız, …",
     "opts_tr": [
-      "geht das niemanden etwas an.",
-      "geht das yalnızca die Familie etwas an.",
-      "kann man dafür nicht bestraft olur.",
-      "kann man dafür bestraft olur."
+      "bu kimseyi ilgilendirmez.",
+      "bu sadece aileyi ilgilendirir.",
+      "bu yüzden cezalandırılamazsınız.",
+      "bu yüzden cezalandırılabilirsiniz."
     ],
     "code": {
       "cagrisim": "Çocuğa vurunca ceza kapısının açıldığını düşün.",
@@ -3631,12 +3631,12 @@
   },
   {
     "id": 243,
-    "q_tr": "In Deutschland …",
+    "q_tr": "Almanya’da …",
     "opts_tr": [
-      "darf man zur gleichen Zeit yalnızca ile einer Partnerin/einem Partner verheiratet sein.",
-      "kann man mehrere Ehepartnerinnen/Ehepartner gleichzeitig haben.",
-      "darf man nicht wieder heiraten, wenn man einmal verheiratet war.",
-      "darf eine Frau nicht wieder heiraten, wenn ihr Mann gestorben dir."
+      "aynı anda yalnızca bir eşle evli olunabilir.",
+      "aynı anda birden fazla eşe sahip olunabilir.",
+      "bir kez evli olunmuşsa tekrar evlenilemez.",
+      "kocası ölen bir kadın tekrar evlenemez."
     ],
     "code": {
       "cagrisim": "Nikâh masasında tek eş kuralını düşün.",
@@ -3646,12 +3646,12 @@
   },
   {
     "id": 244,
-    "q_tr": "Nerede müssen Sie sich anmelden, wenn Sie -de/-da Deutschland umziehen?",
+    "q_tr": "Almanya’da taşındığınızda nereye kayıt yaptırmanız gerekir?",
     "opts_tr": [
-      "beim Einwohnermeldeamt",
-      "beim Standesamt",
-      "beim Ordnungsamt",
-      "beim Gewerbeamt"
+      "nüfus kayıt dairesine",
+      "evlendirme dairesine",
+      "zabıta/düzen dairesine",
+      "ticaret dairesine"
     ],
     "code": {
       "cagrisim": "Taşındıktan sonra adresini belediyeye bildirirken düşün.",
@@ -3661,12 +3661,12 @@
   },
   {
     "id": 245,
-    "q_tr": "In Deutschland dürfen Ehepaare sich scheiden lassen. Medirens müssen sie dazu das \"Trennungsjahr\" einhalten. Ne bedeutet das?",
+    "q_tr": "Almanya’da evli çiftler boşanabilir. Çoğu zaman bunun için “ayrılık yılı”na uymaları gerekir. Bu ne anlama gelir?",
     "opts_tr": [
-      "Der Scheidungsprozess dauert ein Jahr.",
-      "Die Ehegatten olur ein Jahr verheiratet, dann dir die Scheidung möglich.",
-      "Das Besuchsrecht için die çocuklar gilt ein Jahr.",
-      "Die Ehegatten führen mindestens ein Jahr getrennt ihr eigenes Leben. Danach dir die Scheidung möglich."
+      "Boşanma süreci bir yıl sürer.",
+      "Eşler bir yıl evli kalır, sonra boşanma mümkün olur.",
+      "Çocukları ziyaret hakkı bir yıl geçerlidir.",
+      "Eşler en az bir yıl ayrı yaşar. Bundan sonra boşanma mümkün olur."
     ],
     "code": {
       "cagrisim": "Boşanma öncesi ayrı yaşanan bir yılı düşün.",
@@ -3676,12 +3676,12 @@
   },
   {
     "id": 246,
-    "q_tr": "Bei Erziehungsproblemen können Eltern -de/-da Deutschland Hilfe erhalten vom …",
+    "q_tr": "Almanya’da ebeveynler çocuk yetiştirme sorunlarında … yardım alabilir.",
     "opts_tr": [
-      "Ordnungsamt.",
-      "Schulamt.",
-      "Jugendamt.",
-      "Gesundheitsamt."
+      "zabıta/düzen dairesinden.",
+      "okul dairesinden.",
+      "gençlik dairesinden.",
+      "sağlık dairesinden."
     ],
     "code": {
       "cagrisim": "Çocuk ve aile sorunlarında gidilen resmi kurumu düşün.",
@@ -3691,12 +3691,12 @@
   },
   {
     "id": 247,
-    "q_tr": "Ein Ehepaar möchte -de/-da Deutschland ein Restaurant eröffnen. Ne braucht es dazu unbedingt?",
+    "q_tr": "Bir evli çift Almanya’da restoran açmak istiyor. Bunun için mutlaka ne gerekir?",
     "opts_tr": [
-      "eine Erlaubnis der Polizei",
-      "eine Genehmigung einer parti",
-      "eine Genehmigung des Einwohnermeldeamts",
-      "eine Gaststättenerlaubnis -ın/--de/-da der zuständigen Behörde"
+      "polisten izin",
+      "bir partiden izin",
+      "nüfus kayıt dairesinden izin",
+      "yetkili makamdan restoran işletme izni"
     ],
     "code": {
       "cagrisim": "Restoran açmadan önce resmi ruhsat aldığını düşün.",
@@ -3706,12 +3706,12 @@
   },
   {
     "id": 248,
-    "q_tr": "Eine erwachsene Frau möchte -de/-da Deutschland das Abitur nachholen. Das kann sie an …",
+    "q_tr": "Yetişkin bir kadın Almanya’da Abitur’u sonradan almak istiyor. Bunu … yapabilir.",
     "opts_tr": [
-      "einer Hochschule.",
-      "einem Abendgymnasium.",
-      "einer Hauptschule.",
-      "einer Privatuniversität."
+      "bir yüksekokulda.",
+      "akşam lisesinde.",
+      "Hauptschule’de.",
+      "özel üniversitede."
     ],
     "code": {
       "cagrisim": "Akşam derslerinde Abitur hazırlığı yapan yetişkini düşün.",
@@ -3721,12 +3721,12 @@
   },
   {
     "id": 249,
-    "q_tr": "Ne darf das Jugendamt -de/-da Deutschland?",
+    "q_tr": "Almanya’da gençlik dairesi ne yapabilir?",
     "opts_tr": [
-      "Es entscheidet, welche okul das Kind besucht.",
-      "Es kann ein Kind, das geschlagen olur veya hungern muss, aus der Familie nehmen.",
-      "Es bezahlt das çocuklargeld an die Eltern.",
-      "Es kontrolliert, ob das Kind einen çocuklargarten besucht."
+      "Çocuğun hangi okula gideceğine karar verir.",
+      "Dövülen veya aç bırakılan bir çocuğu aileden alabilir.",
+      "Çocuk parasını ebeveynlere öder.",
+      "Çocuğun anaokuluna gidip gitmediğini kontrol eder."
     ],
     "code": {
       "cagrisim": "Çocuğu korumak için Jugendamt’ın müdahale ettiğini düşün.",
@@ -3736,12 +3736,12 @@
   },
   {
     "id": 250,
-    "q_tr": "Das Berufsinformationszentrum BIZ -de/-da der Bundesagentur için Arbeit -de/-da Deutschland hilft -de/-da der …",
+    "q_tr": "Almanya’da Federal İş Ajansının Meslek Bilgilendirme Merkezi (BIZ) … konusunda yardım eder.",
     "opts_tr": [
-      "Rentenberechnung.",
-      "Lehrstellensuche.",
-      "Steuererklärung.",
-      "Krankenversicherung."
+      "emeklilik hesabı.",
+      "meslek eğitimi yeri arama.",
+      "vergi beyannamesi.",
+      "sağlık sigortası."
     ],
     "code": {
       "cagrisim": "BIZ ofisinde staj/çıraklık ilanlarına baktığını düşün.",
@@ -3751,12 +3751,12 @@
   },
   {
     "id": 251,
-    "q_tr": "In Deutschland hat ein Kind -de/-da der okul …",
+    "q_tr": "Almanya’da bir çocuğun okulda … vardır.",
     "opts_tr": [
-      "Recht auf unbegrenzte Freizeit.",
-      "seçimfreiheit için alle Fächer.",
-      "Anspruch auf Schulgeld.",
-      "Anwesenheitspflicht."
+      "sınırsız boş zaman hakkı.",
+      "tüm dersler için seçim özgürlüğü.",
+      "okul parası alma hakkı.",
+      "devam zorunluluğu."
     ],
     "code": {
       "cagrisim": "Okulda yoklama alınmasını düşün.",
@@ -3766,12 +3766,12 @@
   },
   {
     "id": 252,
-    "q_tr": "Ein Mann möchte ile 30 Jahren -de/-da Deutschland sein Abitur nachholen. Nerede kann er das tun? An …",
+    "q_tr": "30 yaşındaki bir erkek Almanya’da Abitur’u sonradan almak istiyor. Bunu nerede yapabilir?",
     "opts_tr": [
-      "einer Hochschule.",
-      "einem Abendgymnasium.",
-      "einer Hauptschule.",
-      "einer Privatuniversität."
+      "bir yüksekokulda.",
+      "akşam lisesinde.",
+      "Hauptschule’de.",
+      "özel üniversitede."
     ],
     "code": {
       "cagrisim": "Akşam derslerinde Abitur hazırlığı yapan yetişkini düşün.",
@@ -3781,12 +3781,12 @@
   },
   {
     "id": 253,
-    "q_tr": "Ne bedeutet -de/-da Deutschland der Grundsatz der Gleichbehandlung?",
+    "q_tr": "Almanya’da eşit muamele ilkesi ne anlama gelir?",
     "opts_tr": [
-      "Niemand darf z.B. wegen einer Behinderung benachteiligt olur.",
-      "Man darf andere Personen benachteiligen, wenn ausreichende persönliche Gründe hierfür vorliegen.",
-      "Niemand darf gegen Personen klagen, wenn sie benachteiligt wurden.",
-      "Es dir için alle Gesetz, benachteiligten Gruppen jährlich Geld zu spenden."
+      "Hiç kimse örneğin bir engelinden dolayı dezavantajlı duruma düşürülemez.",
+      "Yeterli kişisel neden varsa başka kişiler dezavantajlı duruma düşürülebilir.",
+      "Dezavantajlı duruma düşürülen kişiler hakkında kimse dava açamaz.",
+      "Herkes için dezavantajlı gruplara her yıl para bağışlama yasası vardır."
     ],
     "code": {
       "cagrisim": "Engeli yüzünden geriye itilen birini durduran yasa düşün.",
@@ -3796,12 +3796,12 @@
   },
   {
     "id": 254,
-    "q_tr": "In Deutschland olur Jugendliche ab 14 Jahren strafmündig. Das bedeutet: Jugendliche, die 14 Jahre ve älter olur ve gegen Strafgesetze verstoßen, …",
+    "q_tr": "Almanya’da gençler 14 yaşından itibaren cezai sorumluluğa sahiptir. Bu şu anlama gelir: 14 yaş ve üzerindeki gençler ceza yasalarını ihlal ederse, …",
     "opts_tr": [
-      "olur bestraft.",
-      "olur wie Erwachsene behandelt.",
-      "teilen die Strafe ile ihren Eltern.",
-      "olur nicht bestraft."
+      "cezalandırılır.",
+      "yetişkinler gibi muamele görür.",
+      "cezayı ebeveynleriyle paylaşır.",
+      "cezalandırılmaz."
     ],
     "code": {
       "cagrisim": "14 yaş üstüne ceza sorumluluğu kapısının açıldığını düşün.",
@@ -3811,12 +3811,12 @@
   },
   {
     "id": 255,
-    "q_tr": "Zu welchem Fest tragen insanlar -de/-da Deutschland bunte Kostüme ve Masken?",
+    "q_tr": "Almanya’da insanlar hangi bayramda renkli kostümler ve maskeler takar?",
     "opts_tr": [
-      "am Rosenmontag",
-      "am Maifeiertag",
-      "beim Oktoberfest",
-      "an Pfingsten"
+      "Rosenmontag’da",
+      "1 Mayıs Bayramı’nda",
+      "Oktoberfest’te",
+      "Pentekost’ta"
     ],
     "code": {
       "cagrisim": "Renkli kostüm ve maskelerle dolu karnaval geçidini düşün.",
@@ -3826,12 +3826,12 @@
   },
   {
     "id": 256,
-    "q_tr": "Wohin muss man -de/-da Deutschland zuerst gehen, wenn man heiraten möchte?",
+    "q_tr": "Almanya’da evlenmek isteyen biri önce nereye gitmelidir?",
     "opts_tr": [
-      "zum Einwohnermeldeamt",
-      "zum Ordnungsamt",
-      "zur Agentur için Arbeit",
-      "zum Standesamt"
+      "nüfus kayıt dairesine",
+      "zabıta/düzen dairesine",
+      "iş ajansına",
+      "evlendirme dairesine"
     ],
     "code": {
       "cagrisim": "Evlilik için ilk durağın resmi nikâh dairesi olduğunu düşün.",
@@ -3841,12 +3841,12 @@
   },
   {
     "id": 257,
-    "q_tr": "Ne zaman beginnt die gesetzliche Nachtruhe -de/-da Deutschland?",
+    "q_tr": "Almanya’da yasal gece sessizliği ne zaman başlar?",
     "opts_tr": [
-      "wenn die Sonne untergeht",
-      "wenn die Nachbarn schlafen gehen",
-      "um 0 Uhr, Mitternacht",
-      "um 22 Uhr"
+      "güneş batınca",
+      "komşular uyumaya gidince",
+      "saat 0’da, gece yarısı",
+      "saat 22’de"
     ],
     "code": {
       "cagrisim": "Saat 22.00’de sesin kısıldığını düşün.",
@@ -3856,12 +3856,12 @@
   },
   {
     "id": 258,
-    "q_tr": "Eine junge Frau -de/-da Deutschland, 22 Jahre alt, lebt ile ihrem Freund zusammen. Die Eltern der Frau finden das nicht gut, weil ihnen der Freund nicht gefällt. Ne können die Eltern tun?",
+    "q_tr": "Almanya’da 22 yaşında genç bir kadın erkek arkadaşıyla birlikte yaşıyor. Kadının ebeveynleri bunu iyi bulmuyor, çünkü erkek arkadaşını beğenmiyorlar. Ebeveynler ne yapabilir?",
     "opts_tr": [
-      "Sie müssen die Entscheidung der volljährigen Tochter respektieren.",
-      "Sie haben das Recht, die Tochter -de/-da die elterliche Wohnung zurückzuholen.",
-      "Sie können zur Polizei gehen ve die Tochter anzeigen.",
-      "Sie suchen einen anderen Mann için die Tochter."
+      "Reşit kızlarının kararına saygı duymak zorundadırlar.",
+      "Kızlarını ebeveyn evine geri götürme hakkına sahiptirler.",
+      "Polise gidip kızlarını şikâyet edebilirler.",
+      "Kızları için başka bir erkek ararlar."
     ],
     "code": {
       "cagrisim": "22 yaşındaki kızın kendi karar kapısını açtığını düşün.",
@@ -3871,12 +3871,12 @@
   },
   {
     "id": 259,
-    "q_tr": "Eine junge Frau will den Führerschein machen. Sie hat Angst vor der Prüfung, weil ihre Muttersprache nicht Deutsch dir. Ne dir richtig?",
+    "q_tr": "Genç bir kadın ehliyet almak istiyor. Ana dili Almanca olmadığı için sınavdan korkuyor. Hangisi doğrudur?",
     "opts_tr": [
-      "Sie muss mindestens zehn Jahre -de/-da Deutschland leben, bevor sie den Führerschein machen kann.",
-      "Wenn sie kein Deutsch kann, darf sie keinen Führerschein haben.",
-      "Sie muss den Führerschein -de/-da dem Land machen, -de/-da dem man ihre Sprache spricht.",
-      "Sie kann die Theorie-Prüfung vielleicht -de/-da ihrer Muttersprache machen. Es gibt mehr als zehn Sprachen zur Auswahl."
+      "Ehliyet almadan önce Almanya’da en az on yıl yaşamalıdır.",
+      "Almanca bilmiyorsa ehliyet alamaz.",
+      "Ehliyeti kendi dilinin konuşulduğu ülkede almalıdır.",
+      "Teori sınavını belki ana dilinde yapabilir. Seçim için ondan fazla dil vardır."
     ],
     "code": {
       "cagrisim": "Sürücü teorisini kendi dilinde çözdüğünü düşün.",
@@ -3886,12 +3886,12 @@
   },
   {
     "id": 260,
-    "q_tr": "In Deutschland haben çocuklar ab dem Alter -ın/--de/-da drei Jahren bis zur Ersteinschulung einen Anspruch auf …",
+    "q_tr": "Almanya’da çocuklar üç yaşından okula başlayana kadar … hakkına sahiptir.",
     "opts_tr": [
-      "monatliches Taschengeld.",
-      "einen Platz -de/-da einem Sportverein.",
-      "einen çocuklargartenplatz.",
-      "einen Ferienpass."
+      "aylık harçlık.",
+      "bir spor kulübünde yer.",
+      "anaokulu yeri.",
+      "tatil kartı."
     ],
     "code": {
       "cagrisim": "3 yaşından sonra çocuk için ayrılmış kreş koltuğu düşün.",
@@ -3901,12 +3901,12 @@
   },
   {
     "id": 261,
-    "q_tr": "Die Volkshochschule -de/-da Deutschland dir eine Einrichtung …",
+    "q_tr": "Almanya’da Volkshochschule … kurumudur.",
     "opts_tr": [
-      "için den din dersi.",
-      "yalnızca için Jugendliche.",
-      "zur Weiterbildung.",
-      "yalnızca için Rentnerinnen ve Rentner."
+      "din dersi için.",
+      "sadece gençler için.",
+      "ileri eğitim için.",
+      "sadece emekliler için."
     ],
     "code": {
       "cagrisim": "Volkshochschule’yi yetişkinlerin öğrenme merkezi olarak düşün.",
@@ -3916,12 +3916,12 @@
   },
   {
     "id": 262,
-    "q_tr": "Ne dir -de/-da Deutschland ein Brauch zu Weihnachten?",
+    "q_tr": "Almanya’da Noel’e ait bir gelenek nedir?",
     "opts_tr": [
-      "bunte Eier verstecken",
-      "einen Tannenbaum schmücken",
-      "sich ile Masken ve Kostümen verkleiden",
-      "Kürbisse vor die Tür stellen"
+      "renkli yumurta saklamak",
+      "Noel ağacı süslemek",
+      "maske ve kostümlerle kılık değiştirmek",
+      "kapının önüne balkabağı koymak"
     ],
     "code": {
       "cagrisim": "Noel’de süslenen çam ağacını düşün.",
@@ -3931,12 +3931,12 @@
   },
   {
     "id": 263,
-    "q_tr": "Hangi Lebensform dir -de/-da Deutschland nicht erlaubt?",
+    "q_tr": "Almanya’da hangi yaşam biçimine izin verilmez?",
     "opts_tr": [
-      "Mann ve Frau olur geschieden ve leben ile neuen Partnern zusammen.",
-      "Zwei Frauen leben zusammen.",
-      "Ein alleinerziehender Vater lebt ile seinen zwei çocuklarn zusammen.",
-      "Ein Mann dir ile zwei Frauen zur selben Zeit verheiratet."
+      "Erkek ve kadın boşanmış ve yeni partnerleriyle birlikte yaşıyor.",
+      "İki kadın birlikte yaşıyor.",
+      "Tek başına çocuk yetiştiren bir baba iki çocuğuyla yaşıyor.",
+      "Bir erkek aynı anda iki kadınla evlidir."
     ],
     "code": {
       "cagrisim": "Nikâh masasında tek eş kuralını düşün.",
@@ -3946,12 +3946,12 @@
   },
   {
     "id": 264,
-    "q_tr": "Bei Erziehungsproblemen gehen Sie -de/-da Deutschland …",
+    "q_tr": "Almanya’da çocuk yetiştirme sorunlarında … gidersiniz.",
     "opts_tr": [
-      "zur Ärztin/zum Arzt.",
-      "zum Gesundheitsamt.",
-      "zum Einwohnermeldeamt.",
-      "zum Jugendamt."
+      "doktora.",
+      "sağlık dairesine.",
+      "nüfus kayıt dairesine.",
+      "gençlik dairesine."
     ],
     "code": {
       "cagrisim": "Eğitim/çocuk sorunu yaşayınca Jugendamt kapısını çaldığını düşün.",
@@ -3961,12 +3961,12 @@
   },
   {
     "id": 265,
-    "q_tr": "Sie haben -de/-da Deutschland absichtlich einen Brief geöffnet, der an eine andere Person adressiert dir. Ne haben Sie nicht beachtet?",
+    "q_tr": "Almanya’da başka bir kişiye gönderilmiş bir mektubu bilerek açtınız. Neye dikkat etmemiş oldunuz?",
     "opts_tr": [
-      "das Schweigerecht",
-      "das Briefgeheimnis",
-      "die Schweigepflicht",
-      "die ifade özgürlüğü"
+      "susma hakkına",
+      "mektup gizliliğine",
+      "sır saklama yükümlülüğüne",
+      "ifade özgürlüğüne"
     ],
     "code": {
       "cagrisim": "Kapalı zarfın üstünde gizlilik mührü düşün.",
@@ -3976,12 +3976,12 @@
   },
   {
     "id": 266,
-    "q_tr": "Ne braucht man -de/-da Deutschland için eine Ehescheidung?",
+    "q_tr": "Almanya’da boşanma için ne gerekir?",
     "opts_tr": [
-      "die Einwilligung der Eltern",
-      "ein Attest einer Ärztin/eines Arztes",
-      "die Einwilligung der çocuklar",
-      "die Unterstützung einer Anwältin/eines Anwalts"
+      "ebeveynlerin onayı",
+      "bir doktor raporu",
+      "çocukların onayı",
+      "bir avukatın desteği"
     ],
     "code": {
       "cagrisim": "Boşanma dosyasının yanında avukat imzasını düşün.",
@@ -3991,12 +3991,12 @@
   },
   {
     "id": 267,
-    "q_tr": "Ne sollten Sie tun, wenn Sie -ın/--de/-da Ihrer Ansprechpartnerin/Ihrem Ansprechpartner -de/-da einer deutschen Behörde schlecht behandelt olur?",
+    "q_tr": "Almanya’da bir makamda muhatabınız size kötü davranırsa ne yapmalısınız?",
     "opts_tr": [
-      "Ich kann nichts tun.",
-      "Ich muss mir diese Behandlung gefallen lassen.",
-      "Ich drohe der Person.",
-      "Ich kann mich -de/-da der Behördenleiterin/beim Behördenleiter beschweren."
+      "Hiçbir şey yapamam.",
+      "Bu davranışı kabul etmek zorundayım.",
+      "Kişiyi tehdit ederim.",
+      "Makamın yöneticisine şikâyet edebilirim."
     ],
     "code": {
       "cagrisim": "Memur kötü davranınca üst makama şikâyet dilekçesi verdiğini düşün.",
@@ -4006,12 +4006,12 @@
   },
   {
     "id": 268,
-    "q_tr": "Eine Frau, die ein zweijähriges Kind hat, bewirbt sich -de/-da Deutschland um eine Stelle. Ne dir ein Beispiel için Diskriminierung? Sie bekommt die Stelle yalnızca deshalb nicht, weil sie …",
+    "q_tr": "İki yaşında çocuğu olan bir kadın Almanya’da bir işe başvuruyor. Ayrımcılığa örnek nedir? Kadın işi sadece … olduğu için alamıyor.",
     "opts_tr": [
-      "kein Englisch spricht.",
-      "zu hohe Gehaltsvorstellungen hat.",
-      "keine Erfahrungen -de/-da diesem Beruf hat.",
-      "Mutter dir."
+      "İngilizce konuşmadığı",
+      "çok yüksek maaş beklentisi olduğu",
+      "bu meslekte deneyimi olmadığı",
+      "anne olduğu"
     ],
     "code": {
       "cagrisim": "İşe alımda annelik sebebiyle reddedilmeyi ayrımcılık olarak düşün.",
@@ -4021,12 +4021,12 @@
   },
   {
     "id": 269,
-    "q_tr": "Ein Mann -de/-da Rollstuhl hat sich auf eine Stelle als Buchhalter beworben. Ne dir ein Beispiel için Diskriminierung? Er bekommt die Stelle yalnızca deshalb nicht, weil er …",
+    "q_tr": "Tekerlekli sandalyedeki bir erkek muhasebeci olarak bir işe başvurdu. Ayrımcılığa örnek nedir? İşi sadece … alamıyor.",
     "opts_tr": [
-      "-de/-da Rollstuhl sitzt.",
-      "keine Erfahrung hat.",
-      "zu hohe Gehaltsvorstellungen hat.",
-      "kein Englisch spricht."
+      "tekerlekli sandalyede oturduğu için.",
+      "deneyimi olmadığı için.",
+      "çok yüksek maaş beklentisi olduğu için.",
+      "İngilizce konuşmadığı için."
     ],
     "code": {
       "cagrisim": "Tekerlekli sandalye yüzünden reddedilen adayı düşün.",
@@ -4036,12 +4036,12 @@
   },
   {
     "id": 270,
-    "q_tr": "In den mediren Mietshäusern -de/-da Deutschland gibt es eine \"Hausordnung\". Ne steht -de/-da einer solchen \"Hausordnung\"? Sie nennt …",
+    "q_tr": "Almanya’daki çoğu apartmanda bir “ev düzeni” vardır. Böyle bir “ev düzeninde” ne yazar? Bu düzen … belirtir.",
     "opts_tr": [
-      "Regeln için die Benutzung öffentlicher Verkehrsmittel.",
-      "alle Mieterinnen ve Mieter -de/-da Haus.",
-      "Regeln, an die sich alle Bewohnerinnen ve Bewohner halten müssen.",
-      "die Adresse des nächsten Ordnungsamtes."
+      "toplu taşıma araçlarının kullanımı için kuralları.",
+      "evdeki tüm kiracıları.",
+      "tüm sakinlerin uyması gereken kuralları.",
+      "en yakın zabıta/düzen dairesinin adresini."
     ],
     "code": {
       "cagrisim": "Apartman girişinde asılı ortak yaşam kurallarını düşün.",
@@ -4051,12 +4051,12 @@
   },
   {
     "id": 271,
-    "q_tr": "Wenn Sie sich -de/-da Deutschland gegen einen falschen Steuerbescheid wehren wollen, müssen Sie …",
+    "q_tr": "Almanya’da yanlış bir vergi kararına karşı çıkmak istiyorsanız, …",
     "opts_tr": [
-      "nichts machen.",
-      "den Bescheid wegwerfen.",
-      "Einspruch einlegen.",
-      "warten, bis ein anderer Bescheid kommt."
+      "hiçbir şey yapmamalısınız.",
+      "kararı çöpe atmalısınız.",
+      "itiraz etmelisiniz.",
+      "başka bir karar gelene kadar beklemelisiniz."
     ],
     "code": {
       "cagrisim": "Yanlış resmi karara karşı itiraz dilekçesi verdiğini düşün.",
@@ -4066,12 +4066,12 @@
   },
   {
     "id": 272,
-    "q_tr": "Zwei Freunde wollen -de/-da ein öffentliches Schwimmbad -de/-da Deutschland. Beide haben eine dunkle Hautfarbe ve olur deshalb nicht hineingelassen. Hangi Recht olur -de/-da dieser Situation verletzt? Das Recht auf …",
+    "q_tr": "İki arkadaş Almanya’da halka açık bir yüzme havuzuna gitmek istiyor. İkisinin de ten rengi koyu ve bu yüzden içeri alınmıyorlar. Bu durumda hangi hak ihlal edilir? … hakkı",
     "opts_tr": [
       "ifade özgürlüğü",
-      "Gleichbehandlung",
-      "Versammlungsfreiheit",
-      "Freizügigkeit"
+      "eşit muamele",
+      "toplanma özgürlüğü",
+      "serbest dolaşım"
     ],
     "code": {
       "cagrisim": "Ten rengi yüzünden kapıdan çevrilen kişiyi ve eşitlik ilkesini düşün.",
@@ -4081,12 +4081,12 @@
   },
   {
     "id": 273,
-    "q_tr": "Hangi Ehrenamt müssen deutsche Staatsbürgerinnen ve Staatsbürger übernehmen, wenn sie dazu aufgefordert olur?",
+    "q_tr": "Alman vatandaşları çağrıldıklarında hangi gönüllü görevi üstlenmek zorundadır?",
     "opts_tr": [
-      "Vereinstrainerin/Vereinstrainer",
-      "seçimhelferin/seçimhelfer",
-      "Bibliotheksaufsicht",
-      "Lehrerin/Lehrer"
+      "dernek antrenörü",
+      "seçim görevlisi",
+      "kütüphane gözetmeni",
+      "öğretmen"
     ],
     "code": {
       "cagrisim": "Vatandaşlık görevi olarak seçimde yardımcı olduğunu düşün.",
@@ -4096,12 +4096,12 @@
   },
   {
     "id": 274,
-    "q_tr": "Ne tun Sie, wenn Sie eine falsche Rechnung -ın/--de/-da einer deutschen Behörde bekommen?",
+    "q_tr": "Bir Alman makamından yanlış bir fatura alırsanız ne yaparsınız?",
     "opts_tr": [
-      "Ich lasse die Rechnung liegen.",
-      "Ich lege Widerspruch -de/-da der Behörde ein.",
-      "Ich schicke die Rechnung an die Behörde zurück.",
-      "Ich gehe ile der Rechnung zum Finanzamt."
+      "Faturayı bir kenara bırakırım.",
+      "Makamda itiraz ederim.",
+      "Faturayı makama geri gönderirim.",
+      "Faturayla vergi dairesine giderim."
     ],
     "code": {
       "cagrisim": "Yanlış resmi karara karşı itiraz dilekçesi verdiğini düşün.",
@@ -4111,12 +4111,12 @@
   },
   {
     "id": 275,
-    "q_tr": "Ne man için die Arbeit können muss, ändert sich -de/-da Zukunft sehr schnell. Ne kann man tun?",
+    "q_tr": "İş için bilinmesi gereken şeyler gelecekte çok hızlı değişir. Ne yapılabilir?",
     "opts_tr": [
-      "Es dir egal, was man lernt.",
-      "Erwachsene müssen auch nach der Ausbildung immer weiter lernen.",
-      "çocuklar lernen -de/-da der okul alles, was -de/-da Beruf wichtig dir. Nach der okul muss man nicht weiter lernen.",
-      "Tüm müssen eskiden aufhören zu arbeiten, weil sich alles ändert."
+      "Ne öğrenildiği önemli değildir.",
+      "Yetişkinler eğitimden sonra da sürekli öğrenmeye devam etmelidir.",
+      "Çocuklar okulda meslek için önemli olan her şeyi öğrenir. Okuldan sonra öğrenmeye devam etmek gerekmez.",
+      "Herkes erken yaşta çalışmayı bırakmalıdır, çünkü her şey değişir."
     ],
     "code": {
       "cagrisim": "Diplomadan sonra da açılan yeni kitapları düşün.",
@@ -4126,12 +4126,12 @@
   },
   {
     "id": 276,
-    "q_tr": "Frau Frost arbeitet als fest angestellte Mitarbeiterin -de/-da einem Büro. Ne muss sie nicht -ın/--de/-da ihrem Gehalt bezahlen?",
+    "q_tr": "Bayan Frost bir ofiste kadrolu çalışan olarak çalışıyor. Maaşından ne ödemek zorunda değildir?",
     "opts_tr": [
-      "Lohnsteuer",
-      "Beiträge zur Arbeitslosenversicherung",
-      "Beiträge zur Renten- ve Krankenversicherung",
-      "Umsatzsteuer"
+      "ücret vergisi",
+      "işsizlik sigortası primleri",
+      "emeklilik ve sağlık sigortası primleri",
+      "katma değer vergisi"
     ],
     "code": {
       "cagrisim": "Maaştan kesilenlerle satış vergisini ayır.",
@@ -4141,12 +4141,12 @@
   },
   {
     "id": 277,
-    "q_tr": "Hangi Organisation -de/-da einer Firma hilft den Arbeitnehmerinnen ve Arbeitnehmern -de/-da Problemen ile der Arbeitgeberin/dem Arbeitgeber?",
+    "q_tr": "Bir firmada işverenle sorun olduğunda çalışanlara hangi örgüt yardım eder?",
     "opts_tr": [
-      "der Betriebsrat",
-      "die Betriebsprüferin/der Betriebsprüfer",
-      "die Betriebsgruppe",
-      "das Betriebsmanagement"
+      "işyeri temsilciliği",
+      "işletme denetçisi",
+      "işletme grubu",
+      "işletme yönetimi"
     ],
     "code": {
       "cagrisim": "Şirkette çalışanları koruyan iç temsil kurulunu düşün.",
@@ -4156,12 +4156,12 @@
   },
   {
     "id": 278,
-    "q_tr": "Sie möchten -de/-da einer Firma -de/-da Deutschland ihr Arbeitsverhältnis beenden. Ne müssen Sie beachten?",
+    "q_tr": "Almanya’da bir firmadaki iş ilişkinizi bitirmek istiyorsunuz. Neye dikkat etmelisiniz?",
     "opts_tr": [
-      "die Gehaltszahlungen",
-      "die Arbeitszeit",
-      "die Kündigungsfrdir",
-      "die Versicherungspflicht"
+      "maaş ödemelerine",
+      "çalışma saatine",
+      "fesih süresine",
+      "sigorta zorunluluğuna"
     ],
     "code": {
       "cagrisim": "İşten ayrılmadan önce sayan bir takvim düşün.",
@@ -4171,12 +4171,12 @@
   },
   {
     "id": 279,
-    "q_tr": "Ein Mann ile dunkler Hautfarbe bewirbt sich um eine Stelle als Kellner -de/-da einem Restaurant -de/-da Deutschland. Ne dir ein Beispiel için Diskriminierung? Er bekommt die Stelle yalnızca deshalb nicht, weil …",
+    "q_tr": "Koyu tenli bir erkek Almanya’da bir restoranda garsonluk işi için başvuruyor. Ayrımcılığa örnek nedir? İşi sadece … alamıyor.",
     "opts_tr": [
-      "seine Deutschkenntnisse zu gering olur.",
-      "er zu hohe Gehaltsvorstellungen hat.",
-      "er eine dunkle Haut hat.",
-      "er keine Erfahrungen -de/-da Beruf hat."
+      "Almanca bilgisi çok az olduğu için.",
+      "çok yüksek maaş beklentisi olduğu için.",
+      "ten rengi koyu olduğu için.",
+      "bu meslekte deneyimi olmadığı için."
     ],
     "code": {
       "cagrisim": "Ten rengi yüzünden reddedilen başvuruyu düşün.",
@@ -4186,12 +4186,12 @@
   },
   {
     "id": 280,
-    "q_tr": "Sie haben -de/-da Deutschland einen Fernseher gekauft. Zu Hause packen Sie den Fernseher aus, doch er funktioniert nicht. Der Fernseher dir kaputt. Ne können Sie machen?",
+    "q_tr": "Almanya’da bir televizyon satın aldınız. Evde televizyonu kutudan çıkarıyorsunuz, fakat çalışmıyor. Televizyon bozuk. Ne yapabilirsiniz?",
     "opts_tr": [
-      "eine Anzeige schreiben",
-      "den Fernseher reklamieren",
-      "das Gerät ungefragt austauschen",
-      "die Garantie verlängern"
+      "şikâyet ilanı yazmak",
+      "televizyonu iade/şikâyet etmek",
+      "cihazı izinsiz değiştirmek",
+      "garantiyi uzatmak"
     ],
     "code": {
       "cagrisim": "Bozuk televizyonu fişiyle geri götürdüğünü düşün.",
@@ -4201,12 +4201,12 @@
   },
   {
     "id": 281,
-    "q_tr": "Neden muss man -de/-da Deutschland -de/-da der Steuererklärung aufschreiben, ob man zu einer Kirche aittir veya nicht? Weil …",
+    "q_tr": "Almanya’da vergi beyannamesinde bir kiliseye bağlı olup olmadığınızı neden yazmanız gerekir? Çünkü …",
     "opts_tr": [
-      "es eine kiliselersteuer gibt, die an die Einkommen- ve Lohnsteuer geknüpft dir.",
-      "das için die Statdirik -de/-da Deutschland wichtig dir.",
-      "man mehr Steuern zahlen muss, wenn man nicht zu einer Kirche aittir.",
-      "die Kirche için die Steuererklärung verantwortlich dir."
+      "gelir ve ücret vergisine bağlı bir kilise vergisi vardır.",
+      "bu Almanya’daki istatistik için önemlidir.",
+      "bir kiliseye bağlı değilseniz daha fazla vergi ödemek zorundasınız.",
+      "kilise vergi beyannamesinden sorumludur."
     ],
     "code": {
       "cagrisim": "Vergi formunda din hanesini kilise vergisiyle bağla.",
@@ -4216,12 +4216,12 @@
   },
   {
     "id": 282,
-    "q_tr": "Die insanlar -de/-da Deutschland leben nach dem Grundsatz der religiösen Toleranz. Ne bedeutet das?",
+    "q_tr": "Almanya’da insanlar dinî hoşgörü ilkesine göre yaşar. Bu ne anlama gelir?",
     "opts_tr": [
-      "Es dürfen keine Moscheen gebaut olur.",
-      "Tüm insanlar glauben an Gott.",
-      "Jeder kann glauben, was er möchte.",
-      "Der Staat entscheidet, an welchen Gott die insanlar glauben."
+      "Cami yapılmasına izin verilmez.",
+      "Tüm insanlar Tanrı’ya inanır.",
+      "Herkes istediğine inanabilir.",
+      "Devlet insanların hangi Tanrı’ya inanacağına karar verir."
     ],
     "code": {
       "cagrisim": "Yan yana duran farklı ibadet yerlerini düşün.",
@@ -4231,12 +4231,12 @@
   },
   {
     "id": 283,
-    "q_tr": "Ne dir -de/-da Deutschland ein Brauch zu Ostern?",
+    "q_tr": "Almanya’da Paskalya’ya ait bir gelenek nedir?",
     "opts_tr": [
-      "Kürbisse vor die Tür stellen",
-      "einen Tannenbaum schmücken",
-      "Eier bemalen",
-      "Raketen -de/-da die Luft schießen"
+      "kapının önüne balkabağı koymak",
+      "Noel ağacı süslemek",
+      "yumurta boyamak",
+      "havaya roket atmak"
     ],
     "code": {
       "cagrisim": "Paskalya’da boyalı yumurtaları düşün.",
@@ -4246,12 +4246,12 @@
   },
   {
     "id": 284,
-    "q_tr": "Pfingsten dir ein …",
+    "q_tr": "Pentekost bir …",
     "opts_tr": [
-      "chrdirlicher Feiertag.",
-      "deutscher Gedenktag.",
-      "internationaler Trauertag.",
-      "bayerischer Brauch."
+      "Hristiyan bayramıdır.",
+      "Alman anma günüdür.",
+      "uluslararası yas günüdür.",
+      "Bavyera geleneğidir."
     ],
     "code": {
       "cagrisim": "Takvimde kilise işaretiyle Pfingsten’i düşün.",
@@ -4261,12 +4261,12 @@
   },
   {
     "id": 285,
-    "q_tr": "Hangi Religion hat die europäische ve deutsche Kultur geprägt?",
+    "q_tr": "Hangi din Avrupa ve Alman kültürünü şekillendirmiştir?",
     "opts_tr": [
-      "der Hinduismus",
-      "das Chrdirentum",
-      "der Buddhismus",
-      "der Islam"
+      "Hinduizm",
+      "Hristiyanlık",
+      "Budizm",
+      "İslam"
     ],
     "code": {
       "cagrisim": "Avrupa kültürünün tarihsel temelinde kilise çanlarını düşün.",
@@ -4276,12 +4276,12 @@
   },
   {
     "id": 286,
-    "q_tr": "In Deutschland nennt man die letzten vier Wochen vor Weihnachten …",
+    "q_tr": "Almanya’da Noel’den önceki son dört haftaya … denir.",
     "opts_tr": [
-      "den Buß- ve Bettag.",
-      "das Erntedankfest.",
-      "die Adventszeit.",
-      "Allerheiligen."
+      "Tövbe ve Dua Günü.",
+      "Hasat Şükran Bayramı.",
+      "Advent dönemi.",
+      "Azizler Günü."
     ],
     "code": {
       "cagrisim": "Noelden önceki dört haftayı mumlarla düşün.",
@@ -4291,12 +4291,12 @@
   },
   {
     "id": 287,
-    "q_tr": "Aus welchem Land olur die mediren Migrantinnen ve Migranten nach Deutschland gekommen?",
+    "q_tr": "Almanya’ya en çok göçmen hangi ülkeden gelmiştir?",
     "opts_tr": [
-      "Italien",
-      "Polen",
-      "Marokko",
-      "Türkei"
+      "İtalya",
+      "Polonya",
+      "Fas",
+      "Türkiye"
     ],
     "code": {
       "cagrisim": "Almanya’ya en yoğun göç dalgasını Türkiye’den gelenlerle düşün.",
@@ -4306,12 +4306,12 @@
   },
   {
     "id": 288,
-    "q_tr": "In der DDR lebten vor allem Migrantinnen ve Migranten aus …",
+    "q_tr": "DDR’de özellikle hangi ülkelerden gelen göçmenler yaşıyordu?",
     "opts_tr": [
-      "Vietnam, Polen, Mosambik.",
-      "Frankreich, Rumänien, Somalia.",
-      "Chile, Ungarn, Simbabwe.",
-      "Nordkorea, Mexiko, Ägypten."
+      "Vietnam, Polonya, Mozambik.",
+      "Fransa, Romanya, Somali.",
+      "Şili, Macaristan, Zimbabve.",
+      "Kuzey Kore, Meksika, Mısır."
     ],
     "code": {
       "cagrisim": "DDR’deki yabancı işgücünü bu üç ülke üçlüsüyle düşün.",
@@ -4321,12 +4321,12 @@
   },
   {
     "id": 289,
-    "q_tr": "Ausländische Arbeitnehmerinnen ve Arbeitnehmer, die -de/-da den 50er ve 60er Jahren -ın/--de/-da der Almanya Federal Cumhuriyeti angeworben wurden, nannte man …",
+    "q_tr": "1950’li ve 1960’lı yıllarda Almanya Federal Cumhuriyeti’ne alınan yabancı işçilere … denirdi.",
     "opts_tr": [
-      "Schwarzarbeiterinnen/Schwarzarbeiter.",
-      "Gastarbeiterinnen/Gastarbeiter.",
-      "Zeitarbeiterinnen/Zeitarbeiter.",
-      "Schichtarbeiterinnen/Schichtarbeiter."
+      "kaçak işçiler.",
+      "misafir işçiler.",
+      "geçici işçiler.",
+      "vardiyalı işçiler."
     ],
     "code": {
       "cagrisim": "50–60’larda işe çağrılan yabancı işçileri düşün.",
@@ -4336,12 +4336,12 @@
   },
   {
     "id": 290,
-    "q_tr": "Aus welchem Land kamen die ersten Gastarbeiterinnen ve Gastarbeiter -de/-da die Almanya Federal Cumhuriyeti?",
+    "q_tr": "Almanya Federal Cumhuriyeti’ne gelen ilk misafir işçiler hangi ülkeden geldi?",
     "opts_tr": [
-      "Italien",
-      "Spanien",
-      "Portugal",
-      "Türkei"
+      "İtalya",
+      "İspanya",
+      "Portekiz",
+      "Türkiye"
     ],
     "code": {
       "cagrisim": "İlk misafir işçileri pizza ülkesiyle eşleştir.",
@@ -4356,7 +4356,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -4475,7 +4475,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -4501,12 +4501,12 @@
   },
   {
     "id": 301,
-    "q_tr": "Hangi arma Bavyera Özgür Devleti aittir? Resim 1 Resim 2",
+    "q_tr": "Hangi arma Bavyera Özgür Devleti’ne aittir? Resim 1 Resim 2",
     "opts_tr": [
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -4625,7 +4625,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -4656,7 +4656,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -4696,7 +4696,7 @@
   },
   {
     "id": 314,
-    "q_tr": "Hangi yaştan itibaren darf man -de/-da Berlin -de/-da yerel seçimler (seçim der bölgesverordnetenversammlung) oy kullanmak?",
+    "q_tr": "Berlin’de yerel seçimlerde (Bölge Meclisi seçimi) hangi yaştan itibaren oy kullanılabilir?",
     "opts_tr": [
       "14",
       "16",
@@ -4741,7 +4741,7 @@
   },
   {
     "id": 317,
-    "q_tr": "ein Stadtstaat hangi eyalettir?",
+    "q_tr": "Hangi eyalet bir şehir devletidir?",
     "opts_tr": [
       "Berlin",
       "Saarland",
@@ -4771,12 +4771,12 @@
   },
   {
     "id": 319,
-    "q_tr": "Şehir devleti Berlin'-de/-da hükümet başkanına ne ad verilir?",
+    "q_tr": "Berlin şehir devletinde hükümet başkanına ne ad verilir?",
     "opts_tr": [
       "Eyalet Başbakanı",
-      "Oberbürgermedirerin/Oberbürgermedirer",
-      "Präsidentin/Präsident des Senates",
-      "Regierende Bürgermedirerin/Regierender Bürgermedirer"
+      "Büyükşehir Belediye Başkanı",
+      "Senato Başkanı",
+      "Yönetici Belediye Başkanı"
     ],
     "code": {
       "cagrisim": "Eyalet hükümet başkanı deyince standart unvanı düşün.",
@@ -4806,7 +4806,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 2 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -4925,7 +4925,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -4951,12 +4951,12 @@
   },
   {
     "id": 331,
-    "q_tr": "Hangi arma Özgür Hansa Şehri Bremen'e aittir? Resim 1",
+    "q_tr": "Hangi arma Özgür Hansa Şehri Bremen’e aittir? Resim 1",
     "opts_tr": [
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 2 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -4966,7 +4966,7 @@
   },
   {
     "id": 332,
-    "q_tr": "Hangi dir ein Stadtteil -ın/--de/-da Bremen?",
+    "q_tr": "Bremen’de hangi yer bir semttir?",
     "opts_tr": [
       "Altona",
       "Hemelingen",
@@ -4996,7 +4996,7 @@
   },
   {
     "id": 334,
-    "q_tr": "Hangi yaştan itibaren darf man -de/-da Bremen -de/-da den seçimler zur Bürgerschaft (eyalet meclisi) oy kullanmak?",
+    "q_tr": "Bremen’de Bürgerschaft seçimlerinde (eyalet meclisi) hangi yaştan itibaren oy kullanılabilir?",
     "opts_tr": [
       "14",
       "16",
@@ -5041,7 +5041,7 @@
   },
   {
     "id": 337,
-    "q_tr": "Ne dir ein deutscher Stadtstaat?",
+    "q_tr": "Hangisi bir Alman şehir devletidir?",
     "opts_tr": [
       "Bremen",
       "Münih",
@@ -5071,12 +5071,12 @@
   },
   {
     "id": 339,
-    "q_tr": "Şehir devleti Bremen'-de/-da hükümet başkanına ne ad verilir?",
+    "q_tr": "Bremen şehir devletinde hükümet başkanına ne ad verilir?",
     "opts_tr": [
       "Eyalet Başbakanı",
-      "Erste Bürgermedirerin/Erster Bürgermedirer",
-      "Präsidentin/Präsident des Senates",
-      "Regierende Bürgermedirerin/Regierender Bürgermedirer"
+      "Birinci Belediye Başkanı",
+      "Senato Başkanı",
+      "Yönetici Belediye Başkanı"
     ],
     "code": {
       "cagrisim": "Eyalet hükümet başkanı deyince standart unvanı düşün.",
@@ -5101,12 +5101,12 @@
   },
   {
     "id": 341,
-    "q_tr": "Hangi arma Özgür ve Hansa Şehri Hamburg'a aittir? Resim 1 Resim 2",
+    "q_tr": "Hangi arma Özgür ve Hansa Şehri Hamburg’a aittir? Resim 1 Resim 2",
     "opts_tr": [
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -5146,7 +5146,7 @@
   },
   {
     "id": 344,
-    "q_tr": "Hangi yaştan itibaren darf man -de/-da Hamburg -de/-da yerel seçimler (seçim der bölgesversammlungen) oy kullanmak?",
+    "q_tr": "Hamburg’da yerel seçimlerde (bölge meclisi seçimleri) hangi yaştan itibaren oy kullanılabilir?",
     "opts_tr": [
       "14",
       "16",
@@ -5191,7 +5191,7 @@
   },
   {
     "id": 347,
-    "q_tr": "ein Stadtstaat hangi eyalettir?",
+    "q_tr": "Hangi eyalet bir şehir devletidir?",
     "opts_tr": [
       "Hamburg",
       "Sachsen",
@@ -5221,12 +5221,12 @@
   },
   {
     "id": 349,
-    "q_tr": "Şehir devleti Hamburg'-de/-da hükümet başkanına ne ad verilir?",
+    "q_tr": "Hamburg şehir devletinde hükümet başkanına ne ad verilir?",
     "opts_tr": [
       "Eyalet Başbakanı",
-      "Erste Bürgermedirerin/Erster Bürgermedirer",
-      "Regierende Senatorin/Regierender Senator",
-      "Oberbürgermedirerin/Oberbürgermedirer"
+      "Birinci Belediye Başkanı",
+      "Yönetici Senatör",
+      "Büyükşehir Belediye Başkanı"
     ],
     "code": {
       "cagrisim": "Eyalet hükümet başkanı deyince standart unvanı düşün.",
@@ -5256,7 +5256,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 2 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -5375,7 +5375,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -5406,7 +5406,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -5464,7 +5464,7 @@
     "q_tr": "Mecklenburg-Vorpommern eyalet bayrağının renkleri nelerdir?",
     "opts_tr": [
       "siyah-kırmızı-altın",
-      "blau-weiß-gelb-rot",
+      "mavi-beyaz-sarı-kırmızı",
       "yeşil-beyaz-kırmızı",
       "siyah-sarı"
     ],
@@ -5525,7 +5525,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -5556,7 +5556,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -5675,7 +5675,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -5706,7 +5706,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -5825,7 +5825,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -5856,7 +5856,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 2 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -5975,7 +5975,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -6006,7 +6006,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 2 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -6016,7 +6016,7 @@
   },
   {
     "id": 402,
-    "q_tr": "Hangi dir ein ilçe -de/-da Saarland?",
+    "q_tr": "Saarland’da hangisi bir ilçedir?",
     "opts_tr": [
       "Mecklenburgische Seenplatte",
       "Altötting",
@@ -6031,7 +6031,7 @@
   },
   {
     "id": 403,
-    "q_tr": "Kaç yıl için olur der eyalet meclisi des Saarlandes seçilmiş?",
+    "q_tr": "Saarland eyalet meclisi kaç yıllığına seçilir?",
     "opts_tr": [
       "3",
       "4",
@@ -6046,7 +6046,7 @@
   },
   {
     "id": 404,
-    "q_tr": "Hangi yaştan itibaren darf man -de/-da Saarland -de/-da yerel seçimler oy kullanmak?",
+    "q_tr": "Saarland’da yerel seçimlerde hangi yaştan itibaren oy kullanılabilir?",
     "opts_tr": [
       "14",
       "16",
@@ -6061,7 +6061,7 @@
   },
   {
     "id": 405,
-    "q_tr": "Hangi Farben hat die eyalet bayrağı des Saarlandes?",
+    "q_tr": "Saarland eyalet bayrağının renkleri nelerdir?",
     "opts_tr": [
       "beyaz-mavi",
       "siyah-kırmızı-altın",
@@ -6076,7 +6076,7 @@
   },
   {
     "id": 406,
-    "q_tr": "Nerede können Sie sich -de/-da Saarland über siyasi konular informieren?",
+    "q_tr": "Saarland’da siyasi konular hakkında nereden bilgi alabilirsiniz?",
     "opts_tr": [
       "kiliselerde",
       "Eyalet Siyasi Eğitim Merkezinde",
@@ -6091,7 +6091,7 @@
   },
   {
     "id": 407,
-    "q_tr": "Die eyalet başkenti des Saarlandes adı şöyledir …",
+    "q_tr": "Saarland eyaletinin başkenti … olarak adlandırılır.",
     "opts_tr": [
       "Neunkirchen.",
       "Homburg.",
@@ -6121,11 +6121,11 @@
   },
   {
     "id": 409,
-    "q_tr": "Nasıl nennt man die hükümetschefin/den hükümetschef des Saarlandes?",
+    "q_tr": "Saarland’da hükümet başkanına ne ad verilir?",
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -6151,12 +6151,12 @@
   },
   {
     "id": 411,
-    "q_tr": "Hangi arma Saksonya Özgür Devleti aittir? Resim 1 Resim 2",
+    "q_tr": "Hangi arma Saksonya Özgür Devleti’ne aittir? Resim 1 Resim 2",
     "opts_tr": [
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -6214,7 +6214,7 @@
     "q_tr": "Saksonya eyalet bayrağının renkleri nelerdir?",
     "opts_tr": [
       "mavi-beyaz-kırmızı",
-      "weiß-grün",
+      "beyaz-yeşil",
       "yeşil-beyaz-kırmızı",
       "siyah-sarı"
     ],
@@ -6275,7 +6275,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -6306,7 +6306,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -6364,7 +6364,7 @@
     "q_tr": "Saksonya-Anhalt eyalet bayrağının renkleri nelerdir?",
     "opts_tr": [
       "mavi-beyaz-kırmızı",
-      "gelb-schwarz",
+      "sarı-siyah",
       "yeşil-beyaz-kırmızı",
       "beyaz-kırmızı"
     ],
@@ -6425,7 +6425,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -6456,7 +6456,7 @@
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -6530,7 +6530,7 @@
     "opts_tr": [
       "Tüketici Danışma Merkezinde",
       "belediyenin zabıta/düzen dairesinde",
-      "beim/-de/-da der Landesbeauftragten için politische Bildung",
+      "Eyalet Siyasi Eğitim Sorumlusunda",
       "kiliselerde"
     ],
     "code": {
@@ -6575,7 +6575,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {
@@ -6601,12 +6601,12 @@
   },
   {
     "id": 441,
-    "q_tr": "Hangi arma Türingiya Özgür Devleti aittir? Resim 1 Resim 2",
+    "q_tr": "Hangi arma Türingiya Özgür Devleti’ne aittir? Resim 1 Resim 2",
     "opts_tr": [
       "Resim 1",
       "Resim 2",
       "Resim 3",
-      "Resim 4 Resim 3 Resim 4"
+      "Resim 4"
     ],
     "code": {
       "cagrisim": "Görsel soruda resme birkaç kez bakıp eyalet adıyla resmi eşleştir.",
@@ -6725,7 +6725,7 @@
     "opts_tr": [
       "Birinci Bakan",
       "Başbakan",
-      "Bürgermedirerin/Bürgermedirer",
+      "Belediye Başkanı",
       "Eyalet Başbakanı"
     ],
     "code": {

@@ -18,6 +18,8 @@ import questionsMeta from "./questions_meta.json";
 import questionsTr from "./questions_tr_with_codes.json";
 
 const STORAGE_KEY = "ligt_local_v1";
+const AUTH_USER_KEY = "authUser";
+const AUTH_API_BASE_URL = "https://einbuergertest-auth.tyasird.workers.dev";
 const QUESTION_IMAGE_BY_ID = {
   21: require("./assets/question-images/21.png"),
   381: require("./assets/question-images/nrw.png"),
@@ -142,6 +144,7 @@ export default function App() {
   const [regPassword, setRegPassword] = useState("");
   const [regBundesland, setRegBundesland] = useState("");
   const [authError, setAuthError] = useState("");
+  const [authLoading, setAuthLoading] = useState(false);
 
   const [activeView, setActiveView] = useState("home");
   const [activeCategoryId, setActiveCategoryId] = useState(null);
@@ -187,6 +190,11 @@ export default function App() {
           setFavorites(Array.isArray(parsed.favorites) ? parsed.favorites : []);
           setAnswers(parsed.answers && typeof parsed.answers === "object" ? parsed.answers : {});
           setLastPos(parsed.lastPos && typeof parsed.lastPos === "object" ? parsed.lastPos : {});
+          setUser(
+            parsed[AUTH_USER_KEY] && parsed[AUTH_USER_KEY].username
+              ? parsed[AUTH_USER_KEY]
+              : { username: "Guest", isGuest: true }
+          );
         }
       } finally {
         setLoaded(true);
@@ -202,9 +210,30 @@ export default function App() {
         favorites,
         answers,
         lastPos,
+        [AUTH_USER_KEY]: user,
       })
     ).catch(() => {});
-  }, [favorites, answers, lastPos, loaded]);
+  }, [favorites, answers, lastPos, user, loaded]);
+
+  const authRequest = async (path, payload) => {
+    const baseUrl = AUTH_API_BASE_URL.replace(/\/+$/, "");
+    const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+    const response = await fetch(`${baseUrl}${normalizedPath}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    let data = null;
+    try {
+      data = await response.json();
+    } catch {
+      data = null;
+    }
+    if (!response.ok || !data?.ok) {
+      throw new Error(data?.error || "Authentication request failed.");
+    }
+    return data;
+  };
 
   const favoriteQuestions = useMemo(
     () =>
@@ -275,34 +304,63 @@ export default function App() {
     setLastPos((prev) => ({ ...prev, [activeCategory.id]: bounded }));
   };
 
-  const doLogin = () => {
+  const doLogin = async () => {
     setAuthError("");
-    if (!loginUsername.trim() || !loginPassword.trim()) {
+    const username = loginUsername.trim();
+    const password = loginPassword.trim();
+    if (!username || !password) {
       setAuthError("Please enter username and password.");
       return;
     }
-    setUser({ username: loginUsername.trim(), isGuest: false });
-    setShowLoginModal(false);
+    setAuthLoading(true);
+    try {
+      const result = await authRequest("/auth/login", { username, password });
+      setUser(result.user);
+      setLoginPassword("");
+      setShowLoginModal(false);
+    } catch (error) {
+      setAuthError(error.message || "Login failed.");
+    } finally {
+      setAuthLoading(false);
+    }
   };
 
-  const doRegister = () => {
+  const doRegister = async () => {
     setAuthError("");
-    if (!regUsername.trim() || !regPassword.trim()) {
+    const username = regUsername.trim();
+    const password = regPassword.trim();
+    const bundesland = regBundesland.trim();
+    if (!username || !password) {
       setAuthError("Username and password are required for registration.");
       return;
     }
-    setUser({
-      username: regUsername.trim(),
-      bundesland: regBundesland.trim(),
-      isGuest: false,
-    });
-    setShowLoginModal(false);
+    setAuthLoading(true);
+    try {
+      const result = await authRequest("/auth/register", { username, password, bundesland });
+      setUser(result.user);
+      setRegUsername("");
+      setRegPassword("");
+      setRegBundesland("");
+      setAuthTab("login");
+      setShowLoginModal(false);
+    } catch (error) {
+      setAuthError(error.message || "Registration failed.");
+    } finally {
+      setAuthLoading(false);
+    }
   };
 
   const continueAsGuest = () => {
     setAuthError("");
     setUser({ username: "Guest", isGuest: true });
     setShowLoginModal(false);
+  };
+
+  const logout = () => {
+    setAuthError("");
+    setUser({ username: "Guest", isGuest: true });
+    setLoginUsername("");
+    setLoginPassword("");
   };
 
   const renderLoginContent = () => (
@@ -334,6 +392,7 @@ export default function App() {
             placeholder="Username"
             style={styles.input}
             autoCapitalize="none"
+            editable={!authLoading}
           />
           <TextInput
             value={loginPassword}
@@ -341,9 +400,10 @@ export default function App() {
             placeholder="Password"
             style={styles.input}
             secureTextEntry
+            editable={!authLoading}
           />
           <Pressable style={styles.primaryBtn} onPress={doLogin}>
-            <Text style={styles.primaryBtnText}>Sign In</Text>
+            <Text style={styles.primaryBtnText}>{authLoading ? "Signing In..." : "Sign In"}</Text>
           </Pressable>
         </View>
       ) : null}
@@ -356,6 +416,7 @@ export default function App() {
             placeholder="Username"
             style={styles.input}
             autoCapitalize="none"
+            editable={!authLoading}
           />
           <TextInput
             value={regPassword}
@@ -363,15 +424,17 @@ export default function App() {
             placeholder="Password"
             style={styles.input}
             secureTextEntry
+            editable={!authLoading}
           />
           <TextInput
             value={regBundesland}
             onChangeText={setRegBundesland}
             placeholder="State (optional)"
             style={styles.input}
+            editable={!authLoading}
           />
           <Pressable style={styles.primaryBtn} onPress={doRegister}>
-            <Text style={styles.primaryBtnText}>Create Account</Text>
+            <Text style={styles.primaryBtnText}>{authLoading ? "Creating..." : "Create Account"}</Text>
           </Pressable>
         </View>
       ) : null}
@@ -451,9 +514,18 @@ export default function App() {
           <Text style={styles.title}>Einbuergertest</Text>
 
           {isWeb ? (
-            <Pressable style={[styles.secondaryBtn, { marginLeft: "auto" }]} onPress={() => setShowLoginModal(true)}>
-              <Text style={styles.secondaryBtnText}>Login</Text>
-            </Pressable>
+            user?.isGuest ? (
+              <Pressable style={[styles.secondaryBtn, { marginLeft: "auto" }]} onPress={() => setShowLoginModal(true)}>
+                <Text style={styles.secondaryBtnText}>Login</Text>
+              </Pressable>
+            ) : (
+              <View style={[styles.row, { marginLeft: "auto", alignItems: "center" }]}>
+                <Text style={[styles.meta, { marginBottom: 0 }]}>{user?.username}</Text>
+                <Pressable style={styles.secondaryBtn} onPress={logout}>
+                  <Text style={styles.secondaryBtnText}>Logout</Text>
+                </Pressable>
+              </View>
+            )
           ) : (
             <Text style={[styles.meta, { marginLeft: "auto", marginBottom: 0 }]}>{user?.username}</Text>
           )}
