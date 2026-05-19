@@ -149,6 +149,8 @@ export default function App() {
   const [activeView, setActiveView] = useState("home");
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [favoriteStudyIndex, setFavoriteStudyIndex] = useState(0);
+  const [wrongStudyIndex, setWrongStudyIndex] = useState(0);
   const [favorites, setFavorites] = useState([]);
   const [answers, setAnswers] = useState({});
   const [lastPos, setLastPos] = useState({});
@@ -268,6 +270,14 @@ export default function App() {
     [categories, answers]
   );
 
+  useEffect(() => {
+    setFavoriteStudyIndex((idx) => Math.min(idx, Math.max(favoriteQuestions.length - 1, 0)));
+  }, [favoriteQuestions.length]);
+
+  useEffect(() => {
+    setWrongStudyIndex((idx) => Math.min(idx, Math.max(wrongQuestions.length - 1, 0)));
+  }, [wrongQuestions.length]);
+
   const openCategory = (categoryId, startIndex) => {
     const idx = typeof startIndex === "number" ? startIndex : lastPos[categoryId] || 0;
     setActiveCategoryId(categoryId);
@@ -283,18 +293,22 @@ export default function App() {
     );
   };
 
-  const selectAnswer = (selectedIndex) => {
-    if (!currentQuestion) return;
-    const isCorrect = selectedIndex === currentQuestion.correctIndex;
+  const selectQuestionAnswer = (question, selectedIndex, onCorrect) => {
+    if (!question) return;
+    const isCorrect = selectedIndex === question.correctIndex;
     setAnswers((prev) => ({
       ...prev,
-      [currentQuestion.id]: { selectedIndex, isCorrect },
+      [question.id]: { selectedIndex, isCorrect },
     }));
-    if (isCorrect) {
+    if (isCorrect && onCorrect) {
       setTimeout(() => {
-        gotoQuestion(currentQuestionIndex + 1);
+        onCorrect();
       }, 1000);
     }
+  };
+
+  const selectAnswer = (selectedIndex) => {
+    selectQuestionAnswer(currentQuestion, selectedIndex, () => gotoQuestion(currentQuestionIndex + 1));
   };
 
   const gotoQuestion = (nextIndex) => {
@@ -302,6 +316,12 @@ export default function App() {
     const bounded = Math.max(0, Math.min(activeCategory.questions.length - 1, nextIndex));
     setCurrentQuestionIndex(bounded);
     setLastPos((prev) => ({ ...prev, [activeCategory.id]: bounded }));
+  };
+
+  const gotoStudyQuestion = (setIndex, total, nextIndex) => {
+    if (!total) return;
+    const bounded = Math.max(0, Math.min(total - 1, nextIndex));
+    setIndex(bounded);
   };
 
   const doLogin = async () => {
@@ -452,58 +472,187 @@ export default function App() {
     </View>
   );
 
-  const renderList = (items, title, emptyText) => (
-    <View style={styles.section}>
-      <View style={styles.card}>
-        <View style={styles.listHeaderRow}>
-          <Text style={styles.sectionTitle}>{title}</Text>
-          {title === "Favorites" ? (
-            <Pressable style={styles.secondaryBtn} onPress={() => setFavorites([])}>
-              <Text style={styles.secondaryBtnText}>Clear</Text>
-            </Pressable>
-          ) : null}
-          {title === "Wrong Answers" ? (
-            <Pressable
-              style={styles.secondaryBtn}
-              onPress={() =>
-                setAnswers((prev) => {
-                  const next = { ...prev };
-                  Object.keys(next).forEach((qid) => {
-                    if (!next[qid]?.isCorrect) delete next[qid];
-                  });
-                  return next;
-                })
-              }
-            >
-              <Text style={styles.secondaryBtnText}>Clear</Text>
-            </Pressable>
-          ) : null}
-        </View>
-      </View>
-      {items.length === 0 ? (
-        <View style={styles.cardMuted}>
-          <Text style={styles.mutedText}>{emptyText}</Text>
-        </View>
-      ) : (
-        items.map((item) => (
-          <View key={item.id} style={styles.card}>
-            <Text style={styles.meta}>{item.categoryName}</Text>
-            <Text style={styles.questionText}>{item.text}</Text>
-            <View style={styles.row}>
-              <Pressable style={styles.primaryBtn} onPress={() => openCategory(item.categoryId, item.index)}>
-                <Text style={styles.primaryBtnText}>Go to Question</Text>
-              </Pressable>
-              <Pressable style={styles.secondaryBtn} onPress={() => toggleFavorite(item.id)}>
-                <Text style={styles.secondaryBtnText}>
-                  {favorites.includes(item.id) ? "Remove Favorite" : "Add Favorite"}
-                </Text>
-              </Pressable>
+  const renderStudySet = (
+    items,
+    title,
+    emptyText,
+    index,
+    setIndex,
+    onClear,
+    advanceOnCorrect = true
+  ) => {
+    const item = items[index] || null;
+    const studyAnswer = item ? answers[item.id] : null;
+    const accentColor = item ? categoryColorMap[item.categoryId] || "#374151" : "#374151";
+
+    return (
+      <View style={styles.section}>
+        <View style={styles.card}>
+          <View style={styles.listHeaderRow}>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.sectionTitle}>{title}</Text>
+              <Text style={styles.meta}>{items.length} question{items.length === 1 ? "" : "s"}</Text>
             </View>
+            {items.length > 0 ? (
+              <Pressable style={styles.secondaryBtn} onPress={onClear}>
+                <Text style={styles.secondaryBtnText}>Clear</Text>
+              </Pressable>
+            ) : null}
           </View>
-        ))
-      )}
-    </View>
-  );
+        </View>
+
+        {!item ? (
+          <View style={styles.cardMuted}>
+            <Text style={styles.mutedText}>{emptyText}</Text>
+          </View>
+        ) : (
+          <>
+            <View style={styles.card}>
+              <View style={[styles.quizTopAccent, { backgroundColor: accentColor }]} />
+              <View style={styles.quizHeaderRow}>
+                <View style={[styles.categoryBadge, { borderColor: accentColor }]}>
+                  <View style={[styles.categoryBadgeDot, { backgroundColor: accentColor }]} />
+                  <Text style={styles.categoryBadgeText}>{item.categoryName}</Text>
+                </View>
+                <Text style={styles.progressText}>
+                  {index + 1} / {items.length}
+                </Text>
+              </View>
+
+              <Text style={styles.questionText}>{item.text}</Text>
+              {item.imageSource ? (
+                <Image source={item.imageSource} style={styles.questionImage} resizeMode="contain" />
+              ) : null}
+              {showTranslation && item.textTr ? (
+                <Text style={styles.translationText}>{item.textTr}</Text>
+              ) : null}
+              {showHint && item.codeHint ? (
+                <View style={styles.codeCard}>
+                  <Text style={styles.codeTitle}>Memory Hint</Text>
+                  {item.codeHint.cagrisim ? (
+                    <Text style={styles.codeText}>Association: {item.codeHint.cagrisim}</Text>
+                  ) : null}
+                  {item.codeHint.ornek ? (
+                    <Text style={styles.codeText}>Example: {item.codeHint.ornek}</Text>
+                  ) : null}
+                  {item.codeHint.kod ? (
+                    <Text style={styles.codeCode}>{item.codeHint.kod}</Text>
+                  ) : null}
+                </View>
+              ) : null}
+
+              {item.options.map((option, optionIndex) => {
+                const selected = studyAnswer?.selectedIndex === optionIndex;
+                const showCorrect = studyAnswer && optionIndex === item.correctIndex;
+                const showWrong = studyAnswer && selected && optionIndex !== item.correctIndex;
+                const trOpt = item.optionsTr[optionIndex] || "";
+
+                return (
+                  <Pressable
+                    key={`${item.id}-${optionIndex}`}
+                    onPress={() =>
+                      selectQuestionAnswer(
+                        item,
+                        optionIndex,
+                        advanceOnCorrect
+                          ? () => gotoStudyQuestion(setIndex, items.length, index + 1)
+                          : null
+                      )
+                    }
+                    style={[
+                      styles.optionBtn,
+                      showCorrect && styles.optionCorrect,
+                      showWrong && styles.optionWrong,
+                    ]}
+                  >
+                    <Text style={[styles.optionText, showCorrect && styles.optionTextOnDark]}>{option}</Text>
+                    {showTranslation && trOpt ? (
+                      <Text style={[styles.optionTranslation, showCorrect && styles.optionTextOnDark]}>
+                        {trOpt}
+                      </Text>
+                    ) : null}
+                  </Pressable>
+                );
+              })}
+
+              <View style={styles.row}>
+                <Pressable
+                  style={styles.secondaryBtn}
+                  onPress={() => gotoStudyQuestion(setIndex, items.length, index - 1)}
+                >
+                  <Text style={styles.secondaryBtnText}>Back</Text>
+                </Pressable>
+                <Pressable
+                  style={styles.secondaryBtn}
+                  onPress={() => gotoStudyQuestion(setIndex, items.length, index + 1)}
+                >
+                  <Text style={styles.secondaryBtnText}>Next</Text>
+                </Pressable>
+              </View>
+              <View style={styles.rowSecondary}>
+                <Pressable
+                  style={[styles.secondaryBtn, styles.translationBtn, showTranslation && styles.translationBtnActive]}
+                  onPress={() => setShowTranslation((p) => !p)}
+                >
+                  <Text
+                    style={[
+                      styles.secondaryBtnText,
+                      styles.translationBtnText,
+                      showTranslation && styles.translationBtnTextActive,
+                    ]}
+                  >
+                    {showTranslation ? "Hide Translation" : "Translation"}
+                  </Text>
+                </Pressable>
+                <Pressable
+                  style={[styles.secondaryBtn, styles.hintBtn, showHint && styles.hintBtnActive]}
+                  onPress={() => setShowHint((p) => !p)}
+                >
+                  <Text style={[styles.secondaryBtnText, styles.hintBtnText, showHint && styles.hintBtnTextActive]}>
+                    {showHint ? "Hide Hint" : "Show Hint"}
+                  </Text>
+                </Pressable>
+                <Pressable style={styles.primaryBtn} onPress={() => toggleFavorite(item.id)}>
+                  <Text style={styles.primaryBtnText}>
+                    {favorites.includes(item.id) ? "Favorited" : "Add Favorite"}
+                  </Text>
+                </Pressable>
+                <Pressable style={styles.secondaryBtn} onPress={() => openCategory(item.categoryId, item.index)}>
+                  <Text style={styles.secondaryBtnText}>Open Category</Text>
+                </Pressable>
+              </View>
+            </View>
+
+            <View style={[styles.card, styles.numCard]}>
+              <View style={styles.numGrid}>
+                {items.map((q, i) => {
+                  const entry = answers[q.id];
+                  const isCurrent = i === index;
+                  const isCorrect = entry?.isCorrect;
+                  const isWrong = entry && !entry.isCorrect;
+
+                  return (
+                    <Pressable
+                      key={`study-num-${q.id}`}
+                      onPress={() => gotoStudyQuestion(setIndex, items.length, i)}
+                      style={[
+                        styles.numBtn,
+                        isCurrent && styles.numBtnCurrent,
+                        !isCurrent && isCorrect && styles.numBtnCorrect,
+                        !isCurrent && isWrong && styles.numBtnWrong,
+                      ]}
+                    >
+                      <Text style={[styles.numBtnText, isCurrent && styles.numBtnTextCurrent]}>{i + 1}</Text>
+                    </Pressable>
+                  );
+                })}
+              </View>
+            </View>
+          </>
+        )}
+      </View>
+    );
+  };
 
   return (
     <SafeAreaView style={[styles.safe, isWeb && styles.safeWeb]}>
@@ -706,10 +855,32 @@ export default function App() {
         ) : null}
 
         {activeView === "favorites" &&
-          renderList(favoriteQuestions, "Favorites", "No favorite questions yet.")}
+          renderStudySet(
+            favoriteQuestions,
+            "Favorites",
+            "No favorite questions yet.",
+            favoriteStudyIndex,
+            setFavoriteStudyIndex,
+            () => setFavorites([])
+          )}
 
         {activeView === "wrong" &&
-          renderList(wrongQuestions, "Wrong Answers", "No wrong answers recorded yet.")}
+          renderStudySet(
+            wrongQuestions,
+            "Wrong Answers",
+            "No wrong answers recorded yet.",
+            wrongStudyIndex,
+            setWrongStudyIndex,
+            () =>
+              setAnswers((prev) => {
+                const next = { ...prev };
+                Object.keys(next).forEach((qid) => {
+                  if (!next[qid]?.isCorrect) delete next[qid];
+                });
+                return next;
+              }),
+            false
+          )}
         </ScrollView>
       </View>
 
