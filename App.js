@@ -44,6 +44,7 @@ const NAV_ITEMS = [
   { key: "home", label: "Categories" },
   { key: "favorites", label: "Favorites" },
   { key: "wrong", label: "Wrong Answers" },
+  { key: "testSimulation", label: "Test Simulation" },
 ];
 
 const GENERAL_CATS = [
@@ -151,6 +152,11 @@ export default function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [favoriteStudyIndex, setFavoriteStudyIndex] = useState(0);
   const [wrongStudyIndex, setWrongStudyIndex] = useState(0);
+  const [showFavoriteAnswers, setShowFavoriteAnswers] = useState(false);
+  const [testQuestions, setTestQuestions] = useState([]);
+  const [testAnswers, setTestAnswers] = useState({});
+  const [testQuestionIndex, setTestQuestionIndex] = useState(0);
+  const [testFinished, setTestFinished] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [answers, setAnswers] = useState({});
   const [lastPos, setLastPos] = useState({});
@@ -175,6 +181,19 @@ export default function App() {
   const activeCategory = categories.find((c) => c.id === activeCategoryId) || null;
   const currentQuestion = activeCategory?.questions[currentQuestionIndex] || null;
   const currentAnswer = currentQuestion ? answers[currentQuestion.id] : null;
+  const currentTestQuestion = testQuestions[testQuestionIndex] || null;
+  const testScore = useMemo(
+    () =>
+      testQuestions.reduce(
+        (score, question) => score + (testAnswers[question.id] === question.correctIndex ? 1 : 0),
+        0
+      ),
+    [testQuestions, testAnswers]
+  );
+  const answeredTestCount = useMemo(
+    () => testQuestions.filter((question) => testAnswers[question.id] !== undefined).length,
+    [testQuestions, testAnswers]
+  );
   const categoryColorMap = useMemo(
     () =>
       Object.fromEntries(
@@ -322,6 +341,34 @@ export default function App() {
     if (!total) return;
     const bounded = Math.max(0, Math.min(total - 1, nextIndex));
     setIndex(bounded);
+  };
+
+  const startTestSimulation = () => {
+    if (favoriteQuestions.length === 0) return;
+    const shuffled = [...favoriteQuestions];
+    for (let i = shuffled.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    setTestQuestions(shuffled.slice(0, Math.min(30, shuffled.length)));
+    setTestAnswers({});
+    setTestQuestionIndex(0);
+    setTestFinished(false);
+    setShowTranslation(false);
+    setShowHint(false);
+  };
+
+  const selectTestAnswer = (questionId, selectedIndex) => {
+    setTestAnswers((prev) => ({
+      ...prev,
+      [questionId]: selectedIndex,
+    }));
+  };
+
+  const gotoTestQuestion = (nextIndex) => {
+    if (!testQuestions.length) return;
+    const bounded = Math.max(0, Math.min(testQuestions.length - 1, nextIndex));
+    setTestQuestionIndex(bounded);
   };
 
   const doLogin = async () => {
@@ -479,7 +526,9 @@ export default function App() {
     index,
     setIndex,
     onClear,
-    advanceOnCorrect = true
+    advanceOnCorrect = true,
+    showAnswerFeedback = true,
+    headerAction = null
   ) => {
     const item = items[index] || null;
     const studyAnswer = item ? answers[item.id] : null;
@@ -493,10 +542,15 @@ export default function App() {
               <Text style={styles.sectionTitle}>{title}</Text>
               <Text style={styles.meta}>{items.length} question{items.length === 1 ? "" : "s"}</Text>
             </View>
-            {items.length > 0 ? (
-              <Pressable style={styles.secondaryBtn} onPress={onClear}>
-                <Text style={styles.secondaryBtnText}>Clear</Text>
-              </Pressable>
+            {headerAction || items.length > 0 ? (
+              <View style={styles.headerActions}>
+                {headerAction}
+                {items.length > 0 ? (
+                  <Pressable style={styles.secondaryBtn} onPress={onClear}>
+                    <Text style={styles.secondaryBtnText}>Clear</Text>
+                  </Pressable>
+                ) : null}
+              </View>
             ) : null}
           </View>
         </View>
@@ -543,8 +597,8 @@ export default function App() {
 
               {item.options.map((option, optionIndex) => {
                 const selected = studyAnswer?.selectedIndex === optionIndex;
-                const showCorrect = studyAnswer && optionIndex === item.correctIndex;
-                const showWrong = studyAnswer && selected && optionIndex !== item.correctIndex;
+                const showCorrect = showAnswerFeedback && studyAnswer && optionIndex === item.correctIndex;
+                const showWrong = showAnswerFeedback && studyAnswer && selected && optionIndex !== item.correctIndex;
                 const trOpt = item.optionsTr[optionIndex] || "";
 
                 return (
@@ -554,13 +608,14 @@ export default function App() {
                       selectQuestionAnswer(
                         item,
                         optionIndex,
-                        advanceOnCorrect
+                        advanceOnCorrect && showAnswerFeedback
                           ? () => gotoStudyQuestion(setIndex, items.length, index + 1)
                           : null
                       )
                     }
                     style={[
                       styles.optionBtn,
+                      selected && !showAnswerFeedback && styles.optionSelected,
                       showCorrect && styles.optionCorrect,
                       showWrong && styles.optionWrong,
                     ]}
@@ -628,8 +683,9 @@ export default function App() {
                 {items.map((q, i) => {
                   const entry = answers[q.id];
                   const isCurrent = i === index;
-                  const isCorrect = entry?.isCorrect;
-                  const isWrong = entry && !entry.isCorrect;
+                  const isCorrect = showAnswerFeedback && entry?.isCorrect;
+                  const isWrong = showAnswerFeedback && entry && !entry.isCorrect;
+                  const isAnswered = !showAnswerFeedback && entry;
 
                   return (
                     <Pressable
@@ -638,6 +694,7 @@ export default function App() {
                       style={[
                         styles.numBtn,
                         isCurrent && styles.numBtnCurrent,
+                        !isCurrent && isAnswered && styles.numBtnCorrect,
                         !isCurrent && isCorrect && styles.numBtnCorrect,
                         !isCurrent && isWrong && styles.numBtnWrong,
                       ]}
@@ -650,6 +707,157 @@ export default function App() {
             </View>
           </>
         )}
+      </View>
+    );
+  };
+
+  const renderTestSimulation = () => {
+    const total = testQuestions.length;
+    const percent = total ? Math.round((testScore / total) * 100) : 0;
+
+    if (testFinished && total) {
+      return (
+        <View style={styles.section}>
+          <View style={styles.card}>
+            <Text style={styles.sectionTitle}>Test Simulation</Text>
+            <Text style={styles.meta}>{total} question{total === 1 ? "" : "s"}</Text>
+          </View>
+          <View style={styles.card}>
+            <Text style={styles.scoreLabel}>Score</Text>
+            <Text style={styles.scoreText}>
+              {testScore} / {total}
+            </Text>
+            <Text style={styles.mutedText}>{percent}% correct</Text>
+            <Text style={[styles.meta, { marginTop: 8 }]}>
+              {answeredTestCount} / {total} answered
+            </Text>
+            <View style={styles.row}>
+              <Pressable style={styles.primaryBtn} onPress={startTestSimulation}>
+                <Text style={styles.primaryBtnText}>Start New Test</Text>
+              </Pressable>
+              <Pressable style={styles.secondaryBtn} onPress={() => setTestFinished(false)}>
+                <Text style={styles.secondaryBtnText}>Review Questions</Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      );
+    }
+
+    if (!currentTestQuestion) {
+      const availableCount = favoriteQuestions.length;
+      const testSize = Math.min(30, availableCount);
+
+      return (
+        <View style={styles.section}>
+          <View style={styles.card}>
+            <Text style={styles.sectionTitle}>Test Simulation</Text>
+            <Text style={styles.mutedText}>
+              {availableCount
+                ? `${testSize} random favorite question${testSize === 1 ? "" : "s"}`
+                : "No favorite questions yet."}
+            </Text>
+            <View style={styles.row}>
+              <Pressable
+                disabled={!availableCount}
+                style={[styles.primaryBtn, !availableCount && styles.btnDisabled]}
+                onPress={startTestSimulation}
+              >
+                <Text style={[styles.primaryBtnText, !availableCount && styles.btnDisabledText]}>
+                  Start Test
+                </Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      );
+    }
+
+    const selectedAnswer = testAnswers[currentTestQuestion.id];
+    const accentColor = categoryColorMap[currentTestQuestion.categoryId] || "#374151";
+
+    return (
+      <View style={styles.section}>
+        <View style={styles.card}>
+          <View style={styles.listHeaderRow}>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.sectionTitle}>Test Simulation</Text>
+              <Text style={styles.meta}>
+                {answeredTestCount} / {total} answered
+              </Text>
+            </View>
+            <Pressable style={styles.secondaryBtn} onPress={startTestSimulation}>
+              <Text style={styles.secondaryBtnText}>New Test</Text>
+            </Pressable>
+          </View>
+        </View>
+
+        <View style={styles.card}>
+          <View style={[styles.quizTopAccent, { backgroundColor: accentColor }]} />
+          <View style={styles.quizHeaderRow}>
+            <View style={[styles.categoryBadge, { borderColor: accentColor }]}>
+              <View style={[styles.categoryBadgeDot, { backgroundColor: accentColor }]} />
+              <Text style={styles.categoryBadgeText}>{currentTestQuestion.categoryName}</Text>
+            </View>
+            <Text style={styles.progressText}>
+              {testQuestionIndex + 1} / {total}
+            </Text>
+          </View>
+
+          <Text style={styles.questionText}>{currentTestQuestion.text}</Text>
+          {currentTestQuestion.imageSource ? (
+            <Image source={currentTestQuestion.imageSource} style={styles.questionImage} resizeMode="contain" />
+          ) : null}
+
+          {currentTestQuestion.options.map((option, optionIndex) => {
+            const selected = selectedAnswer === optionIndex;
+
+            return (
+              <Pressable
+                key={`test-${currentTestQuestion.id}-${optionIndex}`}
+                onPress={() => selectTestAnswer(currentTestQuestion.id, optionIndex)}
+                style={[styles.optionBtn, selected && styles.optionSelected]}
+              >
+                <Text style={styles.optionText}>{option}</Text>
+              </Pressable>
+            );
+          })}
+
+          <View style={styles.row}>
+            <Pressable style={styles.secondaryBtn} onPress={() => gotoTestQuestion(testQuestionIndex - 1)}>
+              <Text style={styles.secondaryBtnText}>Back</Text>
+            </Pressable>
+            <Pressable style={styles.secondaryBtn} onPress={() => gotoTestQuestion(testQuestionIndex + 1)}>
+              <Text style={styles.secondaryBtnText}>Next</Text>
+            </Pressable>
+            <Pressable style={styles.primaryBtn} onPress={() => setTestFinished(true)}>
+              <Text style={styles.primaryBtnText}>Finish Test</Text>
+            </Pressable>
+          </View>
+        </View>
+
+        <View style={[styles.card, styles.numCard]}>
+          <View style={styles.numGrid}>
+            {testQuestions.map((q, i) => {
+              const isCurrent = i === testQuestionIndex;
+              const isAnswered = testAnswers[q.id] !== undefined;
+
+              return (
+                <Pressable
+                  key={`test-num-${q.id}`}
+                  onPress={() => gotoTestQuestion(i)}
+                  style={[
+                    styles.numBtn,
+                    isCurrent && styles.numBtnCurrent,
+                    !isCurrent && isAnswered && styles.numBtnCorrect,
+                  ]}
+                >
+                  <Text style={[styles.numBtnText, isCurrent && styles.numBtnTextCurrent]}>{i + 1}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        </View>
       </View>
     );
   };
@@ -861,7 +1069,14 @@ export default function App() {
             "No favorite questions yet.",
             favoriteStudyIndex,
             setFavoriteStudyIndex,
-            () => setFavorites([])
+            () => setFavorites([]),
+            true,
+            showFavoriteAnswers,
+            <Pressable style={styles.secondaryBtn} onPress={() => setShowFavoriteAnswers((p) => !p)}>
+              <Text style={styles.secondaryBtnText}>
+                {showFavoriteAnswers ? "Hide Answers" : "Show Answers"}
+              </Text>
+            </Pressable>
           )}
 
         {activeView === "wrong" &&
@@ -881,6 +1096,8 @@ export default function App() {
               }),
             false
           )}
+
+        {activeView === "testSimulation" && renderTestSimulation()}
         </ScrollView>
       </View>
 
@@ -933,6 +1150,7 @@ const styles = StyleSheet.create({
   title: { fontSize: 18, fontWeight: "700", color: "#000" },
   nav: {
     flexDirection: "row",
+    flexWrap: "wrap",
     paddingHorizontal: 8,
     borderBottomWidth: 1,
     borderBottomColor: "rgba(0,0,0,0.1)",
@@ -1018,6 +1236,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: 8,
   },
+  headerActions: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    gap: 8,
+    flexWrap: "wrap",
+  },
   questionText: { fontSize: 16, color: "#000", marginBottom: 8, lineHeight: 24 },
   questionImage: {
     width: "100%",
@@ -1073,6 +1297,7 @@ const styles = StyleSheet.create({
   },
   optionCorrect: { backgroundColor: "#000", borderColor: "#000" },
   optionWrong: { backgroundColor: "#e4e4e7", borderColor: "rgba(0,0,0,0.2)" },
+  optionSelected: { backgroundColor: "#f4f4f5", borderColor: "#000" },
   optionText: { color: "#000" },
   optionTranslation: { marginTop: 4, color: "rgba(0,0,0,0.58)", fontSize: 13 },
   optionTextOnDark: { color: "#fff" },
@@ -1086,6 +1311,11 @@ const styles = StyleSheet.create({
     paddingVertical: 9,
   },
   primaryBtnText: { color: "#fff", fontSize: 13, fontWeight: "600" },
+  btnDisabled: {
+    backgroundColor: "#a1a1aa",
+    borderColor: "#a1a1aa",
+  },
+  btnDisabledText: { color: "#f4f4f5" },
   secondaryBtn: {
     backgroundColor: "#fff",
     borderWidth: 1,
@@ -1157,6 +1387,8 @@ const styles = StyleSheet.create({
   },
   numBtnText: { color: "#111827", fontSize: 11, fontWeight: "600" },
   numBtnTextCurrent: { color: "#fff" },
+  scoreLabel: { color: "rgba(0,0,0,0.55)", fontSize: 13, fontWeight: "700", marginBottom: 6 },
+  scoreText: { color: "#000", fontSize: 42, fontWeight: "800", marginBottom: 4 },
   mutedText: { color: "rgba(0,0,0,0.55)" },
   input: {
     borderWidth: 1,
