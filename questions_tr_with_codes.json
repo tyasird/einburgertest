@@ -6748,5 +6748,125 @@
       "ornek": "Bu yüzden bu sorularda doğru cevap genelde Dışişleri Bakanı.",
       "kod": "“Eyalette dışişleri yok = Dışişleri Bakanı.”"
     }
+  },
+  {
+    "id": 451,
+    "q_tr": "Almanya'da ifade özgürlüğü kapsamında hangisine izin verilir?",
+    "opts_tr": [
+      "İnsanlara kamuya açık şekilde hakaret etmek",
+      "Holokost'u inkâr etmek",
+      "Kendi görüşünü okur mektuplarında ifade etmek",
+      "Yasaklanmış semboller göstermek"
+    ]
+  },
+  {
+    "id": 452,
+    "q_tr": "Günümüz Almanya'sının bulunduğu bölgede yaklaşık kaç yıldır Yahudi cemaatleri vardır?",
+    "opts_tr": [
+      "300 yıl",
+      "700 yıl",
+      "1150 yıl",
+      "1700 yıl"
+    ]
+  },
+  {
+    "id": 453,
+    "q_tr": "Bugün Almanya'daki en büyük Yahudi cemaatleri hangi şehirlerdedir?",
+    "opts_tr": [
+      "Berlin ve Münih",
+      "Hamburg ve Essen",
+      "Nürnberg ve Stuttgart",
+      "Worms ve Speyer"
+    ]
+  },
+  {
+    "id": 454,
+    "q_tr": "Holokost'u inkâr eden kişiler nasıl cezalandırılır?",
+    "opts_tr": [
+      "Para cezası veya beş yıla kadar hapis cezasıyla",
+      "Hiç cezalandırılmazlar",
+      "Sadece kamu hizmeti cezasıyla",
+      "On yıldan başlayan hapis cezasıyla"
+    ]
+  },
+  {
+    "id": 455,
+    "q_tr": "İsrail Devleti ile ilgili hangi eylem Almanya'da yasaktır?",
+    "opts_tr": [
+      "İsrail hükümetini eleştirmek",
+      "İsrail mallarını boykot etmeye çağırmak",
+      "İsrail'in yok edilmesini alenen talep etmek",
+      "İsrail'in politikasını tartışmak"
+    ]
+  },
+  {
+    "id": 456,
+    "q_tr": "Kimler bir Makkabi spor kulübüne üye olabilir?",
+    "opts_tr": [
+      "Sadece Yahudi insanlar",
+      "Sadece Alman vatandaşları",
+      "Tüm insanlar",
+      "Sadece İsrailli sporcular"
+    ]
+  },
+  {
+    "id": 457,
+    "q_tr": "Hangisi antisemitik davranışa örnektir?",
+    "opts_tr": [
+      "Yahudi bayramlarını öğrenmek",
+      "Holokost'u inkâr etmek",
+      "Bir sinagogu ziyaret etmek",
+      "Din hakkında bilgi edinmek"
+    ]
+  },
+  {
+    "id": 458,
+    "q_tr": "Yahudilerin ibadethanesinin adı nedir?",
+    "opts_tr": [
+      "Kilise",
+      "Cami",
+      "Sinagog",
+      "Tapınak"
+    ]
+  },
+  {
+    "id": 459,
+    "q_tr": "İsrail Devleti hangi temelde kuruldu?",
+    "opts_tr": [
+      "Birleşmiş Milletler'in kararıyla",
+      "NATO tarafından",
+      "Almanya tarafından",
+      "Fransa ve İngiltere tarafından"
+    ]
+  },
+  {
+    "id": 460,
+    "q_tr": "Almanya'da \"Stolpersteine\" olarak adlandırılan taşlar neyi hatırlatır?",
+    "opts_tr": [
+      "Ünlü müzisyenleri",
+      "Nasyonal Sosyalizm kurbanlarını",
+      "Alman imparatorlarını",
+      "Berlin Duvarı'nın yıkılışını"
+    ]
+  },
+  {
+    "id": 461,
+    "q_tr": "Almanya'da 27 Ocak neyi hatırlatır?",
+    "opts_tr": [
+      "Yeniden birleşmeyi",
+      "Auschwitz'in kurtarılmasını ve Nasyonal Sosyalizm kurbanlarını",
+      "Birinci Dünya Savaşı'nın sonunu",
+      "Federal Almanya Cumhuriyeti'nin kuruluşunu"
+    ]
+  },
+  {
+    "id": 462,
+    "q_tr": "Almanya neden İsrail'e karşı özel bir sorumluluk taşır?",
+    "opts_tr": [
+      "Ekonomik iş birliği nedeniyle",
+      "Coğrafi yakınlık nedeniyle",
+      "Nasyonal Sosyalistlerin Yahudilere karşı işlediği suçlar nedeniyle",
+      "Ortak dil nedeniyle"
+    ]
   }
 ]
