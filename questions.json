@@ -4498,5 +4498,125 @@
    "Finanzministerin/Finanzminister",
    "Innenministerin/Innenminister"
   ]
+ },
+ {
+  "id": 451,
+  "q": "Was ist in Deutschland bei der Meinungsfreiheit erlaubt?",
+  "opts": [
+   "Menschen öffentlich beleidigen",
+   "Den Holocaust leugnen",
+   "Die eigene Meinung in Leserbriefen äußern",
+   "Verbotene Symbole zeigen"
+  ]
+ },
+ {
+  "id": 452,
+  "q": "Seit ungefähr wie vielen Jahren gibt es jüdische Gemeinden auf dem Gebiet des heutigen Deutschlands?",
+  "opts": [
+   "300 Jahre",
+   "700 Jahre",
+   "1150 Jahre",
+   "1700 Jahre"
+  ]
+ },
+ {
+  "id": 453,
+  "q": "In welchen Städten gibt es heute die größten jüdischen Gemeinden in Deutschland?",
+  "opts": [
+   "Berlin und München",
+   "Hamburg und Essen",
+   "Nürnberg und Stuttgart",
+   "Worms und Speyer"
+  ]
+ },
+ {
+  "id": 454,
+  "q": "Wie werden Menschen bestraft, die den Holocaust leugnen?",
+  "opts": [
+   "Mit einer Geldstrafe oder Freiheitsstrafe bis zu fünf Jahren",
+   "Gar nicht",
+   "Nur mit Sozialstunden",
+   "Mit Freiheitsstrafe ab zehn Jahren"
+  ]
+ },
+ {
+  "id": 455,
+  "q": "Welche Handlung mit Bezug auf den Staat Israel ist in Deutschland verboten?",
+  "opts": [
+   "Die israelische Regierung kritisieren",
+   "Zum Boykott israelischer Waren aufrufen",
+   "Die Vernichtung Israels öffentlich fordern",
+   "Die Politik Israels diskutieren"
+  ]
+ },
+ {
+  "id": 456,
+  "q": "Wer darf Mitglied in einem Makkabi-Sportverein werden?",
+  "opts": [
+   "Nur jüdische Menschen",
+   "Nur deutsche Staatsangehörige",
+   "Alle Menschen",
+   "Nur Sportler aus Israel"
+  ]
+ },
+ {
+  "id": 457,
+  "q": "Was ist ein Beispiel für antisemitisches Verhalten?",
+  "opts": [
+   "Jüdische Feiertage kennenlernen",
+   "Den Holocaust leugnen",
+   "Eine Synagoge besuchen",
+   "Sich über Religion informieren"
+  ]
+ },
+ {
+  "id": 458,
+  "q": "Wie heißt das jüdische Gotteshaus?",
+  "opts": [
+   "Kirche",
+   "Moschee",
+   "Synagoge",
+   "Tempel"
+  ]
+ },
+ {
+  "id": 459,
+  "q": "Auf welcher Grundlage wurde der Staat Israel gegründet?",
+  "opts": [
+   "Durch eine Entscheidung der Vereinten Nationen",
+   "Durch die NATO",
+   "Durch Deutschland",
+   "Durch Frankreich und England"
+  ]
+ },
+ {
+  "id": 460,
+  "q": "Woran erinnern die sogenannten „Stolpersteine“ in Deutschland?",
+  "opts": [
+   "An berühmte Musiker",
+   "An Opfer des Nationalsozialismus",
+   "An deutsche Kaiser",
+   "An den Mauerfall"
+  ]
+ },
+ {
+  "id": 461,
+  "q": "Woran erinnert der 27. Januar in Deutschland?",
+  "opts": [
+   "An die Wiedervereinigung",
+   "An die Befreiung von Auschwitz und die Opfer des Nationalsozialismus",
+   "An das Ende des Ersten Weltkriegs",
+   "An die Gründung der Bundesrepublik Deutschland"
+  ]
+ },
+ {
+  "id": 462,
+  "q": "Warum trägt Deutschland eine besondere Verantwortung gegenüber Israel?",
+  "opts": [
+   "Wegen der wirtschaftlichen Zusammenarbeit",
+   "Wegen der geografischen Nähe",
+   "Wegen der nationalsozialistischen Verbrechen an den Juden",
+   "Wegen gemeinsamer Sprache"
+  ]
  }
 ]

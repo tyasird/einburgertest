@@ -68,6 +68,7 @@ const GENERAL_CATS = [
   ["Bildung", "Mensch und Gesellschaft"],
   ["Migrationsgeschichte", "Mensch und Gesellschaft"],
   ["Interkulturelles Zusammenleben", "Mensch und Gesellschaft"],
+  ["Recently Added Questions", "Recently Added Questions"],
 ];
 
 const STATE_SECTIONS = [
@@ -153,6 +154,7 @@ export default function App() {
   const [favoriteStudyIndex, setFavoriteStudyIndex] = useState(0);
   const [wrongStudyIndex, setWrongStudyIndex] = useState(0);
   const [showFavoriteAnswers, setShowFavoriteAnswers] = useState(false);
+  const [pendingFavoriteRemovalId, setPendingFavoriteRemovalId] = useState(null);
   const [testQuestions, setTestQuestions] = useState([]);
   const [testAnswers, setTestAnswers] = useState({});
   const [testQuestionIndex, setTestQuestionIndex] = useState(0);
@@ -296,6 +298,12 @@ export default function App() {
   useEffect(() => {
     setWrongStudyIndex((idx) => Math.min(idx, Math.max(wrongQuestions.length - 1, 0)));
   }, [wrongQuestions.length]);
+
+  useEffect(() => {
+    if (pendingFavoriteRemovalId && !favorites.includes(pendingFavoriteRemovalId)) {
+      setPendingFavoriteRemovalId(null);
+    }
+  }, [favorites, pendingFavoriteRemovalId]);
 
   const openCategory = (categoryId, startIndex) => {
     const idx = typeof startIndex === "number" ? startIndex : lastPos[categoryId] || 0;
@@ -528,7 +536,8 @@ export default function App() {
     onClear,
     advanceOnCorrect = true,
     showAnswerFeedback = true,
-    headerAction = null
+    headerAction = null,
+    confirmFavoriteRemoval = false
   ) => {
     const item = items[index] || null;
     const studyAnswer = item ? answers[item.id] : null;
@@ -542,10 +551,10 @@ export default function App() {
               <Text style={styles.sectionTitle}>{title}</Text>
               <Text style={styles.meta}>{items.length} question{items.length === 1 ? "" : "s"}</Text>
             </View>
-            {headerAction || items.length > 0 ? (
+            {headerAction || (items.length > 0 && onClear) ? (
               <View style={styles.headerActions}>
                 {headerAction}
-                {items.length > 0 ? (
+                {items.length > 0 && onClear ? (
                   <Pressable style={styles.secondaryBtn} onPress={onClear}>
                     <Text style={styles.secondaryBtnText}>Clear</Text>
                   </Pressable>
@@ -608,14 +617,13 @@ export default function App() {
                       selectQuestionAnswer(
                         item,
                         optionIndex,
-                        advanceOnCorrect && showAnswerFeedback
+                        advanceOnCorrect
                           ? () => gotoStudyQuestion(setIndex, items.length, index + 1)
                           : null
                       )
                     }
                     style={[
                       styles.optionBtn,
-                      selected && !showAnswerFeedback && styles.optionSelected,
                       showCorrect && styles.optionCorrect,
                       showWrong && styles.optionWrong,
                     ]}
@@ -667,15 +675,51 @@ export default function App() {
                     {showHint ? "Hide Hint" : "Show Hint"}
                   </Text>
                 </Pressable>
-                <Pressable style={styles.primaryBtn} onPress={() => toggleFavorite(item.id)}>
-                  <Text style={styles.primaryBtnText}>
-                    {favorites.includes(item.id) ? "Favorited" : "Add Favorite"}
+                <Pressable
+                  style={confirmFavoriteRemoval && favorites.includes(item.id) ? styles.secondaryBtn : styles.primaryBtn}
+                  onPress={() =>
+                    confirmFavoriteRemoval && favorites.includes(item.id)
+                      ? setPendingFavoriteRemovalId(item.id)
+                      : toggleFavorite(item.id)
+                  }
+                >
+                  <Text
+                    style={
+                      confirmFavoriteRemoval && favorites.includes(item.id)
+                        ? styles.secondaryBtnText
+                        : styles.primaryBtnText
+                    }
+                  >
+                    {favorites.includes(item.id)
+                      ? confirmFavoriteRemoval
+                        ? "Remove Favorite"
+                        : "Favorited"
+                      : "Add Favorite"}
                   </Text>
                 </Pressable>
                 <Pressable style={styles.secondaryBtn} onPress={() => openCategory(item.categoryId, item.index)}>
                   <Text style={styles.secondaryBtnText}>Open Category</Text>
                 </Pressable>
               </View>
+              {confirmFavoriteRemoval && pendingFavoriteRemovalId === item.id ? (
+                <View style={styles.removeConfirm}>
+                  <Text style={styles.removeConfirmText}>Remove this question from Favorites?</Text>
+                  <View style={styles.row}>
+                    <Pressable style={styles.secondaryBtn} onPress={() => setPendingFavoriteRemovalId(null)}>
+                      <Text style={styles.secondaryBtnText}>Cancel</Text>
+                    </Pressable>
+                    <Pressable
+                      style={styles.removeBtn}
+                      onPress={() => {
+                        toggleFavorite(item.id);
+                        setPendingFavoriteRemovalId(null);
+                      }}
+                    >
+                      <Text style={styles.primaryBtnText}>Confirm Remove</Text>
+                    </Pressable>
+                  </View>
+                </View>
+              ) : null}
             </View>
 
             <View style={[styles.card, styles.numCard]}>
@@ -685,7 +729,6 @@ export default function App() {
                   const isCurrent = i === index;
                   const isCorrect = showAnswerFeedback && entry?.isCorrect;
                   const isWrong = showAnswerFeedback && entry && !entry.isCorrect;
-                  const isAnswered = !showAnswerFeedback && entry;
 
                   return (
                     <Pressable
@@ -694,7 +737,6 @@ export default function App() {
                       style={[
                         styles.numBtn,
                         isCurrent && styles.numBtnCurrent,
-                        !isCurrent && isAnswered && styles.numBtnCorrect,
                         !isCurrent && isCorrect && styles.numBtnCorrect,
                         !isCurrent && isWrong && styles.numBtnWrong,
                       ]}
@@ -1069,14 +1111,15 @@ export default function App() {
             "No favorite questions yet.",
             favoriteStudyIndex,
             setFavoriteStudyIndex,
-            () => setFavorites([]),
+            null,
             true,
             showFavoriteAnswers,
             <Pressable style={styles.secondaryBtn} onPress={() => setShowFavoriteAnswers((p) => !p)}>
               <Text style={styles.secondaryBtnText}>
                 {showFavoriteAnswers ? "Hide Answers" : "Show Answers"}
               </Text>
-            </Pressable>
+            </Pressable>,
+            true
           )}
 
         {activeView === "wrong" &&
@@ -1242,6 +1285,14 @@ const styles = StyleSheet.create({
     gap: 8,
     flexWrap: "wrap",
   },
+  removeConfirm: {
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,0.14)",
+    backgroundColor: "#f7f7f5",
+    padding: 12,
+    marginTop: 12,
+  },
+  removeConfirmText: { color: "#111827", fontWeight: "600" },
   questionText: { fontSize: 16, color: "#000", marginBottom: 8, lineHeight: 24 },
   questionImage: {
     width: "100%",
@@ -1316,6 +1367,13 @@ const styles = StyleSheet.create({
     borderColor: "#a1a1aa",
   },
   btnDisabledText: { color: "#f4f4f5" },
+  removeBtn: {
+    backgroundColor: "#991b1b",
+    borderWidth: 1,
+    borderColor: "#991b1b",
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+  },
   secondaryBtn: {
     backgroundColor: "#fff",
     borderWidth: 1,
