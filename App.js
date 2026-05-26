@@ -154,6 +154,7 @@ export default function App() {
   const [favoriteStudyIndex, setFavoriteStudyIndex] = useState(0);
   const [wrongStudyIndex, setWrongStudyIndex] = useState(0);
   const [showFavoriteAnswers, setShowFavoriteAnswers] = useState(false);
+  const [favoriteStudyAttempts, setFavoriteStudyAttempts] = useState({});
   const [pendingFavoriteRemovalId, setPendingFavoriteRemovalId] = useState(null);
   const [testQuestions, setTestQuestions] = useState([]);
   const [testAnswers, setTestAnswers] = useState({});
@@ -351,6 +352,13 @@ export default function App() {
     setIndex(bounded);
   };
 
+  const toggleFavoriteAnswerVisibility = () => {
+    if (showFavoriteAnswers) {
+      setFavoriteStudyAttempts({});
+    }
+    setShowFavoriteAnswers((prev) => !prev);
+  };
+
   const startTestSimulation = () => {
     if (favoriteQuestions.length === 0) return;
     const shuffled = [...favoriteQuestions];
@@ -537,11 +545,14 @@ export default function App() {
     advanceOnCorrect = true,
     showAnswerFeedback = true,
     headerAction = null,
-    confirmFavoriteRemoval = false
+    confirmFavoriteRemoval = false,
+    revealedAnswerIds = null,
+    onStudyAnswer = null
   ) => {
     const item = items[index] || null;
     const studyAnswer = item ? answers[item.id] : null;
     const accentColor = item ? categoryColorMap[item.categoryId] || "#374151" : "#374151";
+    const revealCurrentAnswer = showAnswerFeedback || Boolean(item && revealedAnswerIds?.[item.id]);
 
     return (
       <View style={styles.section}>
@@ -606,22 +617,25 @@ export default function App() {
 
               {item.options.map((option, optionIndex) => {
                 const selected = studyAnswer?.selectedIndex === optionIndex;
-                const showCorrect = showAnswerFeedback && studyAnswer && optionIndex === item.correctIndex;
-                const showWrong = showAnswerFeedback && studyAnswer && selected && optionIndex !== item.correctIndex;
+                const showCorrect = revealCurrentAnswer && studyAnswer && optionIndex === item.correctIndex;
+                const showWrong = revealCurrentAnswer && studyAnswer && selected && optionIndex !== item.correctIndex;
                 const trOpt = item.optionsTr[optionIndex] || "";
 
                 return (
                   <Pressable
                     key={`${item.id}-${optionIndex}`}
-                    onPress={() =>
+                    onPress={() => {
+                      if (onStudyAnswer) {
+                        onStudyAnswer(item.id);
+                      }
                       selectQuestionAnswer(
                         item,
                         optionIndex,
                         advanceOnCorrect
                           ? () => gotoStudyQuestion(setIndex, items.length, index + 1)
                           : null
-                      )
-                    }
+                      );
+                    }}
                     style={[
                       styles.optionBtn,
                       showCorrect && styles.optionCorrect,
@@ -727,8 +741,9 @@ export default function App() {
                 {items.map((q, i) => {
                   const entry = answers[q.id];
                   const isCurrent = i === index;
-                  const isCorrect = showAnswerFeedback && entry?.isCorrect;
-                  const isWrong = showAnswerFeedback && entry && !entry.isCorrect;
+                  const revealEntry = showAnswerFeedback || Boolean(revealedAnswerIds?.[q.id]);
+                  const isCorrect = revealEntry && entry?.isCorrect;
+                  const isWrong = revealEntry && entry && !entry.isCorrect;
 
                   return (
                     <Pressable
@@ -1114,12 +1129,14 @@ export default function App() {
             null,
             true,
             showFavoriteAnswers,
-            <Pressable style={styles.secondaryBtn} onPress={() => setShowFavoriteAnswers((p) => !p)}>
+            <Pressable style={styles.secondaryBtn} onPress={toggleFavoriteAnswerVisibility}>
               <Text style={styles.secondaryBtnText}>
                 {showFavoriteAnswers ? "Hide Answers" : "Show Answers"}
               </Text>
             </Pressable>,
-            true
+            true,
+            favoriteStudyAttempts,
+            (questionId) => setFavoriteStudyAttempts((prev) => ({ ...prev, [questionId]: true }))
           )}
 
         {activeView === "wrong" &&
