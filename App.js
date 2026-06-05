@@ -13,9 +13,14 @@ import {
   TextInput,
   View,
 } from "react-native";
-import questionsDe from "./questions.json";
-import questionsMeta from "./questions_meta.json";
-import questionsTr from "./questions_tr_with_codes.json";
+import questionsDe from "./data/questions.json";
+import questionsMeta from "./data/questions_meta.json";
+import questionsAr from "./data/questions_ar.json";
+import questionsEn from "./data/questions_en.json";
+import questionsEs from "./data/questions_es.json";
+import questionsFa from "./data/questions_fa.json";
+import questionsRu from "./data/questions_ru.json";
+import questionsTr from "./data/questions_tr.json";
 
 const STORAGE_KEY = "ligt_local_v1";
 const AUTH_USER_KEY = "authUser";
@@ -41,11 +46,49 @@ const QUESTION_IMAGE_BY_NUM = {
 };
 
 const NAV_ITEMS = [
-  { key: "home", label: "Categories" },
-  { key: "favorites", label: "Favorites" },
-  { key: "wrong", label: "Wrong Answers" },
-  { key: "testSimulation", label: "Test Simulation" },
+  { key: "home" },
+  { key: "favorites" },
+  { key: "testSimulation" },
 ];
+
+const TEST_SOURCE_OPTIONS = [
+  { key: "favorites" },
+  { key: "all" },
+];
+
+const NAV_LABELS = {
+  home: "Categories",
+  favorites: "Favorites",
+  testSimulation: "Test Simulation",
+};
+
+const TEST_SOURCE_LABELS = {
+  favorites: "Favorites",
+  all: "All Questions",
+};
+
+const LANGUAGE_OPTIONS = [
+  { key: "de", label: "Deutsch", shortLabel: "DE" },
+  { key: "tr", label: "Turkce", shortLabel: "TR" },
+  { key: "en", label: "English", shortLabel: "EN" },
+  { key: "es", label: "Espanol", shortLabel: "ES" },
+  { key: "ar", label: "العربية", shortLabel: "AR" },
+  { key: "fa", label: "فارسی", shortLabel: "FA" },
+  { key: "ru", label: "Русский", shortLabel: "RU" },
+];
+
+const RTL_LANGS = new Set(["ar", "fa"]);
+const DEFAULT_LANGUAGE = "tr";
+const LANGUAGE_DISPLAY_LABELS = {
+  de: "Deutsch",
+  tr: "Turkce",
+  en: "English",
+  es: "Spanish",
+  ar: "Arabic",
+  fa: "Persian",
+  ru: "Russian",
+};
+const isValidLanguage = (value) => LANGUAGE_OPTIONS.some((option) => option.key === value);
 
 const GENERAL_CATS = [
   ["Verfassungsorgane", "Politik in der Demokratie"],
@@ -91,12 +134,18 @@ const STATE_SECTIONS = [
 ];
 
 const DE_BY_ID = new Map(questionsDe.map((q) => [Number(q.id), q]));
-const TR_BY_ID = new Map((questionsTr || []).map((q) => [Number(q.id), q]));
+const QUESTION_TRANSLATIONS_BY_LANG = {
+  tr: new Map((questionsTr || []).map((q) => [Number(q.id), q])),
+  en: new Map((questionsEn || []).map((q) => [Number(q.id), q])),
+  es: new Map((questionsEs || []).map((q) => [Number(q.id), q])),
+  ar: new Map((questionsAr || []).map((q) => [Number(q.id), q])),
+  fa: new Map((questionsFa || []).map((q) => [Number(q.id), q])),
+  ru: new Map((questionsRu || []).map((q) => [Number(q.id), q])),
+};
 const ALL_QUESTIONS = questionsMeta
   .map((m) => {
     const id = Number(m.id);
     const de = DE_BY_ID.get(id);
-    const tr = TR_BY_ID.get(id);
     if (!de || !Array.isArray(de.opts) || de.opts.length !== 4) return null;
     return {
       id,
@@ -108,9 +157,6 @@ const ALL_QUESTIONS = questionsMeta
       imageSource: QUESTION_IMAGE_BY_ID[id] || QUESTION_IMAGE_BY_NUM[Number(m.num || m.id)] || null,
       text: de.q,
       options: de.opts,
-      textTr: tr?.q_tr || "",
-      optionsTr: Array.isArray(tr?.opts_tr) ? tr.opts_tr : [],
-      codeHint: tr?.code || null,
     };
   })
   .filter(Boolean);
@@ -138,6 +184,7 @@ export default function App() {
   const isWeb = Platform.OS === "web";
 
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showLanguageModal, setShowLanguageModal] = useState(false);
   const [authTab, setAuthTab] = useState("login");
   const [user, setUser] = useState({ username: "Guest", isGuest: true });
   const [loginUsername, setLoginUsername] = useState("");
@@ -152,10 +199,10 @@ export default function App() {
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [favoriteStudyIndex, setFavoriteStudyIndex] = useState(0);
-  const [wrongStudyIndex, setWrongStudyIndex] = useState(0);
   const [showFavoriteAnswers, setShowFavoriteAnswers] = useState(false);
   const [favoriteStudyAttempts, setFavoriteStudyAttempts] = useState({});
   const [pendingFavoriteRemovalId, setPendingFavoriteRemovalId] = useState(null);
+  const [testSource, setTestSource] = useState("favorites");
   const [testQuestions, setTestQuestions] = useState([]);
   const [testAnswers, setTestAnswers] = useState({});
   const [testQuestionIndex, setTestQuestionIndex] = useState(0);
@@ -163,8 +210,7 @@ export default function App() {
   const [favorites, setFavorites] = useState([]);
   const [answers, setAnswers] = useState({});
   const [lastPos, setLastPos] = useState({});
-  const [showTranslation, setShowTranslation] = useState(false);
-  const [showHint, setShowHint] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState(DEFAULT_LANGUAGE);
   const [loaded, setLoaded] = useState(false);
 
   const categories = useMemo(
@@ -185,6 +231,11 @@ export default function App() {
   const currentQuestion = activeCategory?.questions[currentQuestionIndex] || null;
   const currentAnswer = currentQuestion ? answers[currentQuestion.id] : null;
   const currentTestQuestion = testQuestions[testQuestionIndex] || null;
+  const selectedLanguageOption =
+    LANGUAGE_OPTIONS.find((option) => option.key === selectedLanguage) || LANGUAGE_OPTIONS[0];
+  const selectedTranslationMap =
+    selectedLanguage === "de" ? null : QUESTION_TRANSLATIONS_BY_LANG[selectedLanguage] || null;
+  const isSelectedLanguageRtl = RTL_LANGS.has(selectedLanguage);
   const testScore = useMemo(
     () =>
       testQuestions.reduce(
@@ -204,6 +255,11 @@ export default function App() {
       ),
     []
   );
+  const getQuestionTranslation = (question) => {
+    if (!question || !selectedTranslationMap) return null;
+    return selectedTranslationMap.get(question.id) || null;
+  };
+  const currentQuestionTranslation = getQuestionTranslation(currentQuestion);
 
   useEffect(() => {
     (async () => {
@@ -214,6 +270,7 @@ export default function App() {
           setFavorites(Array.isArray(parsed.favorites) ? parsed.favorites : []);
           setAnswers(parsed.answers && typeof parsed.answers === "object" ? parsed.answers : {});
           setLastPos(parsed.lastPos && typeof parsed.lastPos === "object" ? parsed.lastPos : {});
+          setSelectedLanguage(isValidLanguage(parsed.language) ? parsed.language : DEFAULT_LANGUAGE);
           setUser(
             parsed[AUTH_USER_KEY] && parsed[AUTH_USER_KEY].username
               ? parsed[AUTH_USER_KEY]
@@ -234,10 +291,11 @@ export default function App() {
         favorites,
         answers,
         lastPos,
+        language: selectedLanguage,
         [AUTH_USER_KEY]: user,
       })
     ).catch(() => {});
-  }, [favorites, answers, lastPos, user, loaded]);
+  }, [favorites, answers, lastPos, selectedLanguage, user, loaded]);
 
   const authRequest = async (path, payload) => {
     const baseUrl = AUTH_API_BASE_URL.replace(/\/+$/, "");
@@ -259,7 +317,7 @@ export default function App() {
     return data;
   };
 
-  const favoriteQuestions = useMemo(
+  const allStudyQuestions = useMemo(
     () =>
       categories
         .flatMap((category) =>
@@ -269,36 +327,18 @@ export default function App() {
             categoryName: category.name,
             index,
           }))
-        )
-        .filter((q) => favorites.includes(q.id)),
-    [categories, favorites]
+        ),
+    [categories]
   );
 
-  const wrongQuestions = useMemo(
-    () =>
-      categories.flatMap((category) =>
-        category.questions
-          .map((question, index) => ({
-            ...question,
-            categoryId: category.id,
-            categoryName: category.name,
-            index,
-          }))
-          .filter((q) => {
-            const entry = answers[q.id];
-            return entry && entry.selectedIndex !== q.correctIndex;
-          })
-      ),
-    [categories, answers]
+  const favoriteQuestions = useMemo(
+    () => allStudyQuestions.filter((q) => favorites.includes(q.id)),
+    [allStudyQuestions, favorites]
   );
 
   useEffect(() => {
     setFavoriteStudyIndex((idx) => Math.min(idx, Math.max(favoriteQuestions.length - 1, 0)));
   }, [favoriteQuestions.length]);
-
-  useEffect(() => {
-    setWrongStudyIndex((idx) => Math.min(idx, Math.max(wrongQuestions.length - 1, 0)));
-  }, [wrongQuestions.length]);
 
   useEffect(() => {
     if (pendingFavoriteRemovalId && !favorites.includes(pendingFavoriteRemovalId)) {
@@ -310,8 +350,6 @@ export default function App() {
     const idx = typeof startIndex === "number" ? startIndex : lastPos[categoryId] || 0;
     setActiveCategoryId(categoryId);
     setCurrentQuestionIndex(idx);
-    setShowTranslation(false);
-    setShowHint(false);
     setActiveView("quiz");
   };
 
@@ -359,19 +397,19 @@ export default function App() {
     setShowFavoriteAnswers((prev) => !prev);
   };
 
-  const startTestSimulation = () => {
-    if (favoriteQuestions.length === 0) return;
-    const shuffled = [...favoriteQuestions];
+  const startTestSimulation = (source = testSource) => {
+    const pool = source === "all" ? allStudyQuestions : favoriteQuestions;
+    if (pool.length === 0) return;
+    const shuffled = [...pool];
     for (let i = shuffled.length - 1; i > 0; i -= 1) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
+    setTestSource(source);
     setTestQuestions(shuffled.slice(0, Math.min(30, shuffled.length)));
     setTestAnswers({});
     setTestQuestionIndex(0);
     setTestFinished(false);
-    setShowTranslation(false);
-    setShowHint(false);
   };
 
   const selectTestAnswer = (questionId, selectedIndex) => {
@@ -551,6 +589,8 @@ export default function App() {
   ) => {
     const item = items[index] || null;
     const studyAnswer = item ? answers[item.id] : null;
+    const studyTranslation = getQuestionTranslation(item);
+    const translatedOptions = Array.isArray(studyTranslation?.opts) ? studyTranslation.opts : [];
     const accentColor = item ? categoryColorMap[item.categoryId] || "#374151" : "#374151";
     const revealCurrentAnswer = showAnswerFeedback || Boolean(item && revealedAnswerIds?.[item.id]);
 
@@ -597,29 +637,23 @@ export default function App() {
               {item.imageSource ? (
                 <Image source={item.imageSource} style={styles.questionImage} resizeMode="contain" />
               ) : null}
-              {showTranslation && item.textTr ? (
-                <Text style={styles.translationText}>{item.textTr}</Text>
-              ) : null}
-              {showHint && item.codeHint ? (
-                <View style={styles.codeCard}>
-                  <Text style={styles.codeTitle}>Memory Hint</Text>
-                  {item.codeHint.cagrisim ? (
-                    <Text style={styles.codeText}>Association: {item.codeHint.cagrisim}</Text>
-                  ) : null}
-                  {item.codeHint.ornek ? (
-                    <Text style={styles.codeText}>Example: {item.codeHint.ornek}</Text>
-                  ) : null}
-                  {item.codeHint.kod ? (
-                    <Text style={styles.codeCode}>{item.codeHint.kod}</Text>
-                  ) : null}
-                </View>
+              {studyTranslation?.q ? (
+                <Text
+                  style={[
+                    styles.translationText,
+                    isSelectedLanguageRtl && styles.translationTextRtl,
+                    isSelectedLanguageRtl && styles.rtlText,
+                  ]}
+                >
+                  {studyTranslation.q}
+                </Text>
               ) : null}
 
               {item.options.map((option, optionIndex) => {
                 const selected = studyAnswer?.selectedIndex === optionIndex;
                 const showCorrect = revealCurrentAnswer && studyAnswer && optionIndex === item.correctIndex;
                 const showWrong = revealCurrentAnswer && studyAnswer && selected && optionIndex !== item.correctIndex;
-                const trOpt = item.optionsTr[optionIndex] || "";
+                const translatedOption = translatedOptions[optionIndex] || "";
 
                 return (
                   <Pressable
@@ -643,9 +677,15 @@ export default function App() {
                     ]}
                   >
                     <Text style={[styles.optionText, showCorrect && styles.optionTextOnDark]}>{option}</Text>
-                    {showTranslation && trOpt ? (
-                      <Text style={[styles.optionTranslation, showCorrect && styles.optionTextOnDark]}>
-                        {trOpt}
+                    {translatedOption ? (
+                      <Text
+                        style={[
+                          styles.optionTranslation,
+                          isSelectedLanguageRtl && styles.rtlText,
+                          showCorrect && styles.optionTextOnDark,
+                        ]}
+                      >
+                        {translatedOption}
                       </Text>
                     ) : null}
                   </Pressable>
@@ -667,28 +707,6 @@ export default function App() {
                 </Pressable>
               </View>
               <View style={styles.rowSecondary}>
-                <Pressable
-                  style={[styles.secondaryBtn, styles.translationBtn, showTranslation && styles.translationBtnActive]}
-                  onPress={() => setShowTranslation((p) => !p)}
-                >
-                  <Text
-                    style={[
-                      styles.secondaryBtnText,
-                      styles.translationBtnText,
-                      showTranslation && styles.translationBtnTextActive,
-                    ]}
-                  >
-                    {showTranslation ? "Hide Translation" : "Translation"}
-                  </Text>
-                </Pressable>
-                <Pressable
-                  style={[styles.secondaryBtn, styles.hintBtn, showHint && styles.hintBtnActive]}
-                  onPress={() => setShowHint((p) => !p)}
-                >
-                  <Text style={[styles.secondaryBtnText, styles.hintBtnText, showHint && styles.hintBtnTextActive]}>
-                    {showHint ? "Hide Hint" : "Show Hint"}
-                  </Text>
-                </Pressable>
                 <Pressable
                   style={confirmFavoriteRemoval && favorites.includes(item.id) ? styles.secondaryBtn : styles.primaryBtn}
                   onPress={() =>
@@ -771,6 +789,7 @@ export default function App() {
   const renderTestSimulation = () => {
     const total = testQuestions.length;
     const percent = total ? Math.round((testScore / total) * 100) : 0;
+    const sourceLabel = TEST_SOURCE_LABELS[testSource] || TEST_SOURCE_LABELS.favorites;
 
     if (testFinished && total) {
       return (
@@ -778,6 +797,7 @@ export default function App() {
           <View style={styles.card}>
             <Text style={styles.sectionTitle}>Test Simulation</Text>
             <Text style={styles.meta}>{total} question{total === 1 ? "" : "s"}</Text>
+            <Text style={styles.mutedText}>Source: {sourceLabel}</Text>
           </View>
           <View style={styles.card}>
             <Text style={styles.scoreLabel}>Score</Text>
@@ -789,7 +809,7 @@ export default function App() {
               {answeredTestCount} / {total} answered
             </Text>
             <View style={styles.row}>
-              <Pressable style={styles.primaryBtn} onPress={startTestSimulation}>
+              <Pressable style={styles.primaryBtn} onPress={() => startTestSimulation(testSource)}>
                 <Text style={styles.primaryBtnText}>Start New Test</Text>
               </Pressable>
               <Pressable style={styles.secondaryBtn} onPress={() => setTestFinished(false)}>
@@ -802,23 +822,48 @@ export default function App() {
     }
 
     if (!currentTestQuestion) {
-      const availableCount = favoriteQuestions.length;
+      const favoriteCount = favoriteQuestions.length;
+      const allCount = allStudyQuestions.length;
+      const availableCount = testSource === "all" ? allCount : favoriteCount;
       const testSize = Math.min(30, availableCount);
+      const summaryText =
+        testSource === "favorites"
+          ? availableCount
+            ? `${testSize} random favorite question${testSize === 1 ? "" : "s"}`
+            : "No favorite questions yet."
+          : `${testSize} random question${testSize === 1 ? "" : "s"} from all questions`;
 
       return (
         <View style={styles.section}>
           <View style={styles.card}>
             <Text style={styles.sectionTitle}>Test Simulation</Text>
-            <Text style={styles.mutedText}>
-              {availableCount
-                ? `${testSize} random favorite question${testSize === 1 ? "" : "s"}`
-                : "No favorite questions yet."}
-            </Text>
+            <Text style={styles.meta}>Choose source</Text>
+            <View style={styles.sourceSwitch}>
+              {TEST_SOURCE_OPTIONS.map((item) => {
+                const count = item.key === "favorites" ? favoriteCount : allCount;
+                const isActive = testSource === item.key;
+                return (
+                  <Pressable
+                    key={item.key}
+                    style={[styles.sourceSwitchBtn, isActive && styles.sourceSwitchBtnActive]}
+                    onPress={() => setTestSource(item.key)}
+                  >
+                    <Text style={[styles.sourceSwitchBtnText, isActive && styles.sourceSwitchBtnTextActive]}>
+                      {TEST_SOURCE_LABELS[item.key]}
+                    </Text>
+                    <Text style={[styles.sourceSwitchCount, isActive && styles.sourceSwitchCountActive]}>
+                      {count}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+            <Text style={styles.mutedText}>{summaryText}</Text>
             <View style={styles.row}>
               <Pressable
                 disabled={!availableCount}
                 style={[styles.primaryBtn, !availableCount && styles.btnDisabled]}
-                onPress={startTestSimulation}
+                onPress={() => startTestSimulation(testSource)}
               >
                 <Text style={[styles.primaryBtnText, !availableCount && styles.btnDisabledText]}>
                   Start Test
@@ -832,6 +877,10 @@ export default function App() {
 
     const selectedAnswer = testAnswers[currentTestQuestion.id];
     const accentColor = categoryColorMap[currentTestQuestion.categoryId] || "#374151";
+    const testQuestionTranslation = getQuestionTranslation(currentTestQuestion);
+    const translatedTestOptions = Array.isArray(testQuestionTranslation?.opts)
+      ? testQuestionTranslation.opts
+      : [];
 
     return (
       <View style={styles.section}>
@@ -842,8 +891,9 @@ export default function App() {
               <Text style={styles.meta}>
                 {answeredTestCount} / {total} answered
               </Text>
+              <Text style={styles.mutedText}>Source: {sourceLabel}</Text>
             </View>
-            <Pressable style={styles.secondaryBtn} onPress={startTestSimulation}>
+            <Pressable style={styles.secondaryBtn} onPress={() => startTestSimulation(testSource)}>
               <Text style={styles.secondaryBtnText}>New Test</Text>
             </Pressable>
           </View>
@@ -865,9 +915,21 @@ export default function App() {
           {currentTestQuestion.imageSource ? (
             <Image source={currentTestQuestion.imageSource} style={styles.questionImage} resizeMode="contain" />
           ) : null}
+          {testQuestionTranslation?.q ? (
+            <Text
+              style={[
+                styles.translationText,
+                isSelectedLanguageRtl && styles.translationTextRtl,
+                isSelectedLanguageRtl && styles.rtlText,
+              ]}
+            >
+              {testQuestionTranslation.q}
+            </Text>
+          ) : null}
 
           {currentTestQuestion.options.map((option, optionIndex) => {
             const selected = selectedAnswer === optionIndex;
+            const translatedOption = translatedTestOptions[optionIndex] || "";
 
             return (
               <Pressable
@@ -876,6 +938,11 @@ export default function App() {
                 style={[styles.optionBtn, selected && styles.optionSelected]}
               >
                 <Text style={styles.optionText}>{option}</Text>
+                {translatedOption ? (
+                  <Text style={[styles.optionTranslation, isSelectedLanguageRtl && styles.rtlText]}>
+                    {translatedOption}
+                  </Text>
+                ) : null}
               </Pressable>
             );
           })}
@@ -926,29 +993,36 @@ export default function App() {
         <View style={styles.header}>
           <Text style={styles.logo}>E</Text>
           <Text style={styles.title}>Einbuergertest</Text>
+          <View style={styles.headerControls}>
+            <Pressable style={styles.secondaryBtn} onPress={() => setShowLanguageModal(true)}>
+              <Text style={styles.secondaryBtnText}>{selectedLanguageOption.shortLabel}</Text>
+            </Pressable>
 
-          {isWeb ? (
-            user?.isGuest ? (
-              <Pressable style={[styles.secondaryBtn, { marginLeft: "auto" }]} onPress={() => setShowLoginModal(true)}>
-                <Text style={styles.secondaryBtnText}>Login</Text>
-              </Pressable>
-            ) : (
-              <View style={[styles.row, { marginLeft: "auto", alignItems: "center" }]}>
-                <Text style={[styles.meta, { marginBottom: 0 }]}>{user?.username}</Text>
-                <Pressable style={styles.secondaryBtn} onPress={logout}>
-                  <Text style={styles.secondaryBtnText}>Logout</Text>
+            {isWeb ? (
+              user?.isGuest ? (
+                <Pressable style={styles.secondaryBtn} onPress={() => setShowLoginModal(true)}>
+                  <Text style={styles.secondaryBtnText}>Login</Text>
                 </Pressable>
-              </View>
-            )
-          ) : (
-            <Text style={[styles.meta, { marginLeft: "auto", marginBottom: 0 }]}>{user?.username}</Text>
-          )}
+              ) : (
+                <View style={styles.headerUserRow}>
+                  <Text style={[styles.meta, styles.headerMeta]}>{user?.username}</Text>
+                  <Pressable style={styles.secondaryBtn} onPress={logout}>
+                    <Text style={styles.secondaryBtnText}>Logout</Text>
+                  </Pressable>
+                </View>
+              )
+            ) : (
+              <Text style={[styles.meta, styles.headerMeta]}>{user?.username}</Text>
+            )}
+          </View>
         </View>
 
         <View style={styles.nav}>
           {NAV_ITEMS.map((item) => (
             <Pressable key={item.key} onPress={() => setActiveView(item.key)} style={styles.navItem}>
-              <Text style={[styles.navText, activeView === item.key && styles.navTextActive]}>{item.label}</Text>
+              <Text style={[styles.navText, activeView === item.key && styles.navTextActive]}>
+                {NAV_LABELS[item.key]}
+              </Text>
             </Pressable>
           ))}
         </View>
@@ -1008,29 +1082,23 @@ export default function App() {
                 resizeMode="contain"
               />
             ) : null}
-            {showTranslation && currentQuestion.textTr ? (
-              <Text style={styles.translationText}>{currentQuestion.textTr}</Text>
-            ) : null}
-            {showHint && currentQuestion.codeHint ? (
-              <View style={styles.codeCard}>
-                <Text style={styles.codeTitle}>Memory Hint</Text>
-                {currentQuestion.codeHint.cagrisim ? (
-                  <Text style={styles.codeText}>Association: {currentQuestion.codeHint.cagrisim}</Text>
-                ) : null}
-                {currentQuestion.codeHint.ornek ? (
-                  <Text style={styles.codeText}>Example: {currentQuestion.codeHint.ornek}</Text>
-                ) : null}
-                {currentQuestion.codeHint.kod ? (
-                  <Text style={styles.codeCode}>{currentQuestion.codeHint.kod}</Text>
-                ) : null}
-              </View>
+            {currentQuestionTranslation?.q ? (
+              <Text
+                style={[
+                  styles.translationText,
+                  isSelectedLanguageRtl && styles.translationTextRtl,
+                  isSelectedLanguageRtl && styles.rtlText,
+                ]}
+              >
+                {currentQuestionTranslation.q}
+              </Text>
             ) : null}
 
             {currentQuestion.options.map((option, index) => {
               const selected = currentAnswer?.selectedIndex === index;
               const showCorrect = currentAnswer && index === currentQuestion.correctIndex;
               const showWrong = currentAnswer && selected && index !== currentQuestion.correctIndex;
-              const trOpt = currentQuestion.optionsTr[index] || "";
+              const translatedOption = currentQuestionTranslation?.opts?.[index] || "";
               return (
                 <Pressable
                   key={`${currentQuestion.id}-${index}`}
@@ -1042,9 +1110,15 @@ export default function App() {
                   ]}
                 >
                   <Text style={[styles.optionText, showCorrect && styles.optionTextOnDark]}>{option}</Text>
-                  {showTranslation && trOpt ? (
-                    <Text style={[styles.optionTranslation, showCorrect && styles.optionTextOnDark]}>
-                      {trOpt}
+                  {translatedOption ? (
+                    <Text
+                      style={[
+                        styles.optionTranslation,
+                        isSelectedLanguageRtl && styles.rtlText,
+                        showCorrect && styles.optionTextOnDark,
+                      ]}
+                    >
+                      {translatedOption}
                     </Text>
                   ) : null}
                 </Pressable>
@@ -1053,35 +1127,13 @@ export default function App() {
 
             <View style={styles.row}>
               <Pressable style={styles.secondaryBtn} onPress={() => gotoQuestion(currentQuestionIndex - 1)}>
-                <Text style={styles.secondaryBtnText}>← Back</Text>
+                <Text style={styles.secondaryBtnText}>Back</Text>
               </Pressable>
               <Pressable style={styles.secondaryBtn} onPress={() => gotoQuestion(currentQuestionIndex + 1)}>
-                <Text style={styles.secondaryBtnText}>Next →</Text>
+                <Text style={styles.secondaryBtnText}>Next</Text>
               </Pressable>
             </View>
             <View style={styles.rowSecondary}>
-              <Pressable
-                style={[styles.secondaryBtn, styles.translationBtn, showTranslation && styles.translationBtnActive]}
-                onPress={() => setShowTranslation((p) => !p)}
-              >
-                <Text
-                  style={[
-                    styles.secondaryBtnText,
-                    styles.translationBtnText,
-                    showTranslation && styles.translationBtnTextActive,
-                  ]}
-                >
-                  {showTranslation ? "Hide Translation" : "Translation"}
-                </Text>
-              </Pressable>
-              <Pressable
-                style={[styles.secondaryBtn, styles.hintBtn, showHint && styles.hintBtnActive]}
-                onPress={() => setShowHint((p) => !p)}
-              >
-                <Text style={[styles.secondaryBtnText, styles.hintBtnText, showHint && styles.hintBtnTextActive]}>
-                  {showHint ? "Hide Hint" : "Show Hint"}
-                </Text>
-              </Pressable>
               <Pressable style={styles.primaryBtn} onPress={() => toggleFavorite(currentQuestion.id)}>
                 <Text style={styles.primaryBtnText}>
                   {favorites.includes(currentQuestion.id) ? "Favorited" : "Add Favorite"}
@@ -1139,24 +1191,6 @@ export default function App() {
             (questionId) => setFavoriteStudyAttempts((prev) => ({ ...prev, [questionId]: true }))
           )}
 
-        {activeView === "wrong" &&
-          renderStudySet(
-            wrongQuestions,
-            "Wrong Answers",
-            "No wrong answers recorded yet.",
-            wrongStudyIndex,
-            setWrongStudyIndex,
-            () =>
-              setAnswers((prev) => {
-                const next = { ...prev };
-                Object.keys(next).forEach((qid) => {
-                  if (!next[qid]?.isCorrect) delete next[qid];
-                });
-                return next;
-              }),
-            false
-          )}
-
         {activeView === "testSimulation" && renderTestSimulation()}
         </ScrollView>
       </View>
@@ -1173,6 +1207,48 @@ export default function App() {
           </View>
         </Modal>
       ) : null}
+      <Modal visible={showLanguageModal} transparent animationType="fade" onRequestClose={() => setShowLanguageModal(false)}>
+        <View style={styles.modalBackdrop}>
+          <View style={styles.modalCard}>
+            <View style={styles.card}>
+              <Text style={styles.sectionTitle}>Language</Text>
+              <Text style={styles.mutedText}>German is always shown. Choose the translation language.</Text>
+              <View style={styles.languageOptions}>
+                {LANGUAGE_OPTIONS.map((option) => {
+                  const isActive = option.key === selectedLanguage;
+                  return (
+                    <Pressable
+                      key={option.key}
+                      style={[styles.languageOption, isActive && styles.languageOptionActive]}
+                      onPress={() => {
+                        setSelectedLanguage(option.key);
+                        setShowLanguageModal(false);
+                      }}
+                    >
+                      <View style={{ flex: 1 }}>
+                        <Text style={[styles.languageOptionTitle, RTL_LANGS.has(option.key) && styles.rtlText]}>
+                          {LANGUAGE_DISPLAY_LABELS[option.key]}
+                        </Text>
+                        <Text style={styles.languageOptionMeta}>
+                          {option.key === "de"
+                            ? "German only"
+                            : `German + ${LANGUAGE_DISPLAY_LABELS[option.key]}`}
+                        </Text>
+                      </View>
+                      <Text style={[styles.languageOptionShort, isActive && styles.languageOptionShortActive]}>
+                        {option.shortLabel}
+                      </Text>
+                    </Pressable>
+                  );
+                })}
+              </View>
+              <Pressable style={[styles.secondaryBtn, { marginTop: 12 }]} onPress={() => setShowLanguageModal(false)}>
+                <Text style={styles.secondaryBtnText}>Close</Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -1208,6 +1284,23 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   title: { fontSize: 18, fontWeight: "700", color: "#000" },
+  headerControls: {
+    marginLeft: "auto",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    gap: 8,
+    flexWrap: "wrap",
+  },
+  headerUserRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    flexWrap: "wrap",
+  },
+  headerMeta: {
+    marginBottom: 0,
+  },
   nav: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -1327,33 +1420,12 @@ const styles = StyleSheet.create({
     borderLeftColor: "rgba(0,0,0,0.15)",
     paddingLeft: 10,
   },
-  codeCard: {
-    backgroundColor: "#eef6ff",
-    borderWidth: 1,
-    borderColor: "#bfdbfe",
-    padding: 10,
-    marginBottom: 10,
-    borderRadius: 8,
-  },
-  codeTitle: {
-    fontSize: 12,
-    fontWeight: "800",
-    color: "#1d4ed8",
-    marginBottom: 6,
-    textTransform: "uppercase",
-    letterSpacing: 0.6,
-  },
-  codeText: {
-    fontSize: 13,
-    color: "#1e3a8a",
-    marginBottom: 4,
-    lineHeight: 18,
-  },
-  codeCode: {
-    fontSize: 13,
-    color: "#0f172a",
-    fontWeight: "700",
-    marginTop: 2,
+  translationTextRtl: {
+    borderLeftWidth: 0,
+    borderRightWidth: 2,
+    borderRightColor: "rgba(0,0,0,0.15)",
+    paddingLeft: 0,
+    paddingRight: 10,
   },
   meta: { fontSize: 12, color: "rgba(0,0,0,0.45)", marginBottom: 8 },
   optionBtn: {
@@ -1369,6 +1441,10 @@ const styles = StyleSheet.create({
   optionText: { color: "#000" },
   optionTranslation: { marginTop: 4, color: "rgba(0,0,0,0.58)", fontSize: 13 },
   optionTextOnDark: { color: "#fff" },
+  rtlText: {
+    textAlign: "right",
+    writingDirection: "rtl",
+  },
   row: { flexDirection: "row", gap: 8, flexWrap: "wrap", marginTop: 8 },
   rowSecondary: { flexDirection: "row", gap: 8, flexWrap: "wrap", marginTop: 8 },
   primaryBtn: {
@@ -1399,35 +1475,37 @@ const styles = StyleSheet.create({
     paddingVertical: 9,
   },
   secondaryBtnText: { color: "#000", fontSize: 13, fontWeight: "500" },
-  translationBtn: {
-    borderColor: "#0ea5e9",
-    backgroundColor: "#e0f2fe",
+  sourceSwitch: {
+    flexDirection: "row",
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,0.14)",
+    marginBottom: 10,
+    overflow: "hidden",
   },
-  translationBtnActive: {
-    backgroundColor: "#0ea5e9",
-    borderColor: "#0284c7",
+  sourceSwitchBtn: {
+    flex: 1,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    backgroundColor: "#fff",
+    gap: 2,
   },
-  translationBtnText: {
-    color: "#0c4a6e",
+  sourceSwitchBtnActive: {
+    backgroundColor: "#000",
+  },
+  sourceSwitchBtnText: {
+    color: "#111827",
+    fontSize: 13,
     fontWeight: "700",
   },
-  translationBtnTextActive: {
+  sourceSwitchBtnTextActive: {
     color: "#fff",
   },
-  hintBtn: {
-    borderColor: "#7c3aed",
-    backgroundColor: "#f3e8ff",
+  sourceSwitchCount: {
+    color: "rgba(0,0,0,0.5)",
+    fontSize: 12,
   },
-  hintBtnActive: {
-    backgroundColor: "#7c3aed",
-    borderColor: "#6d28d9",
-  },
-  hintBtnText: {
-    color: "#581c87",
-    fontWeight: "700",
-  },
-  hintBtnTextActive: {
-    color: "#fff",
+  sourceSwitchCountActive: {
+    color: "rgba(255,255,255,0.72)",
   },
   numGrid: {
     flexDirection: "row",
@@ -1481,6 +1559,42 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   errorText: { color: "#111827", fontSize: 13 },
+  languageOptions: {
+    marginTop: 14,
+    gap: 8,
+  },
+  languageOption: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,0.12)",
+    backgroundColor: "#fff",
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+  },
+  languageOptionActive: {
+    borderColor: "#000",
+    backgroundColor: "#f4f4f5",
+  },
+  languageOptionTitle: {
+    color: "#000",
+    fontSize: 15,
+    fontWeight: "600",
+  },
+  languageOptionMeta: {
+    color: "rgba(0,0,0,0.5)",
+    fontSize: 12,
+    marginTop: 2,
+  },
+  languageOptionShort: {
+    color: "rgba(0,0,0,0.55)",
+    fontSize: 12,
+    fontWeight: "700",
+  },
+  languageOptionShortActive: {
+    color: "#000",
+  },
   modalBackdrop: {
     flex: 1,
     backgroundColor: "rgba(0,0,0,0.35)",
