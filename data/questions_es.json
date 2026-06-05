@@ -693,10 +693,10 @@
     "id": 70,
     "q": "¿Qué pertenece a las tareas del Presidente Federal alemán?",
     "opts": [
-      "�?l/Ella dirige los asuntos del gobierno.",
-      "�?l/Ella controla el partido gobernante.",
-      "�?l/Ella elige a los ministros.",
-      "�?l/Ella propone al canciller federal para su elección."
+      "Él/Ella dirige los asuntos del gobierno.",
+      "Él/Ella controla el partido gobernante.",
+      "Él/Ella elige a los ministros.",
+      "Él/Ella propone al canciller federal para su elección."
     ]
   },
   {
@@ -831,7 +831,7 @@
   },
   {
     "id": 84,
-    "q": "¿Cuál es la tarea principal del Presidente Federal alemán? �?l/Ella ...",
+    "q": "¿Cuál es la tarea principal del Presidente Federal alemán? Él/Ella ...",
     "opts": [
       "gobierna el país.",
       "redacta las leyes.",
@@ -954,9 +954,9 @@
     "q": "¿Qué pasa cuando alguien en Alemania niega el Holocausto?",
     "opts": [
       "No pasa nada porque se aplica la libertad de expresión.",
-      "�?l/Ella debe contar con una pena de prisión de hasta 5 años o una multa.",
-      "�?l/Ella no recibe ninguna pena.",
-      "�?l/Ella debe abandonar el país."
+      "Él/Ella debe contar con una pena de prisión de hasta 5 años o una multa.",
+      "Él/Ella no recibe ninguna pena.",
+      "Él/Ella debe abandonar el país."
     ]
   },
   {
@@ -1373,10 +1373,10 @@
     "id": 138,
     "q": "¿Qué hace un juez lego (Schöffe) en Alemania?",
     "opts": [
-      "�?l/Ella decide junto con el juez sobre la culpabilidad y la pena.",
-      "�?l/Ella asesora a la policía.",
-      "�?l/Ella controla el tribunal.",
-      "�?l/Ella defiende al acusado."
+      "Él/Ella decide junto con el juez sobre la culpabilidad y la pena.",
+      "Él/Ella asesora a la policía.",
+      "Él/Ella controla el tribunal.",
+      "Él/Ella defiende al acusado."
     ]
   },
   {

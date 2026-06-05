@@ -211,6 +211,7 @@ export default function App() {
   const [answers, setAnswers] = useState({});
   const [lastPos, setLastPos] = useState({});
   const [selectedLanguage, setSelectedLanguage] = useState(DEFAULT_LANGUAGE);
+  const [showTranslation, setShowTranslation] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   const categories = useMemo(
@@ -236,6 +237,8 @@ export default function App() {
   const selectedTranslationMap =
     selectedLanguage === "de" ? null : QUESTION_TRANSLATIONS_BY_LANG[selectedLanguage] || null;
   const isSelectedLanguageRtl = RTL_LANGS.has(selectedLanguage);
+  const canShowTranslation = Boolean(selectedTranslationMap);
+  const shouldShowTranslation = canShowTranslation && showTranslation;
   const testScore = useMemo(
     () =>
       testQuestions.reduce(
@@ -271,6 +274,7 @@ export default function App() {
           setAnswers(parsed.answers && typeof parsed.answers === "object" ? parsed.answers : {});
           setLastPos(parsed.lastPos && typeof parsed.lastPos === "object" ? parsed.lastPos : {});
           setSelectedLanguage(isValidLanguage(parsed.language) ? parsed.language : DEFAULT_LANGUAGE);
+          setShowTranslation(Boolean(parsed.showTranslation));
           setUser(
             parsed[AUTH_USER_KEY] && parsed[AUTH_USER_KEY].username
               ? parsed[AUTH_USER_KEY]
@@ -292,10 +296,11 @@ export default function App() {
         answers,
         lastPos,
         language: selectedLanguage,
+        showTranslation,
         [AUTH_USER_KEY]: user,
       })
     ).catch(() => {});
-  }, [favorites, answers, lastPos, selectedLanguage, user, loaded]);
+  }, [favorites, answers, lastPos, selectedLanguage, showTranslation, user, loaded]);
 
   const authRequest = async (path, payload) => {
     const baseUrl = AUTH_API_BASE_URL.replace(/\/+$/, "");
@@ -637,7 +642,7 @@ export default function App() {
               {item.imageSource ? (
                 <Image source={item.imageSource} style={styles.questionImage} resizeMode="contain" />
               ) : null}
-              {studyTranslation?.q ? (
+              {shouldShowTranslation && studyTranslation?.q ? (
                 <Text
                   style={[
                     styles.translationText,
@@ -677,7 +682,7 @@ export default function App() {
                     ]}
                   >
                     <Text style={[styles.optionText, showCorrect && styles.optionTextOnDark]}>{option}</Text>
-                    {translatedOption ? (
+                    {shouldShowTranslation && translatedOption ? (
                       <Text
                         style={[
                           styles.optionTranslation,
@@ -707,6 +712,22 @@ export default function App() {
                 </Pressable>
               </View>
               <View style={styles.rowSecondary}>
+                {canShowTranslation ? (
+                  <Pressable
+                    style={[styles.secondaryBtn, styles.translationBtn, showTranslation && styles.translationBtnActive]}
+                    onPress={() => setShowTranslation((prev) => !prev)}
+                  >
+                    <Text
+                      style={[
+                        styles.secondaryBtnText,
+                        styles.translationBtnText,
+                        showTranslation && styles.translationBtnTextActive,
+                      ]}
+                    >
+                      {showTranslation ? "Hide Translation" : "Show Translation"}
+                    </Text>
+                  </Pressable>
+                ) : null}
                 <Pressable
                   style={confirmFavoriteRemoval && favorites.includes(item.id) ? styles.secondaryBtn : styles.primaryBtn}
                   onPress={() =>
@@ -915,7 +936,7 @@ export default function App() {
           {currentTestQuestion.imageSource ? (
             <Image source={currentTestQuestion.imageSource} style={styles.questionImage} resizeMode="contain" />
           ) : null}
-          {testQuestionTranslation?.q ? (
+          {shouldShowTranslation && testQuestionTranslation?.q ? (
             <Text
               style={[
                 styles.translationText,
@@ -938,7 +959,7 @@ export default function App() {
                 style={[styles.optionBtn, selected && styles.optionSelected]}
               >
                 <Text style={styles.optionText}>{option}</Text>
-                {translatedOption ? (
+                {shouldShowTranslation && translatedOption ? (
                   <Text style={[styles.optionTranslation, isSelectedLanguageRtl && styles.rtlText]}>
                     {translatedOption}
                   </Text>
@@ -958,6 +979,24 @@ export default function App() {
               <Text style={styles.primaryBtnText}>Finish Test</Text>
             </Pressable>
           </View>
+          {canShowTranslation ? (
+            <View style={styles.rowSecondary}>
+              <Pressable
+                style={[styles.secondaryBtn, styles.translationBtn, showTranslation && styles.translationBtnActive]}
+                onPress={() => setShowTranslation((prev) => !prev)}
+              >
+                <Text
+                  style={[
+                    styles.secondaryBtnText,
+                    styles.translationBtnText,
+                    showTranslation && styles.translationBtnTextActive,
+                  ]}
+                >
+                  {showTranslation ? "Hide Translation" : "Show Translation"}
+                </Text>
+              </Pressable>
+            </View>
+          ) : null}
         </View>
 
         <View style={[styles.card, styles.numCard]}>
@@ -1082,7 +1121,7 @@ export default function App() {
                 resizeMode="contain"
               />
             ) : null}
-            {currentQuestionTranslation?.q ? (
+            {shouldShowTranslation && currentQuestionTranslation?.q ? (
               <Text
                 style={[
                   styles.translationText,
@@ -1110,7 +1149,7 @@ export default function App() {
                   ]}
                 >
                   <Text style={[styles.optionText, showCorrect && styles.optionTextOnDark]}>{option}</Text>
-                  {translatedOption ? (
+                  {shouldShowTranslation && translatedOption ? (
                     <Text
                       style={[
                         styles.optionTranslation,
@@ -1134,6 +1173,22 @@ export default function App() {
               </Pressable>
             </View>
             <View style={styles.rowSecondary}>
+              {canShowTranslation ? (
+                <Pressable
+                  style={[styles.secondaryBtn, styles.translationBtn, showTranslation && styles.translationBtnActive]}
+                  onPress={() => setShowTranslation((prev) => !prev)}
+                >
+                  <Text
+                    style={[
+                      styles.secondaryBtnText,
+                      styles.translationBtnText,
+                      showTranslation && styles.translationBtnTextActive,
+                    ]}
+                  >
+                    {showTranslation ? "Hide Translation" : "Show Translation"}
+                  </Text>
+                </Pressable>
+              ) : null}
               <Pressable style={styles.primaryBtn} onPress={() => toggleFavorite(currentQuestion.id)}>
                 <Text style={styles.primaryBtnText}>
                   {favorites.includes(currentQuestion.id) ? "Favorited" : "Add Favorite"}
@@ -1475,6 +1530,21 @@ const styles = StyleSheet.create({
     paddingVertical: 9,
   },
   secondaryBtnText: { color: "#000", fontSize: 13, fontWeight: "500" },
+  translationBtn: {
+    borderColor: "#0ea5e9",
+    backgroundColor: "#e0f2fe",
+  },
+  translationBtnActive: {
+    backgroundColor: "#0ea5e9",
+    borderColor: "#0284c7",
+  },
+  translationBtnText: {
+    color: "#0c4a6e",
+    fontWeight: "700",
+  },
+  translationBtnTextActive: {
+    color: "#fff",
+  },
   sourceSwitch: {
     flexDirection: "row",
     borderWidth: 1,
